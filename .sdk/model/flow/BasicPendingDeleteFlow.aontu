@@ -1,0 +1,22 @@
+# BasicPendingDeleteFlow
+
+main: kit: flow: BasicPendingDeleteFlow:
+{
+  entity: "pending_delete",
+  kind: "basic",
+  name: "BasicPendingDeleteFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "pending_delete_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPendingDeleteFlow"
+}

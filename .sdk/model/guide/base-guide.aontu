@@ -1,0 +1,27 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 3
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: domain: {
+    path: "/api/domains": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: mcp: {
+    path: "/mcp/catchdoms": {
+      action: "catchdom": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: pending_delete: {
+    path: "/api/pending-delete": {
+      op: list: method: *GET
+    }
+  }
+
+}

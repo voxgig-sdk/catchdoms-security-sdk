@@ -1,0 +1,914 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Catchdoms Security API",
+    "description": "This API provides security verification to protect websites from malicious bots. It displays a challenge page while validating that the user is not a bot, ensuring secure access to the site. The API also provides access to expired domains, live auctions, deleted ccTLD domains, and pending-delete inventory with SEO metrics.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://catchdoms.com/api"
+    },
+    "termsOfService": "https://catchdoms.com"
+  },
+  "servers": [
+    {
+      "url": "https://catchdoms.com",
+      "description": "Production server"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "paths": {
+    "/api/domains": {
+      "get": {
+        "summary": "Get domains from auctions, marketplaces, or deleted inventory",
+        "description": "Retrieve domains from live auctions across 21 platforms, buy-now marketplaces, or the exclusive deleted ccTLD database. Filter by source, TLD, SEO metrics, price, and more. Free tier returns first 10 domains with limited metrics; full access requires API key.",
+        "operationId": "getDomains",
+        "tags": [
+          "Domains"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          },
+          {}
+        ],
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "description": "Platform source: dynadot, godaddy, catched, dropcatch, gname, snapnames, ukdroplists, subreg, webexpire, parkio, bloomup, seodomains, nameshift, nicsell, gnews-domains, backorders-domains, regfree (deleted ccTLDs - requires Authority plan)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "dynadot",
+                "godaddy",
+                "catched",
+                "dropcatch",
+                "gname",
+                "snapnames",
+                "ukdroplists",
+                "subreg",
+                "webexpire",
+                "parkio",
+                "bloomup",
+                "seodomains",
+                "nameshift",
+                "nicsell",
+                "gnews-domains",
+                "backorders-domains",
+                "regfree",
+                "namepros",
+                "namecheap",
+                "namesilo",
+                "domainlore",
+                "rakko"
+              ]
+            }
+          },
+          {
+            "name": "tld",
+            "in": "query",
+            "description": "Top-level domain filter: .com, .net, .org, .fr, .de, .co.uk, .it, .nl, .es, .ca, etc.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": ".com"
+            }
+          },
+          {
+            "name": "score_min",
+            "in": "query",
+            "description": "Minimum quality score (0-100). Try 50+ for good domains.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "age_min",
+            "in": "query",
+            "description": "Minimum years since first Wayback snapshot",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Domain listing type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "auction",
+                "closeout",
+                "backorder"
+              ]
+            }
+          },
+          {
+            "name": "has_bids",
+            "in": "query",
+            "description": "Filter to only domains with active bids (1 = true)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "has_backlinks",
+            "in": "query",
+            "description": "Filter to only domains with referring domains (1 = true)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "has_gmb",
+            "in": "query",
+            "description": "Filter to only domains with an active Google Business Profile (1 = true)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "has_edu_gov",
+            "in": "query",
+            "description": "Filter to only domains with EDU or GOV referring domains (1 = true)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "tf_min",
+            "in": "query",
+            "description": "Minimum Majestic Trust Flow score (0-100)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "cf_min",
+            "in": "query",
+            "description": "Minimum Majestic Citation Flow score (0-100)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "da_min",
+            "in": "query",
+            "description": "Minimum Moz Domain Authority score (0-100)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "rd_min",
+            "in": "query",
+            "description": "Minimum referring domains count",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "categories",
+            "in": "query",
+            "description": "Majestic TTF categories (comma-separated): Business, Health, Computers, Shopping, Recreation, Society, Sports, News, Science, Arts, Reference, Regional, Games, Home, World, Adult",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Business,Health"
+            }
+          },
+          {
+            "name": "contains",
+            "in": "query",
+            "description": "Substring filter on the domain name (e.g., 'shop', 'travel')",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Language detected from Wayback content (e.g., EN, FR, DE, ES)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "EN"
+            }
+          },
+          {
+            "name": "price_min",
+            "in": "query",
+            "description": "Minimum price or current bid in EUR",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "price_max",
+            "in": "query",
+            "description": "Maximum price or current bid in EUR",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "snapshots_min",
+            "in": "query",
+            "description": "Minimum Wayback snapshot count",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Number of domains per response page (1-100)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with domain data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Domain"
+                      }
+                    },
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "first": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "last": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "prev": {
+                          "type": "string",
+                          "format": "uri",
+                          "nullable": true
+                        },
+                        "next": {
+                          "type": "string",
+                          "format": "uri",
+                          "nullable": true
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "from": {
+                          "type": "integer"
+                        },
+                        "last_page": {
+                          "type": "integer"
+                        },
+                        "per_page": {
+                          "type": "integer"
+                        },
+                        "to": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": 12345,
+                      "name": "example.com",
+                      "tld": ".com",
+                      "source": "godaddy",
+                      "type": "auction",
+                      "price": 12,
+                      "max_bid": 125,
+                      "effective_price": 125,
+                      "bids_count": 8,
+                      "auction_end_date": "2026-01-25T18:00:00Z",
+                      "score": 72,
+                      "age": 15,
+                      "pagerank": 4,
+                      "domain_authority": 28,
+                      "backlinks_count": 1420,
+                      "referring_domains": 89,
+                      "wayback_snapshots": 156,
+                      "wayback_first_date": "2011-03-14",
+                      "language": "EN",
+                      "purchase_url": "https://auctions.godaddy.com/..."
+                    }
+                  ],
+                  "links": {
+                    "first": "https://catchdoms.com/api/domains?page=1",
+                    "last": "https://catchdoms.com/api/domains?page=342",
+                    "prev": null,
+                    "next": "https://catchdoms.com/api/domains?page=2"
+                  },
+                  "meta": {
+                    "current_page": 1,
+                    "total": 3420
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "error": "Unauthorized",
+                  "message": "Invalid API key"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Authority plan required for this resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "error": "Forbidden",
+                  "message": "Authority plan required to access source=regfree"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "error": "Too Many Requests",
+                  "message": "Rate limit exceeded. Please wait 60 seconds and try again."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pending-delete": {
+      "get": {
+        "summary": "Get pending-delete domain inventory",
+        "description": "Track domains entering pendingDelete, redemptionPeriod, serverHold, clientHold, transition or quarantine status with predicted drop dates 5 to 45 days out. Covers 125+ TLDs. Requires Authority+ subscription.",
+        "operationId": "getPendingDelete",
+        "tags": [
+          "Pending Delete"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Domain status filter",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pendingDelete",
+                "redemptionPeriod",
+                "serverHold",
+                "clientHold",
+                "transition",
+                "quarantine"
+              ]
+            }
+          },
+          {
+            "name": "tld",
+            "in": "query",
+            "description": "Top-level domain filter (e.g., .com, .net, .de, .fr, .uk, .nl, .it, .es, .ai, .ch)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "drop_date_min",
+            "in": "query",
+            "description": "Minimum predicted drop date (YYYY-MM-DD)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "drop_date_max",
+            "in": "query",
+            "description": "Maximum predicted drop date (YYYY-MM-DD)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Number of domains per response page (1-100)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with pending-delete domain data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PendingDeleteDomain"
+                      }
+                    },
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "first": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "last": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "prev": {
+                          "type": "string",
+                          "format": "uri",
+                          "nullable": true
+                        },
+                        "next": {
+                          "type": "string",
+                          "format": "uri",
+                          "nullable": true
+                        }
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Authority+ plan required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "error": "Forbidden",
+                  "message": "Authority+ subscription required to access pending-delete inventory"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcp/catchdoms": {
+      "get": {
+        "summary": "MCP Server endpoint for AI assistants",
+        "description": "Model Context Protocol (MCP) server endpoint for integration with Claude, Cursor, GPT and other AI assistants. Enables natural language queries to the Catchdoms API.",
+        "operationId": "getMCPServer",
+        "tags": [
+          "MCP"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "MCP server endpoint active",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "server": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    },
+                    "capabilities": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API Key",
+        "description": "Bearer token authentication. Add 'Authorization: Bearer YOUR_API_KEY' header. Get your API key from the API dashboard at https://catchdoms.com/api"
+      }
+    },
+    "schemas": {
+      "Domain": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique domain identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Domain name"
+          },
+          "tld": {
+            "type": "string",
+            "description": "Top-level domain extension"
+          },
+          "source": {
+            "type": "string",
+            "description": "Platform source (e.g., godaddy, dropcatch, regfree)"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "auction",
+              "closeout",
+              "backorder",
+              "deleted"
+            ],
+            "description": "Domain listing type"
+          },
+          "price": {
+            "type": "number",
+            "format": "float",
+            "description": "Starting price or buy-now price in EUR",
+            "nullable": true
+          },
+          "max_bid": {
+            "type": "number",
+            "format": "float",
+            "description": "Current highest bid in EUR",
+            "nullable": true
+          },
+          "effective_price": {
+            "type": "number",
+            "format": "float",
+            "description": "Effective price (max_bid or price) in EUR",
+            "nullable": true
+          },
+          "bids_count": {
+            "type": "integer",
+            "description": "Number of bids",
+            "nullable": true
+          },
+          "auction_end_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Auction end date and time (ISO 8601)",
+            "nullable": true
+          },
+          "score": {
+            "type": "integer",
+            "description": "CatchDoms quality score (0-100)"
+          },
+          "age": {
+            "type": "integer",
+            "description": "Years since first Wayback snapshot",
+            "nullable": true
+          },
+          "pagerank": {
+            "type": "integer",
+            "description": "Historical PageRank value",
+            "nullable": true
+          },
+          "trust_flow": {
+            "type": "integer",
+            "description": "Majestic Trust Flow score (0-100)",
+            "nullable": true
+          },
+          "citation_flow": {
+            "type": "integer",
+            "description": "Majestic Citation Flow score (0-100)",
+            "nullable": true
+          },
+          "topical_trust_flow": {
+            "type": "string",
+            "description": "Majestic Topical Trust Flow category",
+            "nullable": true
+          },
+          "domain_authority": {
+            "type": "integer",
+            "description": "Moz Domain Authority score (0-100)",
+            "nullable": true
+          },
+          "backlinks_count": {
+            "type": "integer",
+            "description": "Total number of backlinks",
+            "nullable": true
+          },
+          "referring_domains": {
+            "type": "integer",
+            "description": "Number of unique referring domains",
+            "nullable": true
+          },
+          "edu_gov_backlinks": {
+            "type": "integer",
+            "description": "Number of EDU/GOV backlinks",
+            "nullable": true
+          },
+          "wayback_snapshots": {
+            "type": "integer",
+            "description": "Number of Wayback Machine snapshots",
+            "nullable": true
+          },
+          "wayback_first_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of first Wayback snapshot",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "description": "Detected content language (e.g., EN, FR, DE)",
+            "nullable": true
+          },
+          "has_gmb": {
+            "type": "boolean",
+            "description": "Has active Google Business Profile",
+            "nullable": true
+          },
+          "purchase_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Direct URL to purchase or bid on the domain"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "tld",
+          "source",
+          "score"
+        ]
+      },
+      "PendingDeleteDomain": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique domain identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Domain name"
+          },
+          "tld": {
+            "type": "string",
+            "description": "Top-level domain extension"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingDelete",
+              "redemptionPeriod",
+              "serverHold",
+              "clientHold",
+              "transition",
+              "quarantine"
+            ],
+            "description": "Current domain status"
+          },
+          "predicted_drop_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Predicted drop date (YYYY-MM-DD)"
+          },
+          "days_until_drop": {
+            "type": "integer",
+            "description": "Days until predicted drop date"
+          },
+          "score": {
+            "type": "integer",
+            "description": "CatchDoms quality score (0-100)",
+            "nullable": true
+          },
+          "age": {
+            "type": "integer",
+            "description": "Years since first Wayback snapshot",
+            "nullable": true
+          },
+          "backlinks_count": {
+            "type": "integer",
+            "description": "Total number of backlinks",
+            "nullable": true
+          },
+          "referring_domains": {
+            "type": "integer",
+            "description": "Number of unique referring domains",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "tld",
+          "status",
+          "predicted_drop_date"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error type"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message"
+          }
+        },
+        "required": [
+          "error",
+          "message"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Domains",
+      "description": "Operations for retrieving domains from live auctions, marketplaces, and deleted ccTLD inventory"
+    },
+    {
+      "name": "Pending Delete",
+      "description": "Operations for tracking domains in pending-delete status with predicted drop dates"
+    },
+    {
+      "name": "MCP",
+      "description": "Model Context Protocol server for AI assistant integration"
+    }
+  ],
+  "x-rate-limits": {
+    "free": "60 requests per minute",
+    "pro": "15 requests per minute",
+    "authority": "60 requests per minute"
+  }
+}

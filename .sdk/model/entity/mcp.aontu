@@ -1,0 +1,51 @@
+# Entity: mcp
+
+main: kit: entity: mcp: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "capability"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "server"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "version"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "mcp"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/mcp/catchdoms"
+          parts: [
+            "mcp"
+            "catchdoms"
+          ]
+          select: {
+            "$action": "catchdom"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

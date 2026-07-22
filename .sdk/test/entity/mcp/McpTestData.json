@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "mcp": {
+      "MCP00": {
+        "capability": [],
+        "server": "s1f",
+        "version": "s20"
+      },
+      "MCP01": {
+        "capability": [],
+        "server": "s3d",
+        "version": "s3e"
+      },
+      "MCP02": {
+        "capability": [],
+        "server": "s5b",
+        "version": "s5c"
+      }
+    }
+  },
+  "new": {
+    "mcp": {
+      "mcp_ref01": {
+        "capability": [],
+        "server": "s79",
+        "version": "s7a"
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "pending_delete": {
+      "PENDING_DELETE00": {
+        "age": "s64",
+        "backlinks_count": "s65",
+        "days_until_drop": "s66",
+        "id": "PENDING_DELETE00",
+        "name": "s68",
+        "predicted_drop_date": "s69",
+        "referring_domain": "s6a",
+        "score": "s6b",
+        "status": "s6c",
+        "tld": "s6d"
+      },
+      "PENDING_DELETE01": {
+        "age": "sc8",
+        "backlinks_count": "sc9",
+        "days_until_drop": "sca",
+        "id": "PENDING_DELETE01",
+        "name": "scc",
+        "predicted_drop_date": "scd",
+        "referring_domain": "sce",
+        "score": "scf",
+        "status": "sd0",
+        "tld": "sd1"
+      },
+      "PENDING_DELETE02": {
+        "age": "s12c",
+        "backlinks_count": "s12d",
+        "days_until_drop": "s12e",
+        "id": "PENDING_DELETE02",
+        "name": "s130",
+        "predicted_drop_date": "s131",
+        "referring_domain": "s132",
+        "score": "s133",
+        "status": "s134",
+        "tld": "s135"
+      }
+    }
+  },
+  "new": {
+    "pending_delete": {
+      "pending_delete_ref01": {
+        "age": "s190",
+        "backlinks_count": "s191",
+        "days_until_drop": "s192",
+        "name": "s194",
+        "predicted_drop_date": "s195",
+        "referring_domain": "s196",
+        "score": "s197",
+        "status": "s198",
+        "tld": "s199"
+      }
+    }
+  }
+}

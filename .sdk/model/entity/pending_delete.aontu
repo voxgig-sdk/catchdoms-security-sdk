@@ -1,0 +1,146 @@
+# Entity: pending_delete
+
+main: kit: entity: pending_delete: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "age"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "backlinks_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "days_until_drop"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "predicted_drop_date"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "referring_domain"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "score"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "status"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "tld"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "pending_delete"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "drop_date_max"
+                orig: "drop_date_max"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "drop_date_min"
+                orig: "drop_date_min"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "tld"
+                orig: "tld"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/pending-delete"
+          parts: [
+            "api"
+            "pending-delete"
+          ]
+          select: {
+            exist: [
+              "drop_date_max"
+              "drop_date_min"
+              "page"
+              "per_page"
+              "status"
+              "tld"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

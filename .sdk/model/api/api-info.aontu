@@ -1,0 +1,32 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://catchdoms.com/api"
+      }
+      description: "This API provides security verification to protect websites from malicious bots. It displays a challenge page while validating that the user is not a bot, ensuring secure access to the site. The API also provides access to expired domains, live auctions, deleted ccTLD domains, and pending-delete inventory with SEO metrics."
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Bearer"
+        scheme: "BearerAuth"
+        type: "http"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://catchdoms.com"
+        }
+      ]
+      summary: "This API provides security verification to protect websites from malicious bots."
+      termsOfService: "https://catchdoms.com"
+      title: "Catchdoms Security API"
+      version: "1.0.0"
+      website: "https://catchdoms.com"
+    }
+  }
+}
+

@@ -1,0 +1,22 @@
+# BasicMcpFlow
+
+main: kit: flow: BasicMcpFlow:
+{
+  entity: "mcp",
+  kind: "basic",
+  name: "BasicMcpFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "mcp_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMcpFlow"
+}

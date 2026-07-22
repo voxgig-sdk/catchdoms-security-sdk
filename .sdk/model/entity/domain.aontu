@@ -1,0 +1,344 @@
+# Entity: domain
+
+main: kit: entity: domain: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "age"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "auction_end_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "backlinks_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "bids_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "citation_flow"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "domain_authority"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "edu_gov_backlink"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "effective_price"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "has_gmb"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "language"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "max_bid"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "pagerank"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "price"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "purchase_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "referring_domain"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "score"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "source"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "tld"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "topical_trust_flow"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "trust_flow"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "wayback_first_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "wayback_snapshot"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "domain"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "age_min"
+                orig: "age_min"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "Business,Health"
+                kind: "query"
+                name: "category"
+                orig: "category"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "cf_min"
+                orig: "cf_min"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "contain"
+                orig: "contain"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "da_min"
+                orig: "da_min"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "has_backlink"
+                orig: "has_backlink"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "has_bid"
+                orig: "has_bid"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "has_edu_gov"
+                orig: "has_edu_gov"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "has_gmb"
+                orig: "has_gmb"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "EN"
+                kind: "query"
+                name: "language"
+                orig: "language"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "price_max"
+                orig: "price_max"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "price_min"
+                orig: "price_min"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "rd_min"
+                orig: "rd_min"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "score_min"
+                orig: "score_min"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "snapshots_min"
+                orig: "snapshots_min"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "source"
+                orig: "source"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "tf_min"
+                orig: "tf_min"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: ".com"
+                kind: "query"
+                name: "tld"
+                orig: "tld"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "type"
+                orig: "type"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/domains"
+          parts: [
+            "api"
+            "domains"
+          ]
+          select: {
+            exist: [
+              "age_min"
+              "category"
+              "cf_min"
+              "contain"
+              "da_min"
+              "has_backlink"
+              "has_bid"
+              "has_edu_gov"
+              "has_gmb"
+              "language"
+              "page"
+              "per_page"
+              "price_max"
+              "price_min"
+              "rd_min"
+              "score_min"
+              "snapshots_min"
+              "source"
+              "tf_min"
+              "tld"
+              "type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
