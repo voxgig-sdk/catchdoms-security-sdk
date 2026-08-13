@@ -105,7 +105,7 @@ local domain = client:Domain(nil)
 | `bids_count` | `number` | No |  |
 | `citation_flow` | `number` | No |  |
 | `domain_authority` | `number` | No |  |
-| `edu_gov_backlink` | `number` | No |  |
+| `edu_gov_backlinks` | `number` | No |  |
 | `effective_price` | `number` | No |  |
 | `has_gmb` | `boolean` | No |  |
 | `id` | `number` | Yes |  |
@@ -115,7 +115,7 @@ local domain = client:Domain(nil)
 | `pagerank` | `number` | No |  |
 | `price` | `number` | No |  |
 | `purchase_url` | `string` | No |  |
-| `referring_domain` | `number` | No |  |
+| `referring_domains` | `number` | No |  |
 | `score` | `number` | Yes |  |
 | `source` | `string` | Yes |  |
 | `tld` | `string` | Yes |  |
@@ -123,7 +123,7 @@ local domain = client:Domain(nil)
 | `trust_flow` | `number` | No |  |
 | `type` | `string` | No |  |
 | `wayback_first_date` | `string` | No |  |
-| `wayback_snapshot` | `number` | No |  |
+| `wayback_snapshots` | `number` | No |  |
 
 ### Operations
 
@@ -175,7 +175,7 @@ local mcp = client:Mcp(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `capability` | `table` | No |  |
+| `capabilities` | `table` | No |  |
 | `server` | `string` | No |  |
 | `version` | `string` | No |  |
 
@@ -235,7 +235,7 @@ local pending_delete = client:PendingDelete(nil)
 | `id` | `number` | Yes |  |
 | `name` | `string` | Yes |  |
 | `predicted_drop_date` | `string` | Yes |  |
-| `referring_domain` | `number` | No |  |
+| `referring_domains` | `number` | No |  |
 | `score` | `number` | No |  |
 | `status` | `string` | Yes |  |
 | `tld` | `string` | Yes |  |

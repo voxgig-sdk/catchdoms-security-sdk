@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ CatchdomsSecurityUtility.registrar = ->(u) {
   u.prepare_params = CatchdomsSecurityUtilities::PrepareParams
   u.prepare_path = CatchdomsSecurityUtilities::PreparePath
   u.prepare_query = CatchdomsSecurityUtilities::PrepareQuery
+  u.graphql_body = CatchdomsSecurityUtilities::GraphqlBody
+  u.graphql_errors = CatchdomsSecurityUtilities::GraphqlErrors
   u.result_basic = CatchdomsSecurityUtilities::ResultBasic
   u.result_body = CatchdomsSecurityUtilities::ResultBody
   u.result_headers = CatchdomsSecurityUtilities::ResultHeaders

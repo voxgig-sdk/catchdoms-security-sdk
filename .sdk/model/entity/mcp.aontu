@@ -6,7 +6,7 @@ main: kit: entity: mcp: {
 
   fields: [
     {
-      name: "capability"
+      name: "capabilities"
       req: false
       type: "`$ARRAY`"
     }
@@ -39,7 +39,7 @@ main: kit: entity: mcp: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.capabilities`"
           }
         }
       ]

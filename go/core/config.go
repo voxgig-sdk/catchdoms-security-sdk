@@ -73,7 +73,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "edu_gov_backlink",
+						"name": "edu_gov_backlinks",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 6,
@@ -143,7 +143,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "referring_domain",
+						"name": "referring_domains",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 16,
@@ -199,7 +199,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "wayback_snapshot",
+						"name": "wayback_snapshots",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 24,
@@ -390,6 +390,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/domains",
 								"parts": []any{
@@ -428,7 +429,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -439,7 +439,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "capability",
+						"name": "capabilities",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
@@ -468,6 +468,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/mcp/catchdoms",
 								"parts": []any{
@@ -479,12 +480,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.capabilities`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -537,7 +537,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "referring_domain",
+						"name": "referring_domains",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 6,
@@ -626,6 +626,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/pending-delete",
 								"parts": []any{
@@ -649,7 +650,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

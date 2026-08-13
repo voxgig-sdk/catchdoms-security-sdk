@@ -12,7 +12,7 @@ export interface Domain {
   bids_count?: number
   citation_flow?: number
   domain_authority?: number
-  edu_gov_backlink?: number
+  edu_gov_backlinks?: number
   effective_price?: number
   has_gmb?: boolean
   id: number
@@ -22,7 +22,7 @@ export interface Domain {
   pagerank?: number
   price?: number
   purchase_url?: string
-  referring_domain?: number
+  referring_domains?: number
   score: number
   source: string
   tld: string
@@ -30,7 +30,7 @@ export interface Domain {
   trust_flow?: number
   type?: string
   wayback_first_date?: string
-  wayback_snapshot?: number
+  wayback_snapshots?: number
 }
 
 export interface DomainListMatch {
@@ -40,7 +40,7 @@ export interface DomainListMatch {
   bids_count?: number
   citation_flow?: number
   domain_authority?: number
-  edu_gov_backlink?: number
+  edu_gov_backlinks?: number
   effective_price?: number
   has_gmb?: boolean
   id?: number
@@ -50,7 +50,7 @@ export interface DomainListMatch {
   pagerank?: number
   price?: number
   purchase_url?: string
-  referring_domain?: number
+  referring_domains?: number
   score?: number
   source?: string
   tld?: string
@@ -58,19 +58,25 @@ export interface DomainListMatch {
   trust_flow?: number
   type?: string
   wayback_first_date?: string
-  wayback_snapshot?: number
+  wayback_snapshots?: number
 }
 
 export interface Mcp {
-  capability?: any[]
+  capabilities?: any[]
   server?: string
   version?: string
 }
 
 export interface McpListMatch {
-  capability?: any[]
+  capabilities?: any[]
   server?: string
   version?: string
+
+  // Selects a custom action instead of the plain list:
+  //   'catchdom'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface PendingDelete {
@@ -80,7 +86,7 @@ export interface PendingDelete {
   id: number
   name: string
   predicted_drop_date: string
-  referring_domain?: number
+  referring_domains?: number
   score?: number
   status: string
   tld: string
@@ -93,7 +99,7 @@ export interface PendingDeleteListMatch {
   id?: number
   name?: string
   predicted_drop_date?: string
-  referring_domain?: number
+  referring_domains?: number
   score?: number
   status?: string
   tld?: string

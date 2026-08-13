@@ -107,7 +107,7 @@ $domain = $client->Domain();
 | `bids_count` | `int` | No |  |
 | `citation_flow` | `int` | No |  |
 | `domain_authority` | `int` | No |  |
-| `edu_gov_backlink` | `int` | No |  |
+| `edu_gov_backlinks` | `int` | No |  |
 | `effective_price` | `float` | No |  |
 | `has_gmb` | `bool` | No |  |
 | `id` | `int` | Yes |  |
@@ -117,7 +117,7 @@ $domain = $client->Domain();
 | `pagerank` | `int` | No |  |
 | `price` | `float` | No |  |
 | `purchase_url` | `string` | No |  |
-| `referring_domain` | `int` | No |  |
+| `referring_domains` | `int` | No |  |
 | `score` | `int` | Yes |  |
 | `source` | `string` | Yes |  |
 | `tld` | `string` | Yes |  |
@@ -125,7 +125,7 @@ $domain = $client->Domain();
 | `trust_flow` | `int` | No |  |
 | `type` | `string` | No |  |
 | `wayback_first_date` | `string` | No |  |
-| `wayback_snapshot` | `int` | No |  |
+| `wayback_snapshots` | `int` | No |  |
 
 ### Operations
 
@@ -177,7 +177,7 @@ $mcp = $client->Mcp();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `capability` | `array` | No |  |
+| `capabilities` | `array` | No |  |
 | `server` | `string` | No |  |
 | `version` | `string` | No |  |
 
@@ -237,7 +237,7 @@ $pending_delete = $client->PendingDelete();
 | `id` | `int` | Yes |  |
 | `name` | `string` | Yes |  |
 | `predicted_drop_date` | `string` | Yes |  |
-| `referring_domain` | `int` | No |  |
+| `referring_domains` | `int` | No |  |
 | `score` | `int` | No |  |
 | `status` | `string` | Yes |  |
 | `tld` | `string` | Yes |  |

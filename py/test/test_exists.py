@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# CatchdomsSecurity SDK exists test
 
 import pytest
 from catchdomssecurity_sdk import CatchdomsSecuritySDK

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from catchdomssecurity_sdk.utility.voxgig_struct import voxgig_struct as vs
 from catchdomssecurity_sdk import CatchdomsSecuritySDK
-from core import helpers
+from catchdomssecurity_sdk.core import helpers
 from test import runner
 
 
@@ -58,16 +58,16 @@ def _mcp_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "CATCHDOMSSECURITY_TEST_MCP_ENTID": {},
-        "CATCHDOMSSECURITY_TEST_LIVE": "FALSE",
-        "CATCHDOMSSECURITY_APIKEY": "NONE",
+        "CATCHDOMS_SECURITY_TEST_MCP_ENTID": {},
+        "CATCHDOMS_SECURITY_TEST_LIVE": "FALSE",
+        "CATCHDOMS_SECURITY_APIKEY": "NONE",
     })
 
-    live = env.get("CATCHDOMSSECURITY_TEST_LIVE") == "TRUE"
+    live = env.get("CATCHDOMS_SECURITY_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("CATCHDOMSSECURITY_APIKEY"),
+            "apikey": env.get("CATCHDOMS_SECURITY_APIKEY"),
         }
         client = CatchdomsSecuritySDK(merged_opts)
         return {

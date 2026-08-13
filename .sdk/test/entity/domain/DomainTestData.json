@@ -8,7 +8,7 @@
         "bids_count": "sfd",
         "citation_flow": "sfe",
         "domain_authority": "sff",
-        "edu_gov_backlink": "s100",
+        "edu_gov_backlinks": "s100",
         "effective_price": 257,
         "has_gmb": true,
         "id": "DOMAIN00",
@@ -18,7 +18,7 @@
         "pagerank": "s107",
         "price": 264,
         "purchase_url": "s109",
-        "referring_domain": "s10a",
+        "referring_domains": "s10a",
         "score": "s10b",
         "source": "s10c",
         "tld": "s10d",
@@ -26,7 +26,7 @@
         "trust_flow": "s10f",
         "type": "s110",
         "wayback_first_date": "s111",
-        "wayback_snapshot": "s112"
+        "wayback_snapshots": "s112"
       },
       "DOMAIN01": {
         "age": "s1f4",
@@ -35,7 +35,7 @@
         "bids_count": "s1f7",
         "citation_flow": "s1f8",
         "domain_authority": "s1f9",
-        "edu_gov_backlink": "s1fa",
+        "edu_gov_backlinks": "s1fa",
         "effective_price": 507,
         "has_gmb": true,
         "id": "DOMAIN01",
@@ -45,7 +45,7 @@
         "pagerank": "s201",
         "price": 514,
         "purchase_url": "s203",
-        "referring_domain": "s204",
+        "referring_domains": "s204",
         "score": "s205",
         "source": "s206",
         "tld": "s207",
@@ -53,7 +53,7 @@
         "trust_flow": "s209",
         "type": "s20a",
         "wayback_first_date": "s20b",
-        "wayback_snapshot": "s20c"
+        "wayback_snapshots": "s20c"
       },
       "DOMAIN02": {
         "age": "s2ee",
@@ -62,7 +62,7 @@
         "bids_count": "s2f1",
         "citation_flow": "s2f2",
         "domain_authority": "s2f3",
-        "edu_gov_backlink": "s2f4",
+        "edu_gov_backlinks": "s2f4",
         "effective_price": 757,
         "has_gmb": true,
         "id": "DOMAIN02",
@@ -72,7 +72,7 @@
         "pagerank": "s2fb",
         "price": 764,
         "purchase_url": "s2fd",
-        "referring_domain": "s2fe",
+        "referring_domains": "s2fe",
         "score": "s2ff",
         "source": "s300",
         "tld": "s301",
@@ -80,7 +80,7 @@
         "trust_flow": "s303",
         "type": "s304",
         "wayback_first_date": "s305",
-        "wayback_snapshot": "s306"
+        "wayback_snapshots": "s306"
       }
     }
   },
@@ -93,7 +93,7 @@
         "bids_count": "s3eb",
         "citation_flow": "s3ec",
         "domain_authority": "s3ed",
-        "edu_gov_backlink": "s3ee",
+        "edu_gov_backlinks": "s3ee",
         "effective_price": 1007,
         "has_gmb": true,
         "language": "s3f2",
@@ -102,7 +102,7 @@
         "pagerank": "s3f5",
         "price": 1014,
         "purchase_url": "s3f7",
-        "referring_domain": "s3f8",
+        "referring_domains": "s3f8",
         "score": "s3f9",
         "source": "s3fa",
         "tld": "s3fb",
@@ -110,7 +110,7 @@
         "trust_flow": "s3fd",
         "type": "s3fe",
         "wayback_first_date": "s3ff",
-        "wayback_snapshot": "s400"
+        "wayback_snapshots": "s400"
       }
     }
   }

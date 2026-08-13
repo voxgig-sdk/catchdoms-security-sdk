@@ -60,8 +60,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    domains = client.Domain().list()
-    print(domains)
+    mcps = client.Mcp().list()
+    print(mcps)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -127,9 +127,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CatchdomsSecuritySDK.test()
 
-# Entity ops return the bare record and raise on error.
-domain = client.Domain().list()
-# domain contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+mcp = client.Mcp().list()
+# mcp contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -227,7 +228,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -255,7 +256,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `bids_count` |  |
 | `citation_flow` |  |
 | `domain_authority` |  |
-| `edu_gov_backlink` |  |
+| `edu_gov_backlinks` |  |
 | `effective_price` |  |
 | `has_gmb` |  |
 | `id` |  |
@@ -265,7 +266,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `pagerank` |  |
 | `price` |  |
 | `purchase_url` |  |
-| `referring_domain` |  |
+| `referring_domains` |  |
 | `score` |  |
 | `source` |  |
 | `tld` |  |
@@ -273,7 +274,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `trust_flow` |  |
 | `type` |  |
 | `wayback_first_date` |  |
-| `wayback_snapshot` |  |
+| `wayback_snapshots` |  |
 
 Operations: List.
 
@@ -283,7 +284,7 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `capability` |  |
+| `capabilities` |  |
 | `server` |  |
 | `version` |  |
 
@@ -301,7 +302,7 @@ API path: `/mcp/catchdoms`
 | `id` |  |
 | `name` |  |
 | `predicted_drop_date` |  |
-| `referring_domain` |  |
+| `referring_domains` |  |
 | `score` |  |
 | `status` |  |
 | `tld` |  |
@@ -335,7 +336,7 @@ Create an instance: `domain = client.Domain()`
 | `bids_count` | `int` |  |
 | `citation_flow` | `int` |  |
 | `domain_authority` | `int` |  |
-| `edu_gov_backlink` | `int` |  |
+| `edu_gov_backlinks` | `int` |  |
 | `effective_price` | `float` |  |
 | `has_gmb` | `bool` |  |
 | `id` | `int` |  |
@@ -345,7 +346,7 @@ Create an instance: `domain = client.Domain()`
 | `pagerank` | `int` |  |
 | `price` | `float` |  |
 | `purchase_url` | `str` |  |
-| `referring_domain` | `int` |  |
+| `referring_domains` | `int` |  |
 | `score` | `int` |  |
 | `source` | `str` |  |
 | `tld` | `str` |  |
@@ -353,7 +354,7 @@ Create an instance: `domain = client.Domain()`
 | `trust_flow` | `int` |  |
 | `type` | `str` |  |
 | `wayback_first_date` | `str` |  |
-| `wayback_snapshot` | `int` |  |
+| `wayback_snapshots` | `int` |  |
 
 #### Example: List
 
@@ -376,7 +377,7 @@ Create an instance: `mcp = client.Mcp()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `capability` | `list` |  |
+| `capabilities` | `list` |  |
 | `server` | `str` |  |
 | `version` | `str` |  |
 
@@ -407,7 +408,7 @@ Create an instance: `pending_delete = client.PendingDelete()`
 | `id` | `int` |  |
 | `name` | `str` |  |
 | `predicted_drop_date` | `str` |  |
-| `referring_domain` | `int` |  |
+| `referring_domains` | `int` |  |
 | `score` | `int` |  |
 | `status` | `str` |  |
 | `tld` | `str` |  |
@@ -494,11 +495,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-domain = client.Domain()
-domain.list()
+mcp = client.Mcp()
+mcp.list()
 
-# domain.data_get() now returns the domain data from the last list
-# domain.match_get() returns the last match criteria
+# mcp.data_get() now returns the mcp data from the last list
+# mcp.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

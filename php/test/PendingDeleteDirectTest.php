@@ -66,16 +66,16 @@ function pending_delete_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "CATCHDOMSSECURITY_TEST_PENDING_DELETE_ENTID" => [],
-        "CATCHDOMSSECURITY_TEST_LIVE" => "FALSE",
-        "CATCHDOMSSECURITY_APIKEY" => "NONE",
+        "CATCHDOMS_SECURITY_TEST_PENDING_DELETE_ENTID" => [],
+        "CATCHDOMS_SECURITY_TEST_LIVE" => "FALSE",
+        "CATCHDOMS_SECURITY_APIKEY" => "NONE",
     ]);
 
-    $live = $env["CATCHDOMSSECURITY_TEST_LIVE"] === "TRUE";
+    $live = $env["CATCHDOMS_SECURITY_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["CATCHDOMSSECURITY_APIKEY"],
+            "apikey" => $env["CATCHDOMS_SECURITY_APIKEY"],
         ];
         $client = new CatchdomsSecuritySDK($merged_opts);
         return [

@@ -72,7 +72,7 @@ class DomainEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set CATCHDOMSSECURITY_TEST_DOMAIN_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set CATCHDOMS_SECURITY_TEST_DOMAIN_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -117,39 +117,39 @@ function domain_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("CATCHDOMSSECURITY_TEST_DOMAIN_ENTID");
+    $entid_env_raw = getenv("CATCHDOMS_SECURITY_TEST_DOMAIN_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "CATCHDOMSSECURITY_TEST_DOMAIN_ENTID" => $idmap,
-        "CATCHDOMSSECURITY_TEST_LIVE" => "FALSE",
-        "CATCHDOMSSECURITY_TEST_EXPLAIN" => "FALSE",
-        "CATCHDOMSSECURITY_APIKEY" => "NONE",
+        "CATCHDOMS_SECURITY_TEST_DOMAIN_ENTID" => $idmap,
+        "CATCHDOMS_SECURITY_TEST_LIVE" => "FALSE",
+        "CATCHDOMS_SECURITY_TEST_EXPLAIN" => "FALSE",
+        "CATCHDOMS_SECURITY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["CATCHDOMSSECURITY_TEST_DOMAIN_ENTID"]);
+        $env["CATCHDOMS_SECURITY_TEST_DOMAIN_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["CATCHDOMSSECURITY_TEST_LIVE"] === "TRUE") {
+    if ($env["CATCHDOMS_SECURITY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CATCHDOMSSECURITY_APIKEY"],
+                "apikey" => $env["CATCHDOMS_SECURITY_APIKEY"],
             ],
             $extra ?? [],
         ]);
         $client = new CatchdomsSecuritySDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["CATCHDOMSSECURITY_TEST_LIVE"] === "TRUE";
+    $live = $env["CATCHDOMS_SECURITY_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["CATCHDOMSSECURITY_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["CATCHDOMS_SECURITY_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

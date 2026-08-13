@@ -53,7 +53,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  domains = client.Domain.list()
+  mcps = client.Mcp.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -121,9 +121,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = CatchdomsSecuritySDK.test
 
-# Entity ops return the bare mock record (raises on error).
-domain = client.Domain.list()
-puts domain
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+mcp = client.Mcp.list()
+puts mcp
 ```
 
 ### Use a custom fetch function
@@ -248,7 +249,7 @@ returns a result `Hash` with these keys:
 | `bids_count` |  |
 | `citation_flow` |  |
 | `domain_authority` |  |
-| `edu_gov_backlink` |  |
+| `edu_gov_backlinks` |  |
 | `effective_price` |  |
 | `has_gmb` |  |
 | `id` |  |
@@ -258,7 +259,7 @@ returns a result `Hash` with these keys:
 | `pagerank` |  |
 | `price` |  |
 | `purchase_url` |  |
-| `referring_domain` |  |
+| `referring_domains` |  |
 | `score` |  |
 | `source` |  |
 | `tld` |  |
@@ -266,7 +267,7 @@ returns a result `Hash` with these keys:
 | `trust_flow` |  |
 | `type` |  |
 | `wayback_first_date` |  |
-| `wayback_snapshot` |  |
+| `wayback_snapshots` |  |
 
 Operations: List.
 
@@ -276,7 +277,7 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `capability` |  |
+| `capabilities` |  |
 | `server` |  |
 | `version` |  |
 
@@ -294,7 +295,7 @@ API path: `/mcp/catchdoms`
 | `id` |  |
 | `name` |  |
 | `predicted_drop_date` |  |
-| `referring_domain` |  |
+| `referring_domains` |  |
 | `score` |  |
 | `status` |  |
 | `tld` |  |
@@ -328,7 +329,7 @@ Create an instance: `domain = client.Domain`
 | `bids_count` | `Integer` |  |
 | `citation_flow` | `Integer` |  |
 | `domain_authority` | `Integer` |  |
-| `edu_gov_backlink` | `Integer` |  |
+| `edu_gov_backlinks` | `Integer` |  |
 | `effective_price` | `Float` |  |
 | `has_gmb` | `Boolean` |  |
 | `id` | `Integer` |  |
@@ -338,7 +339,7 @@ Create an instance: `domain = client.Domain`
 | `pagerank` | `Integer` |  |
 | `price` | `Float` |  |
 | `purchase_url` | `String` |  |
-| `referring_domain` | `Integer` |  |
+| `referring_domains` | `Integer` |  |
 | `score` | `Integer` |  |
 | `source` | `String` |  |
 | `tld` | `String` |  |
@@ -346,7 +347,7 @@ Create an instance: `domain = client.Domain`
 | `trust_flow` | `Integer` |  |
 | `type` | `String` |  |
 | `wayback_first_date` | `String` |  |
-| `wayback_snapshot` | `Integer` |  |
+| `wayback_snapshots` | `Integer` |  |
 
 #### Example: List
 
@@ -370,7 +371,7 @@ Create an instance: `mcp = client.Mcp`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `capability` | `Array` |  |
+| `capabilities` | `Array` |  |
 | `server` | `String` |  |
 | `version` | `String` |  |
 
@@ -402,7 +403,7 @@ Create an instance: `pending_delete = client.PendingDelete`
 | `id` | `Integer` |  |
 | `name` | `String` |  |
 | `predicted_drop_date` | `String` |  |
-| `referring_domain` | `Integer` |  |
+| `referring_domains` | `Integer` |  |
 | `score` | `Integer` |  |
 | `status` | `String` |  |
 | `tld` | `String` |  |
@@ -491,11 +492,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-domain = client.Domain
-domain.list()
+mcp = client.Mcp
+mcp.list()
 
-# domain.data_get now returns the domain data from the last list
-# domain.match_get returns the last match criteria
+# mcp.data_get now returns the mcp data from the last list
+# mcp.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

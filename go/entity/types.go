@@ -6,7 +6,11 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/voxgig-sdk/catchdoms-security-sdk/go/core"
+)
 
 // Domain is the typed data model for the domain entity.
 type Domain struct {
@@ -16,7 +20,7 @@ type Domain struct {
 	BidsCount *int `json:"bids_count,omitempty"`
 	CitationFlow *int `json:"citation_flow,omitempty"`
 	DomainAuthority *int `json:"domain_authority,omitempty"`
-	EduGovBacklink *int `json:"edu_gov_backlink,omitempty"`
+	EduGovBacklinks *int `json:"edu_gov_backlinks,omitempty"`
 	EffectivePrice *float64 `json:"effective_price,omitempty"`
 	HasGmb *bool `json:"has_gmb,omitempty"`
 	Id int `json:"id"`
@@ -26,7 +30,7 @@ type Domain struct {
 	Pagerank *int `json:"pagerank,omitempty"`
 	Price *float64 `json:"price,omitempty"`
 	PurchaseUrl *string `json:"purchase_url,omitempty"`
-	ReferringDomain *int `json:"referring_domain,omitempty"`
+	ReferringDomains *int `json:"referring_domains,omitempty"`
 	Score int `json:"score"`
 	Source string `json:"source"`
 	Tld string `json:"tld"`
@@ -34,7 +38,7 @@ type Domain struct {
 	TrustFlow *int `json:"trust_flow,omitempty"`
 	Type *string `json:"type,omitempty"`
 	WaybackFirstDate *string `json:"wayback_first_date,omitempty"`
-	WaybackSnapshot *int `json:"wayback_snapshot,omitempty"`
+	WaybackSnapshots *int `json:"wayback_snapshots,omitempty"`
 }
 
 // DomainListMatch is the typed request payload for Domain.ListTyped.
@@ -45,7 +49,7 @@ type DomainListMatch struct {
 	BidsCount *int `json:"bids_count,omitempty"`
 	CitationFlow *int `json:"citation_flow,omitempty"`
 	DomainAuthority *int `json:"domain_authority,omitempty"`
-	EduGovBacklink *int `json:"edu_gov_backlink,omitempty"`
+	EduGovBacklinks *int `json:"edu_gov_backlinks,omitempty"`
 	EffectivePrice *float64 `json:"effective_price,omitempty"`
 	HasGmb *bool `json:"has_gmb,omitempty"`
 	Id *int `json:"id,omitempty"`
@@ -55,7 +59,7 @@ type DomainListMatch struct {
 	Pagerank *int `json:"pagerank,omitempty"`
 	Price *float64 `json:"price,omitempty"`
 	PurchaseUrl *string `json:"purchase_url,omitempty"`
-	ReferringDomain *int `json:"referring_domain,omitempty"`
+	ReferringDomains *int `json:"referring_domains,omitempty"`
 	Score *int `json:"score,omitempty"`
 	Source *string `json:"source,omitempty"`
 	Tld *string `json:"tld,omitempty"`
@@ -63,19 +67,19 @@ type DomainListMatch struct {
 	TrustFlow *int `json:"trust_flow,omitempty"`
 	Type *string `json:"type,omitempty"`
 	WaybackFirstDate *string `json:"wayback_first_date,omitempty"`
-	WaybackSnapshot *int `json:"wayback_snapshot,omitempty"`
+	WaybackSnapshots *int `json:"wayback_snapshots,omitempty"`
 }
 
 // Mcp is the typed data model for the mcp entity.
 type Mcp struct {
-	Capability *[]any `json:"capability,omitempty"`
+	Capabilities *[]any `json:"capabilities,omitempty"`
 	Server *string `json:"server,omitempty"`
 	Version *string `json:"version,omitempty"`
 }
 
 // McpListMatch is the typed request payload for Mcp.ListTyped.
 type McpListMatch struct {
-	Capability *[]any `json:"capability,omitempty"`
+	Capabilities *[]any `json:"capabilities,omitempty"`
 	Server *string `json:"server,omitempty"`
 	Version *string `json:"version,omitempty"`
 }
@@ -88,7 +92,7 @@ type PendingDelete struct {
 	Id int `json:"id"`
 	Name string `json:"name"`
 	PredictedDropDate string `json:"predicted_drop_date"`
-	ReferringDomain *int `json:"referring_domain,omitempty"`
+	ReferringDomains *int `json:"referring_domains,omitempty"`
 	Score *int `json:"score,omitempty"`
 	Status string `json:"status"`
 	Tld string `json:"tld"`
@@ -102,7 +106,7 @@ type PendingDeleteListMatch struct {
 	Id *int `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	PredictedDropDate *string `json:"predicted_drop_date,omitempty"`
-	ReferringDomain *int `json:"referring_domain,omitempty"`
+	ReferringDomains *int `json:"referring_domains,omitempty"`
 	Score *int `json:"score,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Tld *string `json:"tld,omitempty"`
@@ -120,12 +124,26 @@ func asMap(v any) map[string]any {
 	return out
 }
 
-// typedFrom decodes a runtime value (a map[string]any produced by the op
-// pipeline) into a typed model T via a JSON round-trip. On any error it
-// returns the zero value of T; the op's own (value, error) tuple carries the
-// real error.
+// entityData unwraps an entity to its data map.
+//
+// Operations resolve to the ENTITY, not the raw data (see AGENTS.md), and an
+// entity's fields are UNEXPORTED — marshalling one directly yields `{}`, so
+// every typed accessor would silently hand back a zero-valued struct. The
+// typed boundary therefore takes the data hop first.
+func entityData(v any) any {
+	if ent, ok := v.(core.Entity); ok {
+		return ent.Data()
+	}
+	return v
+}
+
+// typedFrom decodes a runtime value (an entity, or the map[string]any the op
+// pipeline produced) into a typed model T via a JSON round-trip. On any error
+// it returns the zero value of T; the op's own (value, error) tuple carries
+// the real error.
 func typedFrom[T any](v any) T {
 	var out T
+	v = entityData(v)
 	if v == nil {
 		return out
 	}
@@ -137,12 +155,20 @@ func typedFrom[T any](v any) T {
 	return out
 }
 
-// typedSliceFrom decodes a runtime list value ([]any of maps) into a typed
-// slice []T via a JSON round-trip, for list ops.
+// typedSliceFrom decodes a runtime list value into a typed slice []T via a
+// JSON round-trip, for list ops. `list` resolves to a slice of ENTITY
+// instances, so each element takes the data hop.
 func typedSliceFrom[T any](v any) []T {
 	var out []T
 	if v == nil {
 		return out
+	}
+	if list, ok := v.([]any); ok {
+		unwrapped := make([]any, 0, len(list))
+		for _, item := range list {
+			unwrapped = append(unwrapped, entityData(item))
+		}
+		v = unwrapped
 	}
 	b, err := json.Marshal(v)
 	if err != nil {

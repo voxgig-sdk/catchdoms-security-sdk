@@ -108,7 +108,7 @@ domain = client.Domain
 | `bids_count` | `Integer` | No |  |
 | `citation_flow` | `Integer` | No |  |
 | `domain_authority` | `Integer` | No |  |
-| `edu_gov_backlink` | `Integer` | No |  |
+| `edu_gov_backlinks` | `Integer` | No |  |
 | `effective_price` | `Float` | No |  |
 | `has_gmb` | `Boolean` | No |  |
 | `id` | `Integer` | Yes |  |
@@ -118,7 +118,7 @@ domain = client.Domain
 | `pagerank` | `Integer` | No |  |
 | `price` | `Float` | No |  |
 | `purchase_url` | `String` | No |  |
-| `referring_domain` | `Integer` | No |  |
+| `referring_domains` | `Integer` | No |  |
 | `score` | `Integer` | Yes |  |
 | `source` | `String` | Yes |  |
 | `tld` | `String` | Yes |  |
@@ -126,7 +126,7 @@ domain = client.Domain
 | `trust_flow` | `Integer` | No |  |
 | `type` | `String` | No |  |
 | `wayback_first_date` | `String` | No |  |
-| `wayback_snapshot` | `Integer` | No |  |
+| `wayback_snapshots` | `Integer` | No |  |
 
 ### Operations
 
@@ -178,7 +178,7 @@ mcp = client.Mcp
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `capability` | `Array` | No |  |
+| `capabilities` | `Array` | No |  |
 | `server` | `String` | No |  |
 | `version` | `String` | No |  |
 
@@ -238,7 +238,7 @@ pending_delete = client.PendingDelete
 | `id` | `Integer` | Yes |  |
 | `name` | `String` | Yes |  |
 | `predicted_drop_date` | `String` | Yes |  |
-| `referring_domain` | `Integer` | No |  |
+| `referring_domains` | `Integer` | No |  |
 | `score` | `Integer` | No |  |
 | `status` | `String` | Yes |  |
 | `tld` | `String` | Yes |  |

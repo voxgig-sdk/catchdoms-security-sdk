@@ -13,7 +13,7 @@
 ---@field bids_count? number
 ---@field citation_flow? number
 ---@field domain_authority? number
----@field edu_gov_backlink? number
+---@field edu_gov_backlinks? number
 ---@field effective_price? number
 ---@field has_gmb? boolean
 ---@field id number
@@ -23,7 +23,7 @@
 ---@field pagerank? number
 ---@field price? number
 ---@field purchase_url? string
----@field referring_domain? number
+---@field referring_domains? number
 ---@field score number
 ---@field source string
 ---@field tld string
@@ -31,7 +31,7 @@
 ---@field trust_flow? number
 ---@field type? string
 ---@field wayback_first_date? string
----@field wayback_snapshot? number
+---@field wayback_snapshots? number
 
 ---@class DomainListMatch
 ---@field age? number
@@ -40,7 +40,7 @@
 ---@field bids_count? number
 ---@field citation_flow? number
 ---@field domain_authority? number
----@field edu_gov_backlink? number
+---@field edu_gov_backlinks? number
 ---@field effective_price? number
 ---@field has_gmb? boolean
 ---@field id? number
@@ -50,7 +50,7 @@
 ---@field pagerank? number
 ---@field price? number
 ---@field purchase_url? string
----@field referring_domain? number
+---@field referring_domains? number
 ---@field score? number
 ---@field source? string
 ---@field tld? string
@@ -58,15 +58,15 @@
 ---@field trust_flow? number
 ---@field type? string
 ---@field wayback_first_date? string
----@field wayback_snapshot? number
+---@field wayback_snapshots? number
 
 ---@class Mcp
----@field capability? table
+---@field capabilities? table
 ---@field server? string
 ---@field version? string
 
 ---@class McpListMatch
----@field capability? table
+---@field capabilities? table
 ---@field server? string
 ---@field version? string
 
@@ -77,7 +77,7 @@
 ---@field id number
 ---@field name string
 ---@field predicted_drop_date string
----@field referring_domain? number
+---@field referring_domains? number
 ---@field score? number
 ---@field status string
 ---@field tld string
@@ -89,7 +89,7 @@
 ---@field id? number
 ---@field name? string
 ---@field predicted_drop_date? string
----@field referring_domain? number
+---@field referring_domains? number
 ---@field score? number
 ---@field status? string
 ---@field tld? string

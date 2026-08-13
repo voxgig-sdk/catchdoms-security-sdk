@@ -70,7 +70,7 @@ describe("PendingDeleteEntity", function()
     -- The basic flow consumes synthetic IDs from the fixture. In live mode
     -- without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set CATCHDOMSSECURITY_TEST_PENDING_DELETE_ENTID JSON to run live")
+      pending("live entity test uses synthetic IDs from fixture — set CATCHDOMS_SECURITY_TEST_PENDING_DELETE_ENTID JSON to run live")
       return
     end
     local client = setup.client
@@ -126,39 +126,39 @@ function pending_delete_basic_setup(extra)
   -- Detect ENTID env override before envOverride consumes it. When live
   -- mode is on without a real override, the basic test runs against synthetic
   -- IDs from the fixture and 4xx's. Surface this so the test can skip.
-  local entid_env_raw = os.getenv("CATCHDOMSSECURITY_TEST_PENDING_DELETE_ENTID")
+  local entid_env_raw = os.getenv("CATCHDOMS_SECURITY_TEST_PENDING_DELETE_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 
   local env = runner.env_override({
-    ["CATCHDOMSSECURITY_TEST_PENDING_DELETE_ENTID"] = idmap,
-    ["CATCHDOMSSECURITY_TEST_LIVE"] = "FALSE",
-    ["CATCHDOMSSECURITY_TEST_EXPLAIN"] = "FALSE",
-    ["CATCHDOMSSECURITY_APIKEY"] = "NONE",
+    ["CATCHDOMS_SECURITY_TEST_PENDING_DELETE_ENTID"] = idmap,
+    ["CATCHDOMS_SECURITY_TEST_LIVE"] = "FALSE",
+    ["CATCHDOMS_SECURITY_TEST_EXPLAIN"] = "FALSE",
+    ["CATCHDOMS_SECURITY_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
-    env["CATCHDOMSSECURITY_TEST_PENDING_DELETE_ENTID"])
+    env["CATCHDOMS_SECURITY_TEST_PENDING_DELETE_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end
 
-  if env["CATCHDOMSSECURITY_TEST_LIVE"] == "TRUE" then
+  if env["CATCHDOMS_SECURITY_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["CATCHDOMSSECURITY_APIKEY"],
+        apikey = env["CATCHDOMS_SECURITY_APIKEY"],
       },
       extra or {},
     })
     client = sdk.new(helpers.to_map(merged_opts))
   end
 
-  local live = env["CATCHDOMSSECURITY_TEST_LIVE"] == "TRUE"
+  local live = env["CATCHDOMS_SECURITY_TEST_LIVE"] == "TRUE"
   return {
     client = client,
     data = entity_data,
     idmap = idmap_resolved,
     env = env,
-    explain = env["CATCHDOMSSECURITY_TEST_EXPLAIN"] == "TRUE",
+    explain = env["CATCHDOMS_SECURITY_TEST_EXPLAIN"] == "TRUE",
     live = live,
     synthetic_only = live and not idmap_overridden,
     now = os.time() * 1000,

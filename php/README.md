@@ -55,7 +55,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $domains = $client->Domain()->list();
+    $mcps = $client->Mcp()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -127,9 +127,10 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = CatchdomsSecuritySDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$domain = $client->Domain()->list();
-print_r($domain);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$mcp = $client->Mcp()->list();
+print_r($mcp);
 ```
 
 ### Use a custom fetch function
@@ -230,7 +231,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -258,7 +259,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `bids_count` |  |
 | `citation_flow` |  |
 | `domain_authority` |  |
-| `edu_gov_backlink` |  |
+| `edu_gov_backlinks` |  |
 | `effective_price` |  |
 | `has_gmb` |  |
 | `id` |  |
@@ -268,7 +269,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `pagerank` |  |
 | `price` |  |
 | `purchase_url` |  |
-| `referring_domain` |  |
+| `referring_domains` |  |
 | `score` |  |
 | `source` |  |
 | `tld` |  |
@@ -276,7 +277,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `trust_flow` |  |
 | `type` |  |
 | `wayback_first_date` |  |
-| `wayback_snapshot` |  |
+| `wayback_snapshots` |  |
 
 Operations: List.
 
@@ -286,7 +287,7 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `capability` |  |
+| `capabilities` |  |
 | `server` |  |
 | `version` |  |
 
@@ -304,7 +305,7 @@ API path: `/mcp/catchdoms`
 | `id` |  |
 | `name` |  |
 | `predicted_drop_date` |  |
-| `referring_domain` |  |
+| `referring_domains` |  |
 | `score` |  |
 | `status` |  |
 | `tld` |  |
@@ -338,7 +339,7 @@ Create an instance: `$domain = $client->Domain();`
 | `bids_count` | `int` |  |
 | `citation_flow` | `int` |  |
 | `domain_authority` | `int` |  |
-| `edu_gov_backlink` | `int` |  |
+| `edu_gov_backlinks` | `int` |  |
 | `effective_price` | `float` |  |
 | `has_gmb` | `bool` |  |
 | `id` | `int` |  |
@@ -348,7 +349,7 @@ Create an instance: `$domain = $client->Domain();`
 | `pagerank` | `int` |  |
 | `price` | `float` |  |
 | `purchase_url` | `string` |  |
-| `referring_domain` | `int` |  |
+| `referring_domains` | `int` |  |
 | `score` | `int` |  |
 | `source` | `string` |  |
 | `tld` | `string` |  |
@@ -356,7 +357,7 @@ Create an instance: `$domain = $client->Domain();`
 | `trust_flow` | `int` |  |
 | `type` | `string` |  |
 | `wayback_first_date` | `string` |  |
-| `wayback_snapshot` | `int` |  |
+| `wayback_snapshots` | `int` |  |
 
 #### Example: List
 
@@ -380,7 +381,7 @@ Create an instance: `$mcp = $client->Mcp();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `capability` | `array` |  |
+| `capabilities` | `array` |  |
 | `server` | `string` |  |
 | `version` | `string` |  |
 
@@ -412,7 +413,7 @@ Create an instance: `$pending_delete = $client->PendingDelete();`
 | `id` | `int` |  |
 | `name` | `string` |  |
 | `predicted_drop_date` | `string` |  |
-| `referring_domain` | `int` |  |
+| `referring_domains` | `int` |  |
 | `score` | `int` |  |
 | `status` | `string` |  |
 | `tld` | `string` |  |
@@ -501,11 +502,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$domain = $client->Domain();
-$domain->list();
+$mcp = $client->Mcp();
+$mcp->list();
 
-// $domain->data_get() now returns the domain data from the last list
-// $domain->match_get() returns the last match criteria
+// $mcp->data_get() now returns the mcp data from the last list
+// $mcp->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

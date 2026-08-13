@@ -60,16 +60,16 @@ def domain_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "CATCHDOMSSECURITY_TEST_DOMAIN_ENTID" => {},
-    "CATCHDOMSSECURITY_TEST_LIVE" => "FALSE",
-    "CATCHDOMSSECURITY_APIKEY" => "NONE",
+    "CATCHDOMS_SECURITY_TEST_DOMAIN_ENTID" => {},
+    "CATCHDOMS_SECURITY_TEST_LIVE" => "FALSE",
+    "CATCHDOMS_SECURITY_APIKEY" => "NONE",
   })
 
-  live = env["CATCHDOMSSECURITY_TEST_LIVE"] == "TRUE"
+  live = env["CATCHDOMS_SECURITY_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["CATCHDOMSSECURITY_APIKEY"],
+      "apikey" => env["CATCHDOMS_SECURITY_APIKEY"],
     }
     client = CatchdomsSecuritySDK.new(merged_opts)
     return {

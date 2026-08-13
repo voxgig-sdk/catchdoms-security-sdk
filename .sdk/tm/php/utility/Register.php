@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ CatchdomsSecurityUtility::setRegistrar(function (CatchdomsSecurityUtility $u): v
     $u->prepare_params = [CatchdomsSecurityPrepareParams::class, 'call'];
     $u->prepare_path = [CatchdomsSecurityPreparePath::class, 'call'];
     $u->prepare_query = [CatchdomsSecurityPrepareQuery::class, 'call'];
+    $u->graphql_body = [CatchdomsSecurityGraphql::class, 'body'];
+    $u->graphql_errors = [CatchdomsSecurityGraphql::class, 'errors'];
     $u->result_basic = [CatchdomsSecurityResultBasic::class, 'call'];
     $u->result_body = [CatchdomsSecurityResultBody::class, 'call'];
     $u->result_headers = [CatchdomsSecurityResultHeaders::class, 'call'];

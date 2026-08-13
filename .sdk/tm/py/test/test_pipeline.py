@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import CatchdomsSecuritySDK
-from core.error import CatchdomsSecurityError
-from core.result import CatchdomsSecurityResult
-from core.response import CatchdomsSecurityResponse
-from core.spec import CatchdomsSecuritySpec
-from feature.base_feature import CatchdomsSecurityBaseFeature
+from projectname_sdk.core.error import CatchdomsSecurityError
+from projectname_sdk.core.result import CatchdomsSecurityResult
+from projectname_sdk.core.response import CatchdomsSecurityResponse
+from projectname_sdk.core.spec import CatchdomsSecuritySpec
+from projectname_sdk.feature.base_feature import CatchdomsSecurityBaseFeature
 
 
 def _client():

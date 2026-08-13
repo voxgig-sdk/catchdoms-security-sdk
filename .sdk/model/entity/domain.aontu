@@ -36,7 +36,7 @@ main: kit: entity: domain: {
       type: "`$INTEGER`"
     }
     {
-      name: "edu_gov_backlink"
+      name: "edu_gov_backlinks"
       req: false
       type: "`$INTEGER`"
     }
@@ -86,7 +86,7 @@ main: kit: entity: domain: {
       type: "`$STRING`"
     }
     {
-      name: "referring_domain"
+      name: "referring_domains"
       req: false
       type: "`$INTEGER`"
     }
@@ -126,7 +126,7 @@ main: kit: entity: domain: {
       type: "`$STRING`"
     }
     {
-      name: "wayback_snapshot"
+      name: "wayback_snapshots"
       req: false
       type: "`$INTEGER`"
     }

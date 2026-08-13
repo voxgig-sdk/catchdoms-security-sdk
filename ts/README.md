@@ -37,7 +37,9 @@ const client = new CatchdomsSecuritySDK({
 
 ### 2. List domain records
 
-`list()` resolves to an array of Domain objects — iterate it directly:
+`list()` resolves to an array of Domain ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const domains = await client.Domain().list()
@@ -54,8 +56,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const domains = await client.Domain().list()
-  console.log(domains)
+  const mcps = await client.Mcp().list()
+  console.log(mcps)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -121,9 +123,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CatchdomsSecuritySDK.test()
 
-const domain = await client.Domain().list()
-// domain is a bare entity populated with mock response data
-console.log(domain)
+const mcp = await client.Mcp().list()
+// mcp is the entity, populated with mock response data
+// — call mcp.data() for the record itself
+console.log(mcp)
 ```
 
 You can also use the instance method:
@@ -138,14 +141,14 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Domain()
+const entity = client.Mcp()
 
 // First call runs the operation and stores its result
 await entity.list()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data.id)
+console.log(data)
 ```
 
 ### Add custom middleware
@@ -298,7 +301,7 @@ The `prepare()` method returns:
 | `bids_count` |  |
 | `citation_flow` |  |
 | `domain_authority` |  |
-| `edu_gov_backlink` |  |
+| `edu_gov_backlinks` |  |
 | `effective_price` |  |
 | `has_gmb` |  |
 | `id` |  |
@@ -308,7 +311,7 @@ The `prepare()` method returns:
 | `pagerank` |  |
 | `price` |  |
 | `purchase_url` |  |
-| `referring_domain` |  |
+| `referring_domains` |  |
 | `score` |  |
 | `source` |  |
 | `tld` |  |
@@ -316,7 +319,7 @@ The `prepare()` method returns:
 | `trust_flow` |  |
 | `type` |  |
 | `wayback_first_date` |  |
-| `wayback_snapshot` |  |
+| `wayback_snapshots` |  |
 
 Operations: list.
 
@@ -326,7 +329,7 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `capability` |  |
+| `capabilities` |  |
 | `server` |  |
 | `version` |  |
 
@@ -344,7 +347,7 @@ API path: `/mcp/catchdoms`
 | `id` |  |
 | `name` |  |
 | `predicted_drop_date` |  |
-| `referring_domain` |  |
+| `referring_domains` |  |
 | `score` |  |
 | `status` |  |
 | `tld` |  |
@@ -378,7 +381,7 @@ Create an instance: `const domain = client.Domain()`
 | `bids_count` | `number` |  |
 | `citation_flow` | `number` |  |
 | `domain_authority` | `number` |  |
-| `edu_gov_backlink` | `number` |  |
+| `edu_gov_backlinks` | `number` |  |
 | `effective_price` | `number` |  |
 | `has_gmb` | `boolean` |  |
 | `id` | `number` |  |
@@ -388,7 +391,7 @@ Create an instance: `const domain = client.Domain()`
 | `pagerank` | `number` |  |
 | `price` | `number` |  |
 | `purchase_url` | `string` |  |
-| `referring_domain` | `number` |  |
+| `referring_domains` | `number` |  |
 | `score` | `number` |  |
 | `source` | `string` |  |
 | `tld` | `string` |  |
@@ -396,7 +399,7 @@ Create an instance: `const domain = client.Domain()`
 | `trust_flow` | `number` |  |
 | `type` | `string` |  |
 | `wayback_first_date` | `string` |  |
-| `wayback_snapshot` | `number` |  |
+| `wayback_snapshots` | `number` |  |
 
 #### Example: List
 
@@ -419,7 +422,7 @@ Create an instance: `const mcp = client.Mcp()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `capability` | `any[]` |  |
+| `capabilities` | `any[]` |  |
 | `server` | `string` |  |
 | `version` | `string` |  |
 
@@ -450,7 +453,7 @@ Create an instance: `const pending_delete = client.PendingDelete()`
 | `id` | `number` |  |
 | `name` | `string` |  |
 | `predicted_drop_date` | `string` |  |
-| `referring_domain` | `number` |  |
+| `referring_domains` | `number` |  |
 | `score` | `number` |  |
 | `status` | `string` |  |
 | `tld` | `string` |  |
@@ -531,11 +534,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const domain = client.Domain()
-await domain.list()
+const mcp = client.Mcp()
+await mcp.list()
 
-// domain.data() now returns the domain data from the last `list`
-// domain.match() returns the last match criteria
+// mcp.data() now returns the mcp data from the last `list`
+// mcp.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

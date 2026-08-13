@@ -8,7 +8,7 @@
         "id": "PENDING_DELETE00",
         "name": "s68",
         "predicted_drop_date": "s69",
-        "referring_domain": "s6a",
+        "referring_domains": "s6a",
         "score": "s6b",
         "status": "s6c",
         "tld": "s6d"
@@ -20,7 +20,7 @@
         "id": "PENDING_DELETE01",
         "name": "scc",
         "predicted_drop_date": "scd",
-        "referring_domain": "sce",
+        "referring_domains": "sce",
         "score": "scf",
         "status": "sd0",
         "tld": "sd1"
@@ -32,7 +32,7 @@
         "id": "PENDING_DELETE02",
         "name": "s130",
         "predicted_drop_date": "s131",
-        "referring_domain": "s132",
+        "referring_domains": "s132",
         "score": "s133",
         "status": "s134",
         "tld": "s135"
@@ -47,7 +47,7 @@
         "days_until_drop": "s192",
         "name": "s194",
         "predicted_drop_date": "s195",
-        "referring_domain": "s196",
+        "referring_domains": "s196",
         "score": "s197",
         "status": "s198",
         "tld": "s199"

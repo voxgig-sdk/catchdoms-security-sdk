@@ -43,8 +43,8 @@ class CatchdomsSecurityTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('CATCHDOMSSECURITY_TEST_LIVE');
-        $override = self::getenv('CATCHDOMSSECURITY_TEST_OVERRIDE');
+        $live = self::getenv('CATCHDOMS_SECURITY_TEST_LIVE');
+        $override = self::getenv('CATCHDOMS_SECURITY_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class CatchdomsSecurityTestRunner
             }
         }
 
-        $explain = self::getenv('CATCHDOMSSECURITY_TEST_EXPLAIN');
+        $explain = self::getenv('CATCHDOMS_SECURITY_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['CATCHDOMSSECURITY_TEST_EXPLAIN'] = $explain;
+            $m['CATCHDOMS_SECURITY_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

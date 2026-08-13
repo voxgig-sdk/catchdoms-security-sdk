@@ -37,7 +37,7 @@ class PendingDeleteEntity extends CatchdomsSecurityEntityBase<PendingDelete> {
 
 
 
-  async list(this: any, reqmatch?: PendingDeleteListMatch, ctrl?: Control): Promise<PendingDelete[]> {
+  async list(this: any, reqmatch?: PendingDeleteListMatch, ctrl?: Control): Promise<PendingDeleteEntity[]> {
 
     const utility = this._utility
 

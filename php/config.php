@@ -79,7 +79,7 @@ class CatchdomsSecurityConfig
             ],
             [
               'active' => true,
-              'name' => 'edu_gov_backlink',
+              'name' => 'edu_gov_backlinks',
               'req' => false,
               'type' => '`$INTEGER`',
               'index$' => 6,
@@ -149,7 +149,7 @@ class CatchdomsSecurityConfig
             ],
             [
               'active' => true,
-              'name' => 'referring_domain',
+              'name' => 'referring_domains',
               'req' => false,
               'type' => '`$INTEGER`',
               'index$' => 16,
@@ -205,7 +205,7 @@ class CatchdomsSecurityConfig
             ],
             [
               'active' => true,
-              'name' => 'wayback_snapshot',
+              'name' => 'wayback_snapshots',
               'req' => false,
               'type' => '`$INTEGER`',
               'index$' => 24,
@@ -396,6 +396,7 @@ class CatchdomsSecurityConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/domains',
                   'parts' => [
@@ -445,7 +446,7 @@ class CatchdomsSecurityConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'capability',
+              'name' => 'capabilities',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 0,
@@ -474,6 +475,7 @@ class CatchdomsSecurityConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/mcp/catchdoms',
                   'parts' => [
@@ -485,7 +487,7 @@ class CatchdomsSecurityConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.capabilities`',
                   ],
                   'index$' => 0,
                 ],
@@ -543,7 +545,7 @@ class CatchdomsSecurityConfig
             ],
             [
               'active' => true,
-              'name' => 'referring_domain',
+              'name' => 'referring_domains',
               'req' => false,
               'type' => '`$INTEGER`',
               'index$' => 6,
@@ -632,6 +634,7 @@ class CatchdomsSecurityConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/pending-delete',
                   'parts' => [

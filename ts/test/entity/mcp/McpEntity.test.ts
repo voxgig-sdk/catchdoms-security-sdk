@@ -26,8 +26,8 @@ import {
 describe('McpEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CATCHDOMSSECURITY_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CATCHDOMSSECURITY_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CATCHDOMS_SECURITY_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CATCHDOMS_SECURITY_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CatchdomsSecuritySDK.test()
@@ -63,7 +63,7 @@ describe('McpEntity', async () => {
     const mcp_ref01_ent = client.Mcp()
     const mcp_ref01_match: any = {}
 
-    const mcp_ref01_list = await mcp_ref01_ent.list(mcp_ref01_match)
+    const mcp_ref01_list = (await mcp_ref01_ent.list(mcp_ref01_match)).map((e: any) => e.data())
 
 
   })

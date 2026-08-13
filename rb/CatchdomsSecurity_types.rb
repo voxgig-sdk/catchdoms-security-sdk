@@ -28,7 +28,7 @@
 # @!attribute [rw] domain_authority
 #   @return [Integer, nil]
 #
-# @!attribute [rw] edu_gov_backlink
+# @!attribute [rw] edu_gov_backlinks
 #   @return [Integer, nil]
 #
 # @!attribute [rw] effective_price
@@ -58,7 +58,7 @@
 # @!attribute [rw] purchase_url
 #   @return [String, nil]
 #
-# @!attribute [rw] referring_domain
+# @!attribute [rw] referring_domains
 #   @return [Integer, nil]
 #
 # @!attribute [rw] score
@@ -82,7 +82,7 @@
 # @!attribute [rw] wayback_first_date
 #   @return [String, nil]
 #
-# @!attribute [rw] wayback_snapshot
+# @!attribute [rw] wayback_snapshots
 #   @return [Integer, nil]
 Domain = Struct.new(
   :age,
@@ -91,7 +91,7 @@ Domain = Struct.new(
   :bids_count,
   :citation_flow,
   :domain_authority,
-  :edu_gov_backlink,
+  :edu_gov_backlinks,
   :effective_price,
   :has_gmb,
   :id,
@@ -101,7 +101,7 @@ Domain = Struct.new(
   :pagerank,
   :price,
   :purchase_url,
-  :referring_domain,
+  :referring_domains,
   :score,
   :source,
   :tld,
@@ -109,7 +109,7 @@ Domain = Struct.new(
   :trust_flow,
   :type,
   :wayback_first_date,
-  :wayback_snapshot,
+  :wayback_snapshots,
   keyword_init: true
 )
 
@@ -133,7 +133,7 @@ Domain = Struct.new(
 # @!attribute [rw] domain_authority
 #   @return [Integer, nil]
 #
-# @!attribute [rw] edu_gov_backlink
+# @!attribute [rw] edu_gov_backlinks
 #   @return [Integer, nil]
 #
 # @!attribute [rw] effective_price
@@ -163,7 +163,7 @@ Domain = Struct.new(
 # @!attribute [rw] purchase_url
 #   @return [String, nil]
 #
-# @!attribute [rw] referring_domain
+# @!attribute [rw] referring_domains
 #   @return [Integer, nil]
 #
 # @!attribute [rw] score
@@ -187,7 +187,7 @@ Domain = Struct.new(
 # @!attribute [rw] wayback_first_date
 #   @return [String, nil]
 #
-# @!attribute [rw] wayback_snapshot
+# @!attribute [rw] wayback_snapshots
 #   @return [Integer, nil]
 DomainListMatch = Struct.new(
   :age,
@@ -196,7 +196,7 @@ DomainListMatch = Struct.new(
   :bids_count,
   :citation_flow,
   :domain_authority,
-  :edu_gov_backlink,
+  :edu_gov_backlinks,
   :effective_price,
   :has_gmb,
   :id,
@@ -206,7 +206,7 @@ DomainListMatch = Struct.new(
   :pagerank,
   :price,
   :purchase_url,
-  :referring_domain,
+  :referring_domains,
   :score,
   :source,
   :tld,
@@ -214,13 +214,13 @@ DomainListMatch = Struct.new(
   :trust_flow,
   :type,
   :wayback_first_date,
-  :wayback_snapshot,
+  :wayback_snapshots,
   keyword_init: true
 )
 
 # Mcp entity data model.
 #
-# @!attribute [rw] capability
+# @!attribute [rw] capabilities
 #   @return [Array, nil]
 #
 # @!attribute [rw] server
@@ -229,7 +229,7 @@ DomainListMatch = Struct.new(
 # @!attribute [rw] version
 #   @return [String, nil]
 Mcp = Struct.new(
-  :capability,
+  :capabilities,
   :server,
   :version,
   keyword_init: true
@@ -237,7 +237,7 @@ Mcp = Struct.new(
 
 # Request payload for Mcp#list.
 #
-# @!attribute [rw] capability
+# @!attribute [rw] capabilities
 #   @return [Array, nil]
 #
 # @!attribute [rw] server
@@ -246,7 +246,7 @@ Mcp = Struct.new(
 # @!attribute [rw] version
 #   @return [String, nil]
 McpListMatch = Struct.new(
-  :capability,
+  :capabilities,
   :server,
   :version,
   keyword_init: true
@@ -272,7 +272,7 @@ McpListMatch = Struct.new(
 # @!attribute [rw] predicted_drop_date
 #   @return [String]
 #
-# @!attribute [rw] referring_domain
+# @!attribute [rw] referring_domains
 #   @return [Integer, nil]
 #
 # @!attribute [rw] score
@@ -290,7 +290,7 @@ PendingDelete = Struct.new(
   :id,
   :name,
   :predicted_drop_date,
-  :referring_domain,
+  :referring_domains,
   :score,
   :status,
   :tld,
@@ -317,7 +317,7 @@ PendingDelete = Struct.new(
 # @!attribute [rw] predicted_drop_date
 #   @return [String, nil]
 #
-# @!attribute [rw] referring_domain
+# @!attribute [rw] referring_domains
 #   @return [Integer, nil]
 #
 # @!attribute [rw] score
@@ -335,7 +335,7 @@ PendingDeleteListMatch = Struct.new(
   :id,
   :name,
   :predicted_drop_date,
-  :referring_domain,
+  :referring_domains,
   :score,
   :status,
   :tld,

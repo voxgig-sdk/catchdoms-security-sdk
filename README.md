@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CatchdomsSecuritySDK.test()
-const domains = await client.Domain().list()
-// domains is an array of bare Domain records populated with mock data
-console.log(domains)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CatchdomsSecuritySDK.test({
+  entity: {
+    mcp: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const mcps = await client.Mcp().list()
+// mcps is an array of Mcp entities, populated with mock data
+// — call mcps[0].data() for the record itself
+console.log(mcps)
 ```
 
 ### Python
 
 ```python
 client = CatchdomsSecuritySDK.test()
-domains = client.Domain().list()
-print(domains)
+mcps = client.Mcp().list()
+print(mcps)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(domains)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = CatchdomsSecuritySDK::test([
-    "entity" => ["domain" => ["test01" => []]],
+    "entity" => ["mcp" => ["test01" => []]],
 ]);
-$domains = $client->Domain()->list();
+$mcps = $client->Mcp()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Domain(nil).List(
+result, err := client.Mcp(nil).List(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.Domain(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = CatchdomsSecuritySDK.test({
-  "entity" => { "domain" => { "test01" => {} } },
+  "entity" => { "mcp" => { "test01" => {} } },
 })
-domains = client.Domain.list()
+mcps = client.Mcp.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Domain():list()
+local results, err = client:Mcp():list()
 ```
 
 ## Packages
@@ -112,7 +121,7 @@ const client = new CatchdomsSecuritySDK({
   apikey: process.env.CATCHDOMS_SECURITY_APIKEY,
 })
 
-// List all domains (returns Domain[])
+// List all domains (returns DomainEntity[] — .data() for the record)
 const domains = await client.Domain().list()
 for (const domain of domains) {
   console.log(domain)
@@ -358,6 +367,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://catchdoms.com/api](https://catchdoms.com/api)
 

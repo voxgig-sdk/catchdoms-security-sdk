@@ -21,7 +21,7 @@ class Domain
     public ?int $bids_count = null;
     public ?int $citation_flow = null;
     public ?int $domain_authority = null;
-    public ?int $edu_gov_backlink = null;
+    public ?int $edu_gov_backlinks = null;
     public ?float $effective_price = null;
     public ?bool $has_gmb = null;
     public int $id;
@@ -31,7 +31,7 @@ class Domain
     public ?int $pagerank = null;
     public ?float $price = null;
     public ?string $purchase_url = null;
-    public ?int $referring_domain = null;
+    public ?int $referring_domains = null;
     public int $score;
     public string $source;
     public string $tld;
@@ -39,7 +39,7 @@ class Domain
     public ?int $trust_flow = null;
     public ?string $type = null;
     public ?string $wayback_first_date = null;
-    public ?int $wayback_snapshot = null;
+    public ?int $wayback_snapshots = null;
 }
 
 /** Request payload for Domain#list. */
@@ -51,7 +51,7 @@ class DomainListMatch
     public ?int $bids_count = null;
     public ?int $citation_flow = null;
     public ?int $domain_authority = null;
-    public ?int $edu_gov_backlink = null;
+    public ?int $edu_gov_backlinks = null;
     public ?float $effective_price = null;
     public ?bool $has_gmb = null;
     public ?int $id = null;
@@ -61,7 +61,7 @@ class DomainListMatch
     public ?int $pagerank = null;
     public ?float $price = null;
     public ?string $purchase_url = null;
-    public ?int $referring_domain = null;
+    public ?int $referring_domains = null;
     public ?int $score = null;
     public ?string $source = null;
     public ?string $tld = null;
@@ -69,13 +69,13 @@ class DomainListMatch
     public ?int $trust_flow = null;
     public ?string $type = null;
     public ?string $wayback_first_date = null;
-    public ?int $wayback_snapshot = null;
+    public ?int $wayback_snapshots = null;
 }
 
 /** Mcp entity data model. */
 class Mcp
 {
-    public ?array $capability = null;
+    public ?array $capabilities = null;
     public ?string $server = null;
     public ?string $version = null;
 }
@@ -83,7 +83,7 @@ class Mcp
 /** Request payload for Mcp#list. */
 class McpListMatch
 {
-    public ?array $capability = null;
+    public ?array $capabilities = null;
     public ?string $server = null;
     public ?string $version = null;
 }
@@ -97,7 +97,7 @@ class PendingDelete
     public int $id;
     public string $name;
     public string $predicted_drop_date;
-    public ?int $referring_domain = null;
+    public ?int $referring_domains = null;
     public ?int $score = null;
     public string $status;
     public string $tld;
@@ -112,7 +112,7 @@ class PendingDeleteListMatch
     public ?int $id = null;
     public ?string $name = null;
     public ?string $predicted_drop_date = null;
-    public ?int $referring_domain = null;
+    public ?int $referring_domains = null;
     public ?int $score = null;
     public ?string $status = null;
     public ?string $tld = null;

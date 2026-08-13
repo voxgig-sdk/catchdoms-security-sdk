@@ -71,12 +71,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-domains, err := client.Domain(nil).List(nil, nil)
+mcps, err := client.Mcp(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = domains
+_ = mcps
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -140,13 +140,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-domain, err := client.Domain(nil).List(
+mcp, err := client.Mcp(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(domain) // the returned mock data
+fmt.Println(mcp) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -273,7 +273,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"bids_count"` |  |
 | `"citation_flow"` |  |
 | `"domain_authority"` |  |
-| `"edu_gov_backlink"` |  |
+| `"edu_gov_backlinks"` |  |
 | `"effective_price"` |  |
 | `"has_gmb"` |  |
 | `"id"` |  |
@@ -283,7 +283,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"pagerank"` |  |
 | `"price"` |  |
 | `"purchase_url"` |  |
-| `"referring_domain"` |  |
+| `"referring_domains"` |  |
 | `"score"` |  |
 | `"source"` |  |
 | `"tld"` |  |
@@ -291,7 +291,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"trust_flow"` |  |
 | `"type"` |  |
 | `"wayback_first_date"` |  |
-| `"wayback_snapshot"` |  |
+| `"wayback_snapshots"` |  |
 
 Operations: List.
 
@@ -301,7 +301,7 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `"capability"` |  |
+| `"capabilities"` |  |
 | `"server"` |  |
 | `"version"` |  |
 
@@ -319,7 +319,7 @@ API path: `/mcp/catchdoms`
 | `"id"` |  |
 | `"name"` |  |
 | `"predicted_drop_date"` |  |
-| `"referring_domain"` |  |
+| `"referring_domains"` |  |
 | `"score"` |  |
 | `"status"` |  |
 | `"tld"` |  |
@@ -353,7 +353,7 @@ Create an instance: `domain := client.Domain(nil)`
 | `bids_count` | `int` |  |
 | `citation_flow` | `int` |  |
 | `domain_authority` | `int` |  |
-| `edu_gov_backlink` | `int` |  |
+| `edu_gov_backlinks` | `int` |  |
 | `effective_price` | `float64` |  |
 | `has_gmb` | `bool` |  |
 | `id` | `int` |  |
@@ -363,7 +363,7 @@ Create an instance: `domain := client.Domain(nil)`
 | `pagerank` | `int` |  |
 | `price` | `float64` |  |
 | `purchase_url` | `string` |  |
-| `referring_domain` | `int` |  |
+| `referring_domains` | `int` |  |
 | `score` | `int` |  |
 | `source` | `string` |  |
 | `tld` | `string` |  |
@@ -371,7 +371,7 @@ Create an instance: `domain := client.Domain(nil)`
 | `trust_flow` | `int` |  |
 | `type` | `string` |  |
 | `wayback_first_date` | `string` |  |
-| `wayback_snapshot` | `int` |  |
+| `wayback_snapshots` | `int` |  |
 
 #### Example: List
 
@@ -398,7 +398,7 @@ Create an instance: `mcp := client.Mcp(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `capability` | `[]any` |  |
+| `capabilities` | `[]any` |  |
 | `server` | `string` |  |
 | `version` | `string` |  |
 
@@ -433,7 +433,7 @@ Create an instance: `pendingDelete := client.PendingDelete(nil)`
 | `id` | `int` |  |
 | `name` | `string` |  |
 | `predicted_drop_date` | `string` |  |
-| `referring_domain` | `int` |  |
+| `referring_domains` | `int` |  |
 | `score` | `int` |  |
 | `status` | `string` |  |
 | `tld` | `string` |  |
@@ -522,11 +522,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-domain := client.Domain(nil)
-domain.List(nil, nil)
+mcp := client.Mcp(nil)
+mcp.List(nil, nil)
 
-// domain.Data() now returns the domain data from the last list
-// domain.Match() returns the last match criteria
+// mcp.Data() now returns the mcp data from the last list
+// mcp.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

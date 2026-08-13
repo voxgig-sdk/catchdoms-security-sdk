@@ -23,8 +23,8 @@ module CatchdomsSecurityTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("CATCHDOMSSECURITY_TEST_LIVE")
-    override = getenv("CATCHDOMSSECURITY_TEST_OVERRIDE")
+    live = getenv("CATCHDOMS_SECURITY_TEST_LIVE")
+    override = getenv("CATCHDOMS_SECURITY_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module CatchdomsSecurityTestRunner
       end
     end
 
-    explain = getenv("CATCHDOMSSECURITY_TEST_EXPLAIN")
-    m["CATCHDOMSSECURITY_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("CATCHDOMS_SECURITY_TEST_EXPLAIN")
+    m["CATCHDOMS_SECURITY_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

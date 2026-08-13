@@ -113,7 +113,7 @@ fmt.Println(domain.GetName()) // "domain"
 | `bids_count` | `int` | No |  |
 | `citation_flow` | `int` | No |  |
 | `domain_authority` | `int` | No |  |
-| `edu_gov_backlink` | `int` | No |  |
+| `edu_gov_backlinks` | `int` | No |  |
 | `effective_price` | `float64` | No |  |
 | `has_gmb` | `bool` | No |  |
 | `id` | `int` | Yes |  |
@@ -123,7 +123,7 @@ fmt.Println(domain.GetName()) // "domain"
 | `pagerank` | `int` | No |  |
 | `price` | `float64` | No |  |
 | `purchase_url` | `string` | No |  |
-| `referring_domain` | `int` | No |  |
+| `referring_domains` | `int` | No |  |
 | `score` | `int` | Yes |  |
 | `source` | `string` | Yes |  |
 | `tld` | `string` | Yes |  |
@@ -131,7 +131,7 @@ fmt.Println(domain.GetName()) // "domain"
 | `trust_flow` | `int` | No |  |
 | `type` | `string` | No |  |
 | `wayback_first_date` | `string` | No |  |
-| `wayback_snapshot` | `int` | No |  |
+| `wayback_snapshots` | `int` | No |  |
 
 ### Operations
 
@@ -182,7 +182,7 @@ fmt.Println(mcp.GetName()) // "mcp"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `capability` | `[]any` | No |  |
+| `capabilities` | `[]any` | No |  |
 | `server` | `string` | No |  |
 | `version` | `string` | No |  |
 
@@ -241,7 +241,7 @@ fmt.Println(pendingDelete.GetName()) // "pending_delete"
 | `id` | `int` | Yes |  |
 | `name` | `string` | Yes |  |
 | `predicted_drop_date` | `string` | Yes |  |
-| `referring_domain` | `int` | No |  |
+| `referring_domains` | `int` | No |  |
 | `score` | `int` | No |  |
 | `status` | `string` | Yes |  |
 | `tld` | `string` | Yes |  |

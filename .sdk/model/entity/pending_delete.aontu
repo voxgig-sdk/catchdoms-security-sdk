@@ -36,7 +36,7 @@ main: kit: entity: pending_delete: {
       type: "`$STRING`"
     }
     {
-      name: "referring_domain"
+      name: "referring_domains"
       req: false
       type: "`$INTEGER`"
     }

@@ -56,7 +56,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local domains, err = client:Domain():list()
+local mcps, err = client:Mcp():list()
 if err then error(err) end
 ```
 
@@ -114,7 +114,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Domain():list()
+local result, err = client:Mcp():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -224,9 +224,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local domain, err = client:Domain():load()
+    local domain, err = client:Domain():list()
     if err then error(err) end
-    -- domain is the loaded record
+    -- domain is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -243,7 +243,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `bids_count` |  |
 | `citation_flow` |  |
 | `domain_authority` |  |
-| `edu_gov_backlink` |  |
+| `edu_gov_backlinks` |  |
 | `effective_price` |  |
 | `has_gmb` |  |
 | `id` |  |
@@ -253,7 +253,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `pagerank` |  |
 | `price` |  |
 | `purchase_url` |  |
-| `referring_domain` |  |
+| `referring_domains` |  |
 | `score` |  |
 | `source` |  |
 | `tld` |  |
@@ -261,7 +261,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `trust_flow` |  |
 | `type` |  |
 | `wayback_first_date` |  |
-| `wayback_snapshot` |  |
+| `wayback_snapshots` |  |
 
 Operations: List.
 
@@ -271,7 +271,7 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `capability` |  |
+| `capabilities` |  |
 | `server` |  |
 | `version` |  |
 
@@ -289,7 +289,7 @@ API path: `/mcp/catchdoms`
 | `id` |  |
 | `name` |  |
 | `predicted_drop_date` |  |
-| `referring_domain` |  |
+| `referring_domains` |  |
 | `score` |  |
 | `status` |  |
 | `tld` |  |
@@ -323,7 +323,7 @@ Create an instance: `local domain = client:Domain(nil)`
 | `bids_count` | `number` |  |
 | `citation_flow` | `number` |  |
 | `domain_authority` | `number` |  |
-| `edu_gov_backlink` | `number` |  |
+| `edu_gov_backlinks` | `number` |  |
 | `effective_price` | `number` |  |
 | `has_gmb` | `boolean` |  |
 | `id` | `number` |  |
@@ -333,7 +333,7 @@ Create an instance: `local domain = client:Domain(nil)`
 | `pagerank` | `number` |  |
 | `price` | `number` |  |
 | `purchase_url` | `string` |  |
-| `referring_domain` | `number` |  |
+| `referring_domains` | `number` |  |
 | `score` | `number` |  |
 | `source` | `string` |  |
 | `tld` | `string` |  |
@@ -341,7 +341,7 @@ Create an instance: `local domain = client:Domain(nil)`
 | `trust_flow` | `number` |  |
 | `type` | `string` |  |
 | `wayback_first_date` | `string` |  |
-| `wayback_snapshot` | `number` |  |
+| `wayback_snapshots` | `number` |  |
 
 #### Example: List
 
@@ -364,7 +364,7 @@ Create an instance: `local mcp = client:Mcp(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `capability` | `table` |  |
+| `capabilities` | `table` |  |
 | `server` | `string` |  |
 | `version` | `string` |  |
 
@@ -395,7 +395,7 @@ Create an instance: `local pending_delete = client:PendingDelete(nil)`
 | `id` | `number` |  |
 | `name` | `string` |  |
 | `predicted_drop_date` | `string` |  |
-| `referring_domain` | `number` |  |
+| `referring_domains` | `number` |  |
 | `score` | `number` |  |
 | `status` | `string` |  |
 | `tld` | `string` |  |
@@ -483,11 +483,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local domain = client:Domain()
-domain:list()
+local mcp = client:Mcp()
+mcp:list()
 
--- domain:data_get() now returns the domain data from the last list
--- domain:match_get() returns the last match criteria
+-- mcp:data_get() now returns the mcp data from the last list
+-- mcp:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

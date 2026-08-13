@@ -19,11 +19,15 @@ import {
 describe('PendingDeleteDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CATCHDOMSSECURITY_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CATCHDOMSSECURITY_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CATCHDOMS_SECURITY_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CATCHDOMS_SECURITY_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new CatchdomsSecuritySDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,19 +81,19 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'CATCHDOMSSECURITY_TEST_PENDING_DELETE_ENTID': {},
-    'CATCHDOMSSECURITY_TEST_LIVE': 'FALSE',
-    'CATCHDOMSSECURITY_APIKEY': 'NONE',
+    'CATCHDOMS_SECURITY_TEST_PENDING_DELETE_ENTID': {},
+    'CATCHDOMS_SECURITY_TEST_LIVE': 'FALSE',
+    'CATCHDOMS_SECURITY_APIKEY': 'NONE',
   })
 
-  const live = 'TRUE' === env.CATCHDOMSSECURITY_TEST_LIVE
+  const live = 'TRUE' === env.CATCHDOMS_SECURITY_TEST_LIVE
 
   if (live) {
     const client = new CatchdomsSecuritySDK({
-      apikey: env.CATCHDOMSSECURITY_APIKEY,
+      apikey: env.CATCHDOMS_SECURITY_APIKEY,
     })
 
-    let idmap: any = env['CATCHDOMSSECURITY_TEST_PENDING_DELETE_ENTID']
+    let idmap: any = env['CATCHDOMS_SECURITY_TEST_PENDING_DELETE_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

@@ -147,7 +147,7 @@ const domain = client.Domain()
 | `bids_count` | `number` | No |  |
 | `citation_flow` | `number` | No |  |
 | `domain_authority` | `number` | No |  |
-| `edu_gov_backlink` | `number` | No |  |
+| `edu_gov_backlinks` | `number` | No |  |
 | `effective_price` | `number` | No |  |
 | `has_gmb` | `boolean` | No |  |
 | `id` | `number` | Yes |  |
@@ -157,7 +157,7 @@ const domain = client.Domain()
 | `pagerank` | `number` | No |  |
 | `price` | `number` | No |  |
 | `purchase_url` | `string` | No |  |
-| `referring_domain` | `number` | No |  |
+| `referring_domains` | `number` | No |  |
 | `score` | `number` | Yes |  |
 | `source` | `string` | Yes |  |
 | `tld` | `string` | Yes |  |
@@ -165,7 +165,7 @@ const domain = client.Domain()
 | `trust_flow` | `number` | No |  |
 | `type` | `string` | No |  |
 | `wayback_first_date` | `string` | No |  |
-| `wayback_snapshot` | `number` | No |  |
+| `wayback_snapshots` | `number` | No |  |
 
 ### Operations
 
@@ -215,9 +215,29 @@ const mcp = client.Mcp()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `capability` | `any[]` | No |  |
+| `capabilities` | `any[]` | No |  |
 | `server` | `string` | No |  |
 | `version` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `catchdom` | `/mcp/catchdoms` | `client.Mcp().list({ $action: 'catchdom', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Mcp record — check the API definition for its shape.
+
+```ts
+const result = await client.Mcp().list({
+  $action: 'catchdom',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -273,7 +293,7 @@ const pending_delete = client.PendingDelete()
 | `id` | `number` | Yes |  |
 | `name` | `string` | Yes |  |
 | `predicted_drop_date` | `string` | Yes |  |
-| `referring_domain` | `number` | No |  |
+| `referring_domains` | `number` | No |  |
 | `score` | `number` | No |  |
 | `status` | `string` | Yes |  |
 | `tld` | `string` | Yes |  |

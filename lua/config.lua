@@ -73,7 +73,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "edu_gov_backlink",
+            ["name"] = "edu_gov_backlinks",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 6,
@@ -143,7 +143,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "referring_domain",
+            ["name"] = "referring_domains",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 16,
@@ -199,7 +199,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "wayback_snapshot",
+            ["name"] = "wayback_snapshots",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 24,
@@ -390,6 +390,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/domains",
                 ["parts"] = {
@@ -439,7 +440,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "capability",
+            ["name"] = "capabilities",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 0,
@@ -468,6 +469,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/mcp/catchdoms",
                 ["parts"] = {
@@ -479,7 +481,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.capabilities`",
                 },
                 ["index$"] = 0,
               },
@@ -537,7 +539,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "referring_domain",
+            ["name"] = "referring_domains",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 6,
@@ -626,6 +628,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/pending-delete",
                 ["parts"] = {

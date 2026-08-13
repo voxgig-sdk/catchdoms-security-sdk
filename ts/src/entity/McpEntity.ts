@@ -37,7 +37,7 @@ class McpEntity extends CatchdomsSecurityEntityBase<Mcp> {
 
 
 
-  async list(this: any, reqmatch?: McpListMatch, ctrl?: Control): Promise<Mcp[]> {
+  async list(this: any, reqmatch?: McpListMatch, ctrl?: Control): Promise<McpEntity[]> {
 
     const utility = this._utility
 
