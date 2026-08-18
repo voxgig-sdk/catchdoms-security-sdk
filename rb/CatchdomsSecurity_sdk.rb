@@ -28,7 +28,7 @@ class CatchdomsSecuritySDK
     utility = CatchdomsSecurityUtility.new
     @_utility = utility
 
-    config = CatchdomsSecurityConfig.make_config
+    config = CatchdomsSecurityConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
