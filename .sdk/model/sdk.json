@@ -36,150 +36,175 @@
               "active": true,
               "name": "age",
               "req": false,
+              "short": "Years since first Wayback snapshot",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "auction_end_date",
               "req": false,
+              "short": "Auction end date and time (ISO 8601)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "backlinks_count",
               "req": false,
+              "short": "Total number of backlinks",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "bids_count",
               "req": false,
+              "short": "Number of bids",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "citation_flow",
               "req": false,
+              "short": "Majestic Citation Flow score (0-100)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "domain_authority",
               "req": false,
+              "short": "Moz Domain Authority score (0-100)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "edu_gov_backlinks",
               "req": false,
+              "short": "Number of EDU/GOV backlinks",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "effective_price",
               "req": false,
+              "short": "Effective price (max_bid or price) in EUR",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "has_gmb",
               "req": false,
+              "short": "Has active Google Business Profile",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique domain identifier",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "language",
               "req": false,
+              "short": "Detected content language (e.g., EN, FR, DE)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "max_bid",
               "req": false,
+              "short": "Current highest bid in EUR",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Domain name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "pagerank",
               "req": false,
+              "short": "Historical PageRank value",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "price",
               "req": false,
+              "short": "Starting price or buy-now price in EUR",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "purchase_url",
               "req": false,
+              "short": "Direct URL to purchase or bid on the domain",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "referring_domains",
               "req": false,
+              "short": "Number of unique referring domains",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "score",
               "req": true,
+              "short": "CatchDoms quality score (0-100)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "source",
               "req": true,
+              "short": "Platform source (e.g., godaddy, dropcatch, regfree)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "tld",
               "req": true,
+              "short": "Top-level domain extension",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "topical_trust_flow",
               "req": false,
+              "short": "Majestic Topical Trust Flow category",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "trust_flow",
               "req": false,
+              "short": "Majestic Trust Flow score (0-100)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Domain listing type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "wayback_first_date",
               "req": false,
+              "short": "Date of first Wayback snapshot",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "wayback_snapshots",
               "req": false,
+              "short": "Number of Wayback Machine snapshots",
               "type": "`$INTEGER`"
             }
           ],
@@ -482,60 +507,70 @@
               "active": true,
               "name": "age",
               "req": false,
+              "short": "Years since first Wayback snapshot",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "backlinks_count",
               "req": false,
+              "short": "Total number of backlinks",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "days_until_drop",
               "req": false,
+              "short": "Days until predicted drop date",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique domain identifier",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Domain name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "predicted_drop_date",
               "req": true,
+              "short": "Predicted drop date (YYYY-MM-DD)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "referring_domains",
               "req": false,
+              "short": "Number of unique referring domains",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "score",
               "req": false,
+              "short": "CatchDoms quality score (0-100)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "status",
               "req": true,
+              "short": "Current domain status",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "tld",
               "req": true,
+              "short": "Top-level domain extension",
               "type": "`$STRING`"
             }
           ],

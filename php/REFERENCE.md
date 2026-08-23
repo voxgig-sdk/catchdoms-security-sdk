@@ -101,31 +101,31 @@ $domain = $client->Domain();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `age` | `int` | No |  |
-| `auction_end_date` | `string` | No |  |
-| `backlinks_count` | `int` | No |  |
-| `bids_count` | `int` | No |  |
-| `citation_flow` | `int` | No |  |
-| `domain_authority` | `int` | No |  |
-| `edu_gov_backlinks` | `int` | No |  |
-| `effective_price` | `float` | No |  |
-| `has_gmb` | `bool` | No |  |
-| `id` | `int` | Yes |  |
-| `language` | `string` | No |  |
-| `max_bid` | `float` | No |  |
-| `name` | `string` | Yes |  |
-| `pagerank` | `int` | No |  |
-| `price` | `float` | No |  |
-| `purchase_url` | `string` | No |  |
-| `referring_domains` | `int` | No |  |
-| `score` | `int` | Yes |  |
-| `source` | `string` | Yes |  |
-| `tld` | `string` | Yes |  |
-| `topical_trust_flow` | `string` | No |  |
-| `trust_flow` | `int` | No |  |
-| `type` | `string` | No |  |
-| `wayback_first_date` | `string` | No |  |
-| `wayback_snapshots` | `int` | No |  |
+| `age` | `int` | No | Years since first Wayback snapshot |
+| `auction_end_date` | `string` | No | Auction end date and time (ISO 8601) |
+| `backlinks_count` | `int` | No | Total number of backlinks |
+| `bids_count` | `int` | No | Number of bids |
+| `citation_flow` | `int` | No | Majestic Citation Flow score (0-100) |
+| `domain_authority` | `int` | No | Moz Domain Authority score (0-100) |
+| `edu_gov_backlinks` | `int` | No | Number of EDU/GOV backlinks |
+| `effective_price` | `float` | No | Effective price (max_bid or price) in EUR |
+| `has_gmb` | `bool` | No | Has active Google Business Profile |
+| `id` | `int` | Yes | Unique domain identifier |
+| `language` | `string` | No | Detected content language (e.g., EN, FR, DE) |
+| `max_bid` | `float` | No | Current highest bid in EUR |
+| `name` | `string` | Yes | Domain name |
+| `pagerank` | `int` | No | Historical PageRank value |
+| `price` | `float` | No | Starting price or buy-now price in EUR |
+| `purchase_url` | `string` | No | Direct URL to purchase or bid on the domain |
+| `referring_domains` | `int` | No | Number of unique referring domains |
+| `score` | `int` | Yes | CatchDoms quality score (0-100) |
+| `source` | `string` | Yes | Platform source (e.g., godaddy, dropcatch, regfree) |
+| `tld` | `string` | Yes | Top-level domain extension |
+| `topical_trust_flow` | `string` | No | Majestic Topical Trust Flow category |
+| `trust_flow` | `int` | No | Majestic Trust Flow score (0-100) |
+| `type` | `string` | No | Domain listing type |
+| `wayback_first_date` | `string` | No | Date of first Wayback snapshot |
+| `wayback_snapshots` | `int` | No | Number of Wayback Machine snapshots |
 
 ### Operations
 
@@ -231,16 +231,16 @@ $pending_delete = $client->PendingDelete();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `age` | `int` | No |  |
-| `backlinks_count` | `int` | No |  |
-| `days_until_drop` | `int` | No |  |
-| `id` | `int` | Yes |  |
-| `name` | `string` | Yes |  |
-| `predicted_drop_date` | `string` | Yes |  |
-| `referring_domains` | `int` | No |  |
-| `score` | `int` | No |  |
-| `status` | `string` | Yes |  |
-| `tld` | `string` | Yes |  |
+| `age` | `int` | No | Years since first Wayback snapshot |
+| `backlinks_count` | `int` | No | Total number of backlinks |
+| `days_until_drop` | `int` | No | Days until predicted drop date |
+| `id` | `int` | Yes | Unique domain identifier |
+| `name` | `string` | Yes | Domain name |
+| `predicted_drop_date` | `string` | Yes | Predicted drop date (YYYY-MM-DD) |
+| `referring_domains` | `int` | No | Number of unique referring domains |
+| `score` | `int` | No | CatchDoms quality score (0-100) |
+| `status` | `string` | Yes | Current domain status |
+| `tld` | `string` | Yes | Top-level domain extension |
 
 ### Operations
 

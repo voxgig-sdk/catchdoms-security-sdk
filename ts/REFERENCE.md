@@ -141,31 +141,31 @@ const domain = client.Domain()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `age` | `number` | No |  |
-| `auction_end_date` | `string` | No |  |
-| `backlinks_count` | `number` | No |  |
-| `bids_count` | `number` | No |  |
-| `citation_flow` | `number` | No |  |
-| `domain_authority` | `number` | No |  |
-| `edu_gov_backlinks` | `number` | No |  |
-| `effective_price` | `number` | No |  |
-| `has_gmb` | `boolean` | No |  |
-| `id` | `number` | Yes |  |
-| `language` | `string` | No |  |
-| `max_bid` | `number` | No |  |
-| `name` | `string` | Yes |  |
-| `pagerank` | `number` | No |  |
-| `price` | `number` | No |  |
-| `purchase_url` | `string` | No |  |
-| `referring_domains` | `number` | No |  |
-| `score` | `number` | Yes |  |
-| `source` | `string` | Yes |  |
-| `tld` | `string` | Yes |  |
-| `topical_trust_flow` | `string` | No |  |
-| `trust_flow` | `number` | No |  |
-| `type` | `string` | No |  |
-| `wayback_first_date` | `string` | No |  |
-| `wayback_snapshots` | `number` | No |  |
+| `age` | `number` | No | Years since first Wayback snapshot |
+| `auction_end_date` | `string` | No | Auction end date and time (ISO 8601) |
+| `backlinks_count` | `number` | No | Total number of backlinks |
+| `bids_count` | `number` | No | Number of bids |
+| `citation_flow` | `number` | No | Majestic Citation Flow score (0-100) |
+| `domain_authority` | `number` | No | Moz Domain Authority score (0-100) |
+| `edu_gov_backlinks` | `number` | No | Number of EDU/GOV backlinks |
+| `effective_price` | `number` | No | Effective price (max_bid or price) in EUR |
+| `has_gmb` | `boolean` | No | Has active Google Business Profile |
+| `id` | `number` | Yes | Unique domain identifier |
+| `language` | `string` | No | Detected content language (e.g., EN, FR, DE) |
+| `max_bid` | `number` | No | Current highest bid in EUR |
+| `name` | `string` | Yes | Domain name |
+| `pagerank` | `number` | No | Historical PageRank value |
+| `price` | `number` | No | Starting price or buy-now price in EUR |
+| `purchase_url` | `string` | No | Direct URL to purchase or bid on the domain |
+| `referring_domains` | `number` | No | Number of unique referring domains |
+| `score` | `number` | Yes | CatchDoms quality score (0-100) |
+| `source` | `string` | Yes | Platform source (e.g., godaddy, dropcatch, regfree) |
+| `tld` | `string` | Yes | Top-level domain extension |
+| `topical_trust_flow` | `string` | No | Majestic Topical Trust Flow category |
+| `trust_flow` | `number` | No | Majestic Trust Flow score (0-100) |
+| `type` | `string` | No | Domain listing type |
+| `wayback_first_date` | `string` | No | Date of first Wayback snapshot |
+| `wayback_snapshots` | `number` | No | Number of Wayback Machine snapshots |
 
 ### Operations
 
@@ -287,16 +287,16 @@ const pending_delete = client.PendingDelete()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `age` | `number` | No |  |
-| `backlinks_count` | `number` | No |  |
-| `days_until_drop` | `number` | No |  |
-| `id` | `number` | Yes |  |
-| `name` | `string` | Yes |  |
-| `predicted_drop_date` | `string` | Yes |  |
-| `referring_domains` | `number` | No |  |
-| `score` | `number` | No |  |
-| `status` | `string` | Yes |  |
-| `tld` | `string` | Yes |  |
+| `age` | `number` | No | Years since first Wayback snapshot |
+| `backlinks_count` | `number` | No | Total number of backlinks |
+| `days_until_drop` | `number` | No | Days until predicted drop date |
+| `id` | `number` | Yes | Unique domain identifier |
+| `name` | `string` | Yes | Domain name |
+| `predicted_drop_date` | `string` | Yes | Predicted drop date (YYYY-MM-DD) |
+| `referring_domains` | `number` | No | Number of unique referring domains |
+| `score` | `number` | No | CatchDoms quality score (0-100) |
+| `status` | `string` | Yes | Current domain status |
+| `tld` | `string` | Yes | Top-level domain extension |
 
 ### Operations
 

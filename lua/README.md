@@ -237,31 +237,31 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `age` |  |
-| `auction_end_date` |  |
-| `backlinks_count` |  |
-| `bids_count` |  |
-| `citation_flow` |  |
-| `domain_authority` |  |
-| `edu_gov_backlinks` |  |
-| `effective_price` |  |
-| `has_gmb` |  |
-| `id` |  |
-| `language` |  |
-| `max_bid` |  |
-| `name` |  |
-| `pagerank` |  |
-| `price` |  |
-| `purchase_url` |  |
-| `referring_domains` |  |
-| `score` |  |
-| `source` |  |
-| `tld` |  |
-| `topical_trust_flow` |  |
-| `trust_flow` |  |
-| `type` |  |
-| `wayback_first_date` |  |
-| `wayback_snapshots` |  |
+| `age` | Years since first Wayback snapshot |
+| `auction_end_date` | Auction end date and time (ISO 8601) |
+| `backlinks_count` | Total number of backlinks |
+| `bids_count` | Number of bids |
+| `citation_flow` | Majestic Citation Flow score (0-100) |
+| `domain_authority` | Moz Domain Authority score (0-100) |
+| `edu_gov_backlinks` | Number of EDU/GOV backlinks |
+| `effective_price` | Effective price (max_bid or price) in EUR |
+| `has_gmb` | Has active Google Business Profile |
+| `id` | Unique domain identifier |
+| `language` | Detected content language (e.g., EN, FR, DE) |
+| `max_bid` | Current highest bid in EUR |
+| `name` | Domain name |
+| `pagerank` | Historical PageRank value |
+| `price` | Starting price or buy-now price in EUR |
+| `purchase_url` | Direct URL to purchase or bid on the domain |
+| `referring_domains` | Number of unique referring domains |
+| `score` | CatchDoms quality score (0-100) |
+| `source` | Platform source (e.g., godaddy, dropcatch, regfree) |
+| `tld` | Top-level domain extension |
+| `topical_trust_flow` | Majestic Topical Trust Flow category |
+| `trust_flow` | Majestic Trust Flow score (0-100) |
+| `type` | Domain listing type |
+| `wayback_first_date` | Date of first Wayback snapshot |
+| `wayback_snapshots` | Number of Wayback Machine snapshots |
 
 Operations: List.
 
@@ -283,16 +283,16 @@ API path: `/mcp/catchdoms`
 
 | Field | Description |
 | --- | --- |
-| `age` |  |
-| `backlinks_count` |  |
-| `days_until_drop` |  |
-| `id` |  |
-| `name` |  |
-| `predicted_drop_date` |  |
-| `referring_domains` |  |
-| `score` |  |
-| `status` |  |
-| `tld` |  |
+| `age` | Years since first Wayback snapshot |
+| `backlinks_count` | Total number of backlinks |
+| `days_until_drop` | Days until predicted drop date |
+| `id` | Unique domain identifier |
+| `name` | Domain name |
+| `predicted_drop_date` | Predicted drop date (YYYY-MM-DD) |
+| `referring_domains` | Number of unique referring domains |
+| `score` | CatchDoms quality score (0-100) |
+| `status` | Current domain status |
+| `tld` | Top-level domain extension |
 
 Operations: List.
 
@@ -317,31 +317,31 @@ Create an instance: `local domain = client:Domain(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `age` | `number` |  |
-| `auction_end_date` | `string` |  |
-| `backlinks_count` | `number` |  |
-| `bids_count` | `number` |  |
-| `citation_flow` | `number` |  |
-| `domain_authority` | `number` |  |
-| `edu_gov_backlinks` | `number` |  |
-| `effective_price` | `number` |  |
-| `has_gmb` | `boolean` |  |
-| `id` | `number` |  |
-| `language` | `string` |  |
-| `max_bid` | `number` |  |
-| `name` | `string` |  |
-| `pagerank` | `number` |  |
-| `price` | `number` |  |
-| `purchase_url` | `string` |  |
-| `referring_domains` | `number` |  |
-| `score` | `number` |  |
-| `source` | `string` |  |
-| `tld` | `string` |  |
-| `topical_trust_flow` | `string` |  |
-| `trust_flow` | `number` |  |
-| `type` | `string` |  |
-| `wayback_first_date` | `string` |  |
-| `wayback_snapshots` | `number` |  |
+| `age` | `number` | Years since first Wayback snapshot |
+| `auction_end_date` | `string` | Auction end date and time (ISO 8601) |
+| `backlinks_count` | `number` | Total number of backlinks |
+| `bids_count` | `number` | Number of bids |
+| `citation_flow` | `number` | Majestic Citation Flow score (0-100) |
+| `domain_authority` | `number` | Moz Domain Authority score (0-100) |
+| `edu_gov_backlinks` | `number` | Number of EDU/GOV backlinks |
+| `effective_price` | `number` | Effective price (max_bid or price) in EUR |
+| `has_gmb` | `boolean` | Has active Google Business Profile |
+| `id` | `number` | Unique domain identifier |
+| `language` | `string` | Detected content language (e.g., EN, FR, DE) |
+| `max_bid` | `number` | Current highest bid in EUR |
+| `name` | `string` | Domain name |
+| `pagerank` | `number` | Historical PageRank value |
+| `price` | `number` | Starting price or buy-now price in EUR |
+| `purchase_url` | `string` | Direct URL to purchase or bid on the domain |
+| `referring_domains` | `number` | Number of unique referring domains |
+| `score` | `number` | CatchDoms quality score (0-100) |
+| `source` | `string` | Platform source (e.g., godaddy, dropcatch, regfree) |
+| `tld` | `string` | Top-level domain extension |
+| `topical_trust_flow` | `string` | Majestic Topical Trust Flow category |
+| `trust_flow` | `number` | Majestic Trust Flow score (0-100) |
+| `type` | `string` | Domain listing type |
+| `wayback_first_date` | `string` | Date of first Wayback snapshot |
+| `wayback_snapshots` | `number` | Number of Wayback Machine snapshots |
 
 #### Example: List
 
@@ -389,16 +389,16 @@ Create an instance: `local pending_delete = client:PendingDelete(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `age` | `number` |  |
-| `backlinks_count` | `number` |  |
-| `days_until_drop` | `number` |  |
-| `id` | `number` |  |
-| `name` | `string` |  |
-| `predicted_drop_date` | `string` |  |
-| `referring_domains` | `number` |  |
-| `score` | `number` |  |
-| `status` | `string` |  |
-| `tld` | `string` |  |
+| `age` | `number` | Years since first Wayback snapshot |
+| `backlinks_count` | `number` | Total number of backlinks |
+| `days_until_drop` | `number` | Days until predicted drop date |
+| `id` | `number` | Unique domain identifier |
+| `name` | `string` | Domain name |
+| `predicted_drop_date` | `string` | Predicted drop date (YYYY-MM-DD) |
+| `referring_domains` | `number` | Number of unique referring domains |
+| `score` | `number` | CatchDoms quality score (0-100) |
+| `status` | `string` | Current domain status |
+| `tld` | `string` | Top-level domain extension |
 
 #### Example: List
 

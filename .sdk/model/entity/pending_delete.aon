@@ -8,51 +8,61 @@ main: kit: entity: pending_delete: {
     {
       name: "age"
       req: false
+      short: "Years since first Wayback snapshot"
       type: "`$INTEGER`"
     }
     {
       name: "backlinks_count"
       req: false
+      short: "Total number of backlinks"
       type: "`$INTEGER`"
     }
     {
       name: "days_until_drop"
       req: false
+      short: "Days until predicted drop date"
       type: "`$INTEGER`"
     }
     {
       name: "id"
       req: true
+      short: "Unique domain identifier"
       type: "`$INTEGER`"
     }
     {
       name: "name"
       req: true
+      short: "Domain name"
       type: "`$STRING`"
     }
     {
       name: "predicted_drop_date"
       req: true
+      short: "Predicted drop date (YYYY-MM-DD)"
       type: "`$STRING`"
     }
     {
       name: "referring_domains"
       req: false
+      short: "Number of unique referring domains"
       type: "`$INTEGER`"
     }
     {
       name: "score"
       req: false
+      short: "CatchDoms quality score (0-100)"
       type: "`$INTEGER`"
     }
     {
       name: "status"
       req: true
+      short: "Current domain status"
       type: "`$STRING`"
     }
     {
       name: "tld"
       req: true
+      short: "Top-level domain extension"
       type: "`$STRING`"
     }
   ]

@@ -8,126 +8,151 @@ main: kit: entity: domain: {
     {
       name: "age"
       req: false
+      short: "Years since first Wayback snapshot"
       type: "`$INTEGER`"
     }
     {
       name: "auction_end_date"
       req: false
+      short: "Auction end date and time (ISO 8601)"
       type: "`$STRING`"
     }
     {
       name: "backlinks_count"
       req: false
+      short: "Total number of backlinks"
       type: "`$INTEGER`"
     }
     {
       name: "bids_count"
       req: false
+      short: "Number of bids"
       type: "`$INTEGER`"
     }
     {
       name: "citation_flow"
       req: false
+      short: "Majestic Citation Flow score (0-100)"
       type: "`$INTEGER`"
     }
     {
       name: "domain_authority"
       req: false
+      short: "Moz Domain Authority score (0-100)"
       type: "`$INTEGER`"
     }
     {
       name: "edu_gov_backlinks"
       req: false
+      short: "Number of EDU/GOV backlinks"
       type: "`$INTEGER`"
     }
     {
       name: "effective_price"
       req: false
+      short: "Effective price (max_bid or price) in EUR"
       type: "`$NUMBER`"
     }
     {
       name: "has_gmb"
       req: false
+      short: "Has active Google Business Profile"
       type: "`$BOOLEAN`"
     }
     {
       name: "id"
       req: true
+      short: "Unique domain identifier"
       type: "`$INTEGER`"
     }
     {
       name: "language"
       req: false
+      short: "Detected content language (e.g., EN, FR, DE)"
       type: "`$STRING`"
     }
     {
       name: "max_bid"
       req: false
+      short: "Current highest bid in EUR"
       type: "`$NUMBER`"
     }
     {
       name: "name"
       req: true
+      short: "Domain name"
       type: "`$STRING`"
     }
     {
       name: "pagerank"
       req: false
+      short: "Historical PageRank value"
       type: "`$INTEGER`"
     }
     {
       name: "price"
       req: false
+      short: "Starting price or buy-now price in EUR"
       type: "`$NUMBER`"
     }
     {
       name: "purchase_url"
       req: false
+      short: "Direct URL to purchase or bid on the domain"
       type: "`$STRING`"
     }
     {
       name: "referring_domains"
       req: false
+      short: "Number of unique referring domains"
       type: "`$INTEGER`"
     }
     {
       name: "score"
       req: true
+      short: "CatchDoms quality score (0-100)"
       type: "`$INTEGER`"
     }
     {
       name: "source"
       req: true
+      short: "Platform source (e.g., godaddy, dropcatch, regfree)"
       type: "`$STRING`"
     }
     {
       name: "tld"
       req: true
+      short: "Top-level domain extension"
       type: "`$STRING`"
     }
     {
       name: "topical_trust_flow"
       req: false
+      short: "Majestic Topical Trust Flow category"
       type: "`$STRING`"
     }
     {
       name: "trust_flow"
       req: false
+      short: "Majestic Trust Flow score (0-100)"
       type: "`$INTEGER`"
     }
     {
       name: "type"
       req: false
+      short: "Domain listing type"
       type: "`$STRING`"
     }
     {
       name: "wayback_first_date"
       req: false
+      short: "Date of first Wayback snapshot"
       type: "`$STRING`"
     }
     {
       name: "wayback_snapshots"
       req: false
+      short: "Number of Wayback Machine snapshots"
       type: "`$INTEGER`"
     }
   ]

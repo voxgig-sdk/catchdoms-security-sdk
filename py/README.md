@@ -250,31 +250,31 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `age` |  |
-| `auction_end_date` |  |
-| `backlinks_count` |  |
-| `bids_count` |  |
-| `citation_flow` |  |
-| `domain_authority` |  |
-| `edu_gov_backlinks` |  |
-| `effective_price` |  |
-| `has_gmb` |  |
-| `id` |  |
-| `language` |  |
-| `max_bid` |  |
-| `name` |  |
-| `pagerank` |  |
-| `price` |  |
-| `purchase_url` |  |
-| `referring_domains` |  |
-| `score` |  |
-| `source` |  |
-| `tld` |  |
-| `topical_trust_flow` |  |
-| `trust_flow` |  |
-| `type` |  |
-| `wayback_first_date` |  |
-| `wayback_snapshots` |  |
+| `age` | Years since first Wayback snapshot |
+| `auction_end_date` | Auction end date and time (ISO 8601) |
+| `backlinks_count` | Total number of backlinks |
+| `bids_count` | Number of bids |
+| `citation_flow` | Majestic Citation Flow score (0-100) |
+| `domain_authority` | Moz Domain Authority score (0-100) |
+| `edu_gov_backlinks` | Number of EDU/GOV backlinks |
+| `effective_price` | Effective price (max_bid or price) in EUR |
+| `has_gmb` | Has active Google Business Profile |
+| `id` | Unique domain identifier |
+| `language` | Detected content language (e.g., EN, FR, DE) |
+| `max_bid` | Current highest bid in EUR |
+| `name` | Domain name |
+| `pagerank` | Historical PageRank value |
+| `price` | Starting price or buy-now price in EUR |
+| `purchase_url` | Direct URL to purchase or bid on the domain |
+| `referring_domains` | Number of unique referring domains |
+| `score` | CatchDoms quality score (0-100) |
+| `source` | Platform source (e.g., godaddy, dropcatch, regfree) |
+| `tld` | Top-level domain extension |
+| `topical_trust_flow` | Majestic Topical Trust Flow category |
+| `trust_flow` | Majestic Trust Flow score (0-100) |
+| `type` | Domain listing type |
+| `wayback_first_date` | Date of first Wayback snapshot |
+| `wayback_snapshots` | Number of Wayback Machine snapshots |
 
 Operations: List.
 
@@ -296,16 +296,16 @@ API path: `/mcp/catchdoms`
 
 | Field | Description |
 | --- | --- |
-| `age` |  |
-| `backlinks_count` |  |
-| `days_until_drop` |  |
-| `id` |  |
-| `name` |  |
-| `predicted_drop_date` |  |
-| `referring_domains` |  |
-| `score` |  |
-| `status` |  |
-| `tld` |  |
+| `age` | Years since first Wayback snapshot |
+| `backlinks_count` | Total number of backlinks |
+| `days_until_drop` | Days until predicted drop date |
+| `id` | Unique domain identifier |
+| `name` | Domain name |
+| `predicted_drop_date` | Predicted drop date (YYYY-MM-DD) |
+| `referring_domains` | Number of unique referring domains |
+| `score` | CatchDoms quality score (0-100) |
+| `status` | Current domain status |
+| `tld` | Top-level domain extension |
 
 Operations: List.
 
@@ -330,31 +330,31 @@ Create an instance: `domain = client.Domain()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `age` | `int` |  |
-| `auction_end_date` | `str` |  |
-| `backlinks_count` | `int` |  |
-| `bids_count` | `int` |  |
-| `citation_flow` | `int` |  |
-| `domain_authority` | `int` |  |
-| `edu_gov_backlinks` | `int` |  |
-| `effective_price` | `float` |  |
-| `has_gmb` | `bool` |  |
-| `id` | `int` |  |
-| `language` | `str` |  |
-| `max_bid` | `float` |  |
-| `name` | `str` |  |
-| `pagerank` | `int` |  |
-| `price` | `float` |  |
-| `purchase_url` | `str` |  |
-| `referring_domains` | `int` |  |
-| `score` | `int` |  |
-| `source` | `str` |  |
-| `tld` | `str` |  |
-| `topical_trust_flow` | `str` |  |
-| `trust_flow` | `int` |  |
-| `type` | `str` |  |
-| `wayback_first_date` | `str` |  |
-| `wayback_snapshots` | `int` |  |
+| `age` | `int` | Years since first Wayback snapshot |
+| `auction_end_date` | `str` | Auction end date and time (ISO 8601) |
+| `backlinks_count` | `int` | Total number of backlinks |
+| `bids_count` | `int` | Number of bids |
+| `citation_flow` | `int` | Majestic Citation Flow score (0-100) |
+| `domain_authority` | `int` | Moz Domain Authority score (0-100) |
+| `edu_gov_backlinks` | `int` | Number of EDU/GOV backlinks |
+| `effective_price` | `float` | Effective price (max_bid or price) in EUR |
+| `has_gmb` | `bool` | Has active Google Business Profile |
+| `id` | `int` | Unique domain identifier |
+| `language` | `str` | Detected content language (e.g., EN, FR, DE) |
+| `max_bid` | `float` | Current highest bid in EUR |
+| `name` | `str` | Domain name |
+| `pagerank` | `int` | Historical PageRank value |
+| `price` | `float` | Starting price or buy-now price in EUR |
+| `purchase_url` | `str` | Direct URL to purchase or bid on the domain |
+| `referring_domains` | `int` | Number of unique referring domains |
+| `score` | `int` | CatchDoms quality score (0-100) |
+| `source` | `str` | Platform source (e.g., godaddy, dropcatch, regfree) |
+| `tld` | `str` | Top-level domain extension |
+| `topical_trust_flow` | `str` | Majestic Topical Trust Flow category |
+| `trust_flow` | `int` | Majestic Trust Flow score (0-100) |
+| `type` | `str` | Domain listing type |
+| `wayback_first_date` | `str` | Date of first Wayback snapshot |
+| `wayback_snapshots` | `int` | Number of Wayback Machine snapshots |
 
 #### Example: List
 
@@ -402,16 +402,16 @@ Create an instance: `pending_delete = client.PendingDelete()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `age` | `int` |  |
-| `backlinks_count` | `int` |  |
-| `days_until_drop` | `int` |  |
-| `id` | `int` |  |
-| `name` | `str` |  |
-| `predicted_drop_date` | `str` |  |
-| `referring_domains` | `int` |  |
-| `score` | `int` |  |
-| `status` | `str` |  |
-| `tld` | `str` |  |
+| `age` | `int` | Years since first Wayback snapshot |
+| `backlinks_count` | `int` | Total number of backlinks |
+| `days_until_drop` | `int` | Days until predicted drop date |
+| `id` | `int` | Unique domain identifier |
+| `name` | `str` | Domain name |
+| `predicted_drop_date` | `str` | Predicted drop date (YYYY-MM-DD) |
+| `referring_domains` | `int` | Number of unique referring domains |
+| `score` | `int` | CatchDoms quality score (0-100) |
+| `status` | `str` | Current domain status |
+| `tld` | `str` | Top-level domain extension |
 
 #### Example: List
 

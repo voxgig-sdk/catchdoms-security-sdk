@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "CatchdomsSecurity",
+			"slug": "catchdoms-security",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -38,107 +41,132 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "age",
+						"short": "Years since first Wayback snapshot",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "auction_end_date",
+						"short": "Auction end date and time (ISO 8601)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "backlinks_count",
+						"short": "Total number of backlinks",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "bids_count",
+						"short": "Number of bids",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "citation_flow",
+						"short": "Majestic Citation Flow score (0-100)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "domain_authority",
+						"short": "Moz Domain Authority score (0-100)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "edu_gov_backlinks",
+						"short": "Number of EDU/GOV backlinks",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "effective_price",
+						"short": "Effective price (max_bid or price) in EUR",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "has_gmb",
+						"short": "Has active Google Business Profile",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique domain identifier",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "language",
+						"short": "Detected content language (e.g., EN, FR, DE)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "max_bid",
+						"short": "Current highest bid in EUR",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "name",
 						"req": true,
+						"short": "Domain name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "pagerank",
+						"short": "Historical PageRank value",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "price",
+						"short": "Starting price or buy-now price in EUR",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "purchase_url",
+						"short": "Direct URL to purchase or bid on the domain",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "referring_domains",
+						"short": "Number of unique referring domains",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "score",
 						"req": true,
+						"short": "CatchDoms quality score (0-100)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "source",
 						"req": true,
+						"short": "Platform source (e.g., godaddy, dropcatch, regfree)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tld",
 						"req": true,
+						"short": "Top-level domain extension",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "topical_trust_flow",
+						"short": "Majestic Topical Trust Flow category",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "trust_flow",
+						"short": "Majestic Trust Flow score (0-100)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Domain listing type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "wayback_first_date",
+						"short": "Date of first Wayback snapshot",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "wayback_snapshots",
+						"short": "Number of Wayback Machine snapshots",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -377,47 +405,57 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "age",
+						"short": "Years since first Wayback snapshot",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "backlinks_count",
+						"short": "Total number of backlinks",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "days_until_drop",
+						"short": "Days until predicted drop date",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique domain identifier",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "name",
 						"req": true,
+						"short": "Domain name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "predicted_drop_date",
 						"req": true,
+						"short": "Predicted drop date (YYYY-MM-DD)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "referring_domains",
+						"short": "Number of unique referring domains",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "score",
+						"short": "CatchDoms quality score (0-100)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "status",
 						"req": true,
+						"short": "Current domain status",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tld",
 						"req": true,
+						"short": "Top-level domain extension",
 						"type": "`$STRING`",
 					},
 				},

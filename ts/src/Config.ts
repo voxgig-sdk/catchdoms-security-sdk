@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'CatchdomsSecurity',
+        slug: "catchdoms-security",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -66,107 +77,132 @@ class Config {
       "fields": [
         {
           "name": "age",
+          "short": "Years since first Wayback snapshot",
           "type": "`$INTEGER`"
         },
         {
           "name": "auction_end_date",
+          "short": "Auction end date and time (ISO 8601)",
           "type": "`$STRING`"
         },
         {
           "name": "backlinks_count",
+          "short": "Total number of backlinks",
           "type": "`$INTEGER`"
         },
         {
           "name": "bids_count",
+          "short": "Number of bids",
           "type": "`$INTEGER`"
         },
         {
           "name": "citation_flow",
+          "short": "Majestic Citation Flow score (0-100)",
           "type": "`$INTEGER`"
         },
         {
           "name": "domain_authority",
+          "short": "Moz Domain Authority score (0-100)",
           "type": "`$INTEGER`"
         },
         {
           "name": "edu_gov_backlinks",
+          "short": "Number of EDU/GOV backlinks",
           "type": "`$INTEGER`"
         },
         {
           "name": "effective_price",
+          "short": "Effective price (max_bid or price) in EUR",
           "type": "`$NUMBER`"
         },
         {
           "name": "has_gmb",
+          "short": "Has active Google Business Profile",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "Unique domain identifier",
           "type": "`$INTEGER`"
         },
         {
           "name": "language",
+          "short": "Detected content language (e.g., EN, FR, DE)",
           "type": "`$STRING`"
         },
         {
           "name": "max_bid",
+          "short": "Current highest bid in EUR",
           "type": "`$NUMBER`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "Domain name",
           "type": "`$STRING`"
         },
         {
           "name": "pagerank",
+          "short": "Historical PageRank value",
           "type": "`$INTEGER`"
         },
         {
           "name": "price",
+          "short": "Starting price or buy-now price in EUR",
           "type": "`$NUMBER`"
         },
         {
           "name": "purchase_url",
+          "short": "Direct URL to purchase or bid on the domain",
           "type": "`$STRING`"
         },
         {
           "name": "referring_domains",
+          "short": "Number of unique referring domains",
           "type": "`$INTEGER`"
         },
         {
           "name": "score",
           "req": true,
+          "short": "CatchDoms quality score (0-100)",
           "type": "`$INTEGER`"
         },
         {
           "name": "source",
           "req": true,
+          "short": "Platform source (e.g., godaddy, dropcatch, regfree)",
           "type": "`$STRING`"
         },
         {
           "name": "tld",
           "req": true,
+          "short": "Top-level domain extension",
           "type": "`$STRING`"
         },
         {
           "name": "topical_trust_flow",
+          "short": "Majestic Topical Trust Flow category",
           "type": "`$STRING`"
         },
         {
           "name": "trust_flow",
+          "short": "Majestic Trust Flow score (0-100)",
           "type": "`$INTEGER`"
         },
         {
           "name": "type",
+          "short": "Domain listing type",
           "type": "`$STRING`"
         },
         {
           "name": "wayback_first_date",
+          "short": "Date of first Wayback snapshot",
           "type": "`$STRING`"
         },
         {
           "name": "wayback_snapshots",
+          "short": "Number of Wayback Machine snapshots",
           "type": "`$INTEGER`"
         }
       ],
@@ -405,47 +441,57 @@ class Config {
       "fields": [
         {
           "name": "age",
+          "short": "Years since first Wayback snapshot",
           "type": "`$INTEGER`"
         },
         {
           "name": "backlinks_count",
+          "short": "Total number of backlinks",
           "type": "`$INTEGER`"
         },
         {
           "name": "days_until_drop",
+          "short": "Days until predicted drop date",
           "type": "`$INTEGER`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "Unique domain identifier",
           "type": "`$INTEGER`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "Domain name",
           "type": "`$STRING`"
         },
         {
           "name": "predicted_drop_date",
           "req": true,
+          "short": "Predicted drop date (YYYY-MM-DD)",
           "type": "`$STRING`"
         },
         {
           "name": "referring_domains",
+          "short": "Number of unique referring domains",
           "type": "`$INTEGER`"
         },
         {
           "name": "score",
+          "short": "CatchDoms quality score (0-100)",
           "type": "`$INTEGER`"
         },
         {
           "name": "status",
           "req": true,
+          "short": "Current domain status",
           "type": "`$STRING`"
         },
         {
           "name": "tld",
           "req": true,
+          "short": "Top-level domain extension",
           "type": "`$STRING`"
         }
       ],
