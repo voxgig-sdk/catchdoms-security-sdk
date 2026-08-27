@@ -48,31 +48,27 @@ class Domain(DomainRequired, total=False):
 
 
 class DomainListMatch(TypedDict, total=False):
-    age: int
-    auction_end_date: str
-    backlinks_count: int
-    bids_count: int
-    citation_flow: int
-    domain_authority: int
-    edu_gov_backlinks: int
-    effective_price: float
-    has_gmb: bool
-    id: int
+    age_min: int
+    category: str
+    cf_min: int
+    contain: str
+    da_min: int
+    has_backlink: int
+    has_bid: int
+    has_edu_gov: int
+    has_gmb: int
     language: str
-    max_bid: float
-    name: str
-    pagerank: int
-    price: float
-    purchase_url: str
-    referring_domains: int
-    score: int
+    page: int
+    per_page: int
+    price_max: float
+    price_min: float
+    rd_min: int
+    score_min: int
+    snapshots_min: int
     source: str
+    tf_min: int
     tld: str
-    topical_trust_flow: str
-    trust_flow: int
     type: str
-    wayback_first_date: str
-    wayback_snapshots: int
 
 
 class Mcp(TypedDict, total=False):
@@ -104,13 +100,9 @@ class PendingDelete(PendingDeleteRequired, total=False):
 
 
 class PendingDeleteListMatch(TypedDict, total=False):
-    age: int
-    backlinks_count: int
-    days_until_drop: int
-    id: int
-    name: str
-    predicted_drop_date: str
-    referring_domains: int
-    score: int
+    drop_date_max: str
+    drop_date_min: str
+    page: int
+    per_page: int
     status: str
     tld: str

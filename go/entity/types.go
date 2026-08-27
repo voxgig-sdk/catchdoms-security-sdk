@@ -43,31 +43,27 @@ type Domain struct {
 
 // DomainListMatch is the typed request payload for Domain.ListTyped.
 type DomainListMatch struct {
-	Age *int `json:"age,omitempty"`
-	AuctionEndDate *string `json:"auction_end_date,omitempty"`
-	BacklinksCount *int `json:"backlinks_count,omitempty"`
-	BidsCount *int `json:"bids_count,omitempty"`
-	CitationFlow *int `json:"citation_flow,omitempty"`
-	DomainAuthority *int `json:"domain_authority,omitempty"`
-	EduGovBacklinks *int `json:"edu_gov_backlinks,omitempty"`
-	EffectivePrice *float64 `json:"effective_price,omitempty"`
-	HasGmb *bool `json:"has_gmb,omitempty"`
-	Id *int `json:"id,omitempty"`
+	AgeMin *int `json:"age_min,omitempty"`
+	Category *string `json:"category,omitempty"`
+	CfMin *int `json:"cf_min,omitempty"`
+	Contain *string `json:"contain,omitempty"`
+	DaMin *int `json:"da_min,omitempty"`
+	HasBacklink *int `json:"has_backlink,omitempty"`
+	HasBid *int `json:"has_bid,omitempty"`
+	HasEduGov *int `json:"has_edu_gov,omitempty"`
+	HasGmb *int `json:"has_gmb,omitempty"`
 	Language *string `json:"language,omitempty"`
-	MaxBid *float64 `json:"max_bid,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Pagerank *int `json:"pagerank,omitempty"`
-	Price *float64 `json:"price,omitempty"`
-	PurchaseUrl *string `json:"purchase_url,omitempty"`
-	ReferringDomains *int `json:"referring_domains,omitempty"`
-	Score *int `json:"score,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PerPage *int `json:"per_page,omitempty"`
+	PriceMax *float64 `json:"price_max,omitempty"`
+	PriceMin *float64 `json:"price_min,omitempty"`
+	RdMin *int `json:"rd_min,omitempty"`
+	ScoreMin *int `json:"score_min,omitempty"`
+	SnapshotsMin *int `json:"snapshots_min,omitempty"`
 	Source *string `json:"source,omitempty"`
+	TfMin *int `json:"tf_min,omitempty"`
 	Tld *string `json:"tld,omitempty"`
-	TopicalTrustFlow *string `json:"topical_trust_flow,omitempty"`
-	TrustFlow *int `json:"trust_flow,omitempty"`
 	Type *string `json:"type,omitempty"`
-	WaybackFirstDate *string `json:"wayback_first_date,omitempty"`
-	WaybackSnapshots *int `json:"wayback_snapshots,omitempty"`
 }
 
 // Mcp is the typed data model for the mcp entity.
@@ -100,14 +96,10 @@ type PendingDelete struct {
 
 // PendingDeleteListMatch is the typed request payload for PendingDelete.ListTyped.
 type PendingDeleteListMatch struct {
-	Age *int `json:"age,omitempty"`
-	BacklinksCount *int `json:"backlinks_count,omitempty"`
-	DaysUntilDrop *int `json:"days_until_drop,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	PredictedDropDate *string `json:"predicted_drop_date,omitempty"`
-	ReferringDomains *int `json:"referring_domains,omitempty"`
-	Score *int `json:"score,omitempty"`
+	DropDateMax *string `json:"drop_date_max,omitempty"`
+	DropDateMin *string `json:"drop_date_min,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PerPage *int `json:"per_page,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Tld *string `json:"tld,omitempty"`
 }

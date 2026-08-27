@@ -34,31 +34,27 @@
 ---@field wayback_snapshots? number
 
 ---@class DomainListMatch
----@field age? number
----@field auction_end_date? string
----@field backlinks_count? number
----@field bids_count? number
----@field citation_flow? number
----@field domain_authority? number
----@field edu_gov_backlinks? number
----@field effective_price? number
----@field has_gmb? boolean
----@field id? number
+---@field age_min? number
+---@field category? string
+---@field cf_min? number
+---@field contain? string
+---@field da_min? number
+---@field has_backlink? number
+---@field has_bid? number
+---@field has_edu_gov? number
+---@field has_gmb? number
 ---@field language? string
----@field max_bid? number
----@field name? string
----@field pagerank? number
----@field price? number
----@field purchase_url? string
----@field referring_domains? number
----@field score? number
+---@field page? number
+---@field per_page? number
+---@field price_max? number
+---@field price_min? number
+---@field rd_min? number
+---@field score_min? number
+---@field snapshots_min? number
 ---@field source? string
+---@field tf_min? number
 ---@field tld? string
----@field topical_trust_flow? string
----@field trust_flow? number
 ---@field type? string
----@field wayback_first_date? string
----@field wayback_snapshots? number
 
 ---@class Mcp
 ---@field capabilities? table
@@ -83,14 +79,10 @@
 ---@field tld string
 
 ---@class PendingDeleteListMatch
----@field age? number
----@field backlinks_count? number
----@field days_until_drop? number
----@field id? number
----@field name? string
----@field predicted_drop_date? string
----@field referring_domains? number
----@field score? number
+---@field drop_date_max? string
+---@field drop_date_min? string
+---@field page? number
+---@field per_page? number
 ---@field status? string
 ---@field tld? string
 
