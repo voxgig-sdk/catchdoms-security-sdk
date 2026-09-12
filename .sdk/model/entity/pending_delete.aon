@@ -36,6 +36,7 @@ main: kit: entity: pending_delete: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "predicted_drop_date"
       req: true
       short: "Predicted drop date (YYYY-MM-DD)"
@@ -128,9 +129,13 @@ main: kit: entity: pending_delete: {
           }
           method: "GET"
           orig: "/api/pending-delete"
-          parts: [
-            "api"
-            "pending-delete"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "pending-delete"
+            }
           ]
           select: {
             exist: [

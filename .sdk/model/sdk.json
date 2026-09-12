@@ -41,6 +41,7 @@
             },
             {
               "active": true,
+              "format": "date-time",
               "name": "auction_end_date",
               "req": false,
               "short": "Auction end date and time (ISO 8601)",
@@ -83,6 +84,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "effective_price",
               "req": false,
               "short": "Effective price (max_bid or price) in EUR",
@@ -111,6 +113,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "max_bid",
               "req": false,
               "short": "Current highest bid in EUR",
@@ -132,6 +135,7 @@
             },
             {
               "active": true,
+              "format": "float",
               "name": "price",
               "req": false,
               "short": "Starting price or buy-now price in EUR",
@@ -139,6 +143,7 @@
             },
             {
               "active": true,
+              "format": "uri",
               "name": "purchase_url",
               "req": false,
               "short": "Direct URL to purchase or bid on the domain",
@@ -195,6 +200,7 @@
             },
             {
               "active": true,
+              "format": "date",
               "name": "wayback_first_date",
               "req": false,
               "short": "Date of first Wayback snapshot",
@@ -400,9 +406,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/api/domains",
-                  "parts": [
-                    "api",
-                    "domains"
+                  "segments": [
+                    {
+                      "lit": "api"
+                    },
+                    {
+                      "lit": "domains"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -478,9 +488,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/mcp/catchdoms",
-                  "parts": [
-                    "mcp",
-                    "catchdoms"
+                  "segments": [
+                    {
+                      "lit": "mcp"
+                    },
+                    {
+                      "lit": "catchdoms"
+                    }
                   ],
                   "select": {
                     "$action": "catchdom"
@@ -540,6 +554,7 @@
             },
             {
               "active": true,
+              "format": "date",
               "name": "predicted_drop_date",
               "req": true,
               "short": "Predicted drop date (YYYY-MM-DD)",
@@ -643,9 +658,13 @@
                   "kind": "http",
                   "method": "GET",
                   "orig": "/api/pending-delete",
-                  "parts": [
-                    "api",
-                    "pending-delete"
+                  "segments": [
+                    {
+                      "lit": "api"
+                    },
+                    {
+                      "lit": "pending-delete"
+                    }
                   ],
                   "select": {
                     "exist": [
@@ -734,8 +753,11 @@
             }
           },
           "name": "test",
+          "needs": {},
           "origname": "",
           "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
           "target": {
             "go": {
               "deps": {}
@@ -912,6 +934,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -937,6 +962,10 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/runner_test.go",
+            "test/struct_runner_test.go"
+          ],
           "title": "Golang"
         },
         "go-cli": {
@@ -988,6 +1017,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -1012,6 +1042,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go CLI"
         },
         "go-mcp": {
@@ -1063,6 +1094,7 @@
               "active": false
             }
           },
+          "provides": {},
           "publish": {
             "registry": {
               "active": false,
@@ -1087,6 +1119,7 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [],
           "title": "Go MCP server"
         },
         "lua": {
@@ -1127,6 +1160,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1152,6 +1188,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.lua"
+          ],
           "title": "Lua"
         },
         "php": {
@@ -1186,6 +1225,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1211,6 +1253,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/StructRunner.php"
+          ],
           "title": "PHP"
         },
         "py": {
@@ -1251,6 +1296,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1276,6 +1324,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.py"
+          ],
           "title": "Python"
         },
         "rb": {
@@ -1321,6 +1372,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1346,6 +1400,9 @@
             "version": "0.0.1"
           },
           "srcfeature": false,
+          "superseded": [
+            "test/struct_runner.rb"
+          ],
           "title": "Ruby"
         },
         "ts": {
@@ -1363,11 +1420,6 @@
               "active": true,
               "kind": "dev",
               "version": "^25.6.0"
-            },
-            "dotenv": {
-              "active": true,
-              "kind": "dev",
-              "version": "^17.4.2"
             },
             "typescript": {
               "active": true,
@@ -1396,6 +1448,9 @@
             "sdkrel": ""
           },
           "package": "@voxgig/sdkgen",
+          "provides": {
+            "sekreto": true
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1420,6 +1475,14 @@
             },
             "version": "0.0.1"
           },
+          "superseded": [
+            "test/runner.ts",
+            "test/vendor/omni/compat.ts",
+            "src/feature/secrets/sekreto/Providers.ts",
+            "src/feature/secrets/sekreto/Sigv4.ts",
+            "src/feature/secrets/sekreto/provider/Registry.ts",
+            "src/feature/secrets/sekreto/provider/http.ts"
+          ],
           "title": "TypeScript"
         }
       },

@@ -30,9 +30,13 @@ main: kit: entity: mcp: {
         {
           method: "GET"
           orig: "/mcp/catchdoms"
-          parts: [
-            "mcp"
-            "catchdoms"
+          segments: [
+            {
+              lit: "mcp"
+            }
+            {
+              lit: "catchdoms"
+            }
           ]
           select: {
             "$action": "catchdom"

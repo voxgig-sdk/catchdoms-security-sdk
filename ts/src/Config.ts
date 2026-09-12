@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -82,6 +93,7 @@ class Config {
           "type": "`$INTEGER`"
         },
         {
+          "format": "date-time",
           "name": "auction_end_date",
           "short": "Auction end date and time (ISO 8601)",
           "type": "`$STRING`"
@@ -112,6 +124,7 @@ class Config {
           "type": "`$INTEGER`"
         },
         {
+          "format": "float",
           "name": "effective_price",
           "short": "Effective price (max_bid or price) in EUR",
           "type": "`$NUMBER`"
@@ -133,6 +146,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "float",
           "name": "max_bid",
           "short": "Current highest bid in EUR",
           "type": "`$NUMBER`"
@@ -149,11 +163,13 @@ class Config {
           "type": "`$INTEGER`"
         },
         {
+          "format": "float",
           "name": "price",
           "short": "Starting price or buy-now price in EUR",
           "type": "`$NUMBER`"
         },
         {
+          "format": "uri",
           "name": "purchase_url",
           "short": "Direct URL to purchase or bid on the domain",
           "type": "`$STRING`"
@@ -197,6 +213,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "date",
           "name": "wayback_first_date",
           "short": "Date of first Wayback snapshot",
           "type": "`$STRING`"
@@ -207,6 +224,10 @@ class Config {
           "type": "`$INTEGER`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "domain",
       "op": {
         "list": {
@@ -352,9 +373,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/domains",
-              "parts": [
-                "api",
-                "domains"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "domains"
+                }
               ],
               "select": {
                 "exist": [
@@ -384,7 +409,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "domains"
+              ]
             }
           ]
         }
@@ -419,9 +448,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/mcp/catchdoms",
-              "parts": [
-                "mcp",
-                "catchdoms"
+              "segments": [
+                {
+                  "lit": "mcp"
+                },
+                {
+                  "lit": "catchdoms"
+                }
               ],
               "select": {
                 "$action": "catchdom"
@@ -429,7 +462,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.capabilities`"
-              }
+              },
+              "parts": [
+                "mcp",
+                "catchdoms"
+              ]
             }
           ]
         }
@@ -468,6 +505,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "date",
           "name": "predicted_drop_date",
           "req": true,
           "short": "Predicted drop date (YYYY-MM-DD)",
@@ -496,6 +534,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "pending_delete",
       "op": {
         "list": {
@@ -548,9 +590,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/pending-delete",
-              "parts": [
-                "api",
-                "pending-delete"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "pending-delete"
+                }
               ],
               "select": {
                 "exist": [
@@ -565,7 +611,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "pending-delete"
+              ]
             }
           ]
         }
@@ -581,6 +631,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

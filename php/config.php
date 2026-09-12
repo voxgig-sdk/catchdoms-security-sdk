@@ -68,6 +68,7 @@ class CatchdomsSecurityConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'auction_end_date',
               'short' => 'Auction end date and time (ISO 8601)',
               'type' => '`$STRING`',
@@ -98,6 +99,7 @@ class CatchdomsSecurityConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'float',
               'name' => 'effective_price',
               'short' => 'Effective price (max_bid or price) in EUR',
               'type' => '`$NUMBER`',
@@ -119,6 +121,7 @@ class CatchdomsSecurityConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'float',
               'name' => 'max_bid',
               'short' => 'Current highest bid in EUR',
               'type' => '`$NUMBER`',
@@ -135,11 +138,13 @@ class CatchdomsSecurityConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'float',
               'name' => 'price',
               'short' => 'Starting price or buy-now price in EUR',
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'purchase_url',
               'short' => 'Direct URL to purchase or bid on the domain',
               'type' => '`$STRING`',
@@ -183,6 +188,7 @@ class CatchdomsSecurityConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date',
               'name' => 'wayback_first_date',
               'short' => 'Date of first Wayback snapshot',
               'type' => '`$STRING`',
@@ -192,6 +198,10 @@ class CatchdomsSecurityConfig
               'short' => 'Number of Wayback Machine snapshots',
               'type' => '`$INTEGER`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'domain',
           'op' => [
@@ -338,9 +348,13 @@ class CatchdomsSecurityConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/domains',
-                  'parts' => [
-                    'api',
-                    'domains',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'domains',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -370,6 +384,10 @@ class CatchdomsSecurityConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'domains',
                   ],
                 ],
               ],
@@ -405,9 +423,13 @@ class CatchdomsSecurityConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/mcp/catchdoms',
-                  'parts' => [
-                    'mcp',
-                    'catchdoms',
+                  'segments' => [
+                    [
+                      'lit' => 'mcp',
+                    ],
+                    [
+                      'lit' => 'catchdoms',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'catchdom',
@@ -415,6 +437,10 @@ class CatchdomsSecurityConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.capabilities`',
+                  ],
+                  'parts' => [
+                    'mcp',
+                    'catchdoms',
                   ],
                 ],
               ],
@@ -454,6 +480,7 @@ class CatchdomsSecurityConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date',
               'name' => 'predicted_drop_date',
               'req' => true,
               'short' => 'Predicted drop date (YYYY-MM-DD)',
@@ -481,6 +508,10 @@ class CatchdomsSecurityConfig
               'short' => 'Top-level domain extension',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'pending_delete',
           'op' => [
@@ -534,9 +565,13 @@ class CatchdomsSecurityConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/pending-delete',
-                  'parts' => [
-                    'api',
-                    'pending-delete',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'pending-delete',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -551,6 +586,10 @@ class CatchdomsSecurityConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'pending-delete',
                   ],
                 ],
               ],

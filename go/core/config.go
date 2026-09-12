@@ -46,6 +46,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "auction_end_date",
 						"short": "Auction end date and time (ISO 8601)",
 						"type": "`$STRING`",
@@ -76,6 +77,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "effective_price",
 						"short": "Effective price (max_bid or price) in EUR",
 						"type": "`$NUMBER`",
@@ -97,6 +99,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "max_bid",
 						"short": "Current highest bid in EUR",
 						"type": "`$NUMBER`",
@@ -113,11 +116,13 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "price",
 						"short": "Starting price or buy-now price in EUR",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "purchase_url",
 						"short": "Direct URL to purchase or bid on the domain",
 						"type": "`$STRING`",
@@ -161,6 +166,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "wayback_first_date",
 						"short": "Date of first Wayback snapshot",
 						"type": "`$STRING`",
@@ -170,6 +176,10 @@ func MakeConfig() map[string]any {
 						"short": "Number of Wayback Machine snapshots",
 						"type": "`$INTEGER`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "domain",
 				"op": map[string]any{
@@ -316,9 +326,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/domains",
-								"parts": []any{
-									"api",
-									"domains",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "domains",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -348,6 +362,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"domains",
 								},
 							},
 						},
@@ -383,9 +401,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/mcp/catchdoms",
-								"parts": []any{
-									"mcp",
-									"catchdoms",
+								"segments": []any{
+									map[string]any{
+										"lit": "mcp",
+									},
+									map[string]any{
+										"lit": "catchdoms",
+									},
 								},
 								"select": map[string]any{
 									"$action": "catchdom",
@@ -393,6 +415,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.capabilities`",
+								},
+								"parts": []any{
+									"mcp",
+									"catchdoms",
 								},
 							},
 						},
@@ -432,6 +458,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "predicted_drop_date",
 						"req": true,
 						"short": "Predicted drop date (YYYY-MM-DD)",
@@ -459,6 +486,10 @@ func MakeConfig() map[string]any {
 						"short": "Top-level domain extension",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "pending_delete",
 				"op": map[string]any{
@@ -512,9 +543,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/pending-delete",
-								"parts": []any{
-									"api",
-									"pending-delete",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "pending-delete",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -530,6 +565,10 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"api",
+									"pending-delete",
+								},
 							},
 						},
 					},
@@ -540,6 +579,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

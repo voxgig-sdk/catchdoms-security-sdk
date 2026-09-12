@@ -1,6 +1,14 @@
 # CatchdomsSecurity SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -63,6 +71,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "date-time",
             "name": "auction_end_date",
             "short": "Auction end date and time (ISO 8601)",
             "type": "`$STRING`",
@@ -93,6 +102,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "float",
             "name": "effective_price",
             "short": "Effective price (max_bid or price) in EUR",
             "type": "`$NUMBER`",
@@ -114,6 +124,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "float",
             "name": "max_bid",
             "short": "Current highest bid in EUR",
             "type": "`$NUMBER`",
@@ -130,11 +141,13 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "float",
             "name": "price",
             "short": "Starting price or buy-now price in EUR",
             "type": "`$NUMBER`",
           },
           {
+            "format": "uri",
             "name": "purchase_url",
             "short": "Direct URL to purchase or bid on the domain",
             "type": "`$STRING`",
@@ -178,6 +191,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "wayback_first_date",
             "short": "Date of first Wayback snapshot",
             "type": "`$STRING`",
@@ -188,6 +202,10 @@ def make_config():
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "domain",
         "op": {
           "list": {
@@ -333,9 +351,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/domains",
-                "parts": [
-                  "api",
-                  "domains",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "domains",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -366,6 +388,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "domains",
+                ],
               },
             ],
           },
@@ -400,9 +426,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/mcp/catchdoms",
-                "parts": [
-                  "mcp",
-                  "catchdoms",
+                "segments": [
+                  {
+                    "lit": "mcp",
+                  },
+                  {
+                    "lit": "catchdoms",
+                  },
                 ],
                 "select": {
                   "$action": "catchdom",
@@ -411,6 +441,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.capabilities`",
                 },
+                "parts": [
+                  "mcp",
+                  "catchdoms",
+                ],
               },
             ],
           },
@@ -449,6 +483,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "predicted_drop_date",
             "req": True,
             "short": "Predicted drop date (YYYY-MM-DD)",
@@ -477,6 +512,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "pending_delete",
         "op": {
           "list": {
@@ -529,9 +568,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/pending-delete",
-                "parts": [
-                  "api",
-                  "pending-delete",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "pending-delete",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -547,6 +590,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "pending-delete",
+                ],
               },
             ],
           },

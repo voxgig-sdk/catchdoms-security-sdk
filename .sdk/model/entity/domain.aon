@@ -12,6 +12,7 @@ main: kit: entity: domain: {
       type: "`$INTEGER`"
     }
     {
+      format: "date-time"
       name: "auction_end_date"
       req: false
       short: "Auction end date and time (ISO 8601)"
@@ -48,6 +49,7 @@ main: kit: entity: domain: {
       type: "`$INTEGER`"
     }
     {
+      format: "float"
       name: "effective_price"
       req: false
       short: "Effective price (max_bid or price) in EUR"
@@ -72,6 +74,7 @@ main: kit: entity: domain: {
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "max_bid"
       req: false
       short: "Current highest bid in EUR"
@@ -90,12 +93,14 @@ main: kit: entity: domain: {
       type: "`$INTEGER`"
     }
     {
+      format: "float"
       name: "price"
       req: false
       short: "Starting price or buy-now price in EUR"
       type: "`$NUMBER`"
     }
     {
+      format: "uri"
       name: "purchase_url"
       req: false
       short: "Direct URL to purchase or bid on the domain"
@@ -144,6 +149,7 @@ main: kit: entity: domain: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "wayback_first_date"
       req: false
       short: "Date of first Wayback snapshot"
@@ -326,9 +332,13 @@ main: kit: entity: domain: {
           }
           method: "GET"
           orig: "/api/domains"
-          parts: [
-            "api"
-            "domains"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "domains"
+            }
           ]
           select: {
             exist: [

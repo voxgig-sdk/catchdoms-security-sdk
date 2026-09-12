@@ -68,15 +68,17 @@ function pending_delete_direct_setup($mockres)
     $env = Runner::env_override([
         "CATCHDOMS_SECURITY_TEST_PENDING_DELETE_ENTID" => [],
         "CATCHDOMS_SECURITY_TEST_LIVE" => "FALSE",
-        "CATCHDOMS_SECURITY_APIKEY" => "NONE",
+        "CATCHDOMS_SECURITY_APIKEY" => "",
     ]);
 
     $live = $env["CATCHDOMS_SECURITY_TEST_LIVE"] === "TRUE";
 
     if ($live) {
-        $merged_opts = [
+        // Merged so the generated fields win: sdk-test-control.json's
+        // test.client.options adds to the live client, it does not redirect it.
+        $merged_opts = array_merge(Runner::live_client_options(), [
             "apikey" => $env["CATCHDOMS_SECURITY_APIKEY"],
-        ];
+        ]);
         $client = new CatchdomsSecuritySDK($merged_opts);
         return [
             "client" => $client,
