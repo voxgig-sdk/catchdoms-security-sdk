@@ -105,7 +105,7 @@ local results, err = client:Mcp():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/releases) |
+| TypeScript | `@voxgig-sdk/catchdoms-security-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/releases) |
 | Python | `voxgig-sdk-catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/releases) |
 | PHP | `voxgig-sdk/catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/catchdoms-security-sdk/go` | `go get github.com/voxgig-sdk/catchdoms-security-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Mcp():list()
 ### TypeScript
 
 ```ts
-import { CatchdomsSecuritySDK } from '@voxgig-sdk/catchdoms-security'
+import { CatchdomsSecuritySDK } from '@voxgig-sdk/catchdoms-security-sdk'
 
 const client = new CatchdomsSecuritySDK({
   apikey: process.env.CATCHDOMS_SECURITY_APIKEY,

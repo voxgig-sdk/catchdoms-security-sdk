@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CatchdomsSecuritySDK } from '@voxgig-sdk/catchdoms-security'
+import { CatchdomsSecuritySDK } from '@voxgig-sdk/catchdoms-security-sdk'
 
 const client = new CatchdomsSecuritySDK({
   apikey: process.env.CATCHDOMS_SECURITY_APIKEY,
@@ -547,7 +547,7 @@ catchdoms-security/
 Import the SDK from the package root:
 
 ```ts
-import { CatchdomsSecuritySDK } from '@voxgig-sdk/catchdoms-security'
+import { CatchdomsSecuritySDK } from '@voxgig-sdk/catchdoms-security-sdk'
 ```
 
 ### Entity state
