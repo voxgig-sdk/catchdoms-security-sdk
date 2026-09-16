@@ -2,115 +2,723 @@
   "existing": {
     "domain": {
       "DOMAIN00": {
-        "age": "sfa",
+        "age": 250,
         "auction_end_date": "sfb",
-        "backlinks_count": "sfc",
-        "bids_count": "sfd",
-        "citation_flow": "sfe",
-        "domain_authority": "sff",
-        "edu_gov_backlinks": "s100",
+        "backlinks_count": 252,
+        "bids_count": 253,
+        "citation_flow": 254,
+        "domain_authority": 255,
+        "edu_gov_backlinks": 256,
         "effective_price": 257,
         "has_gmb": true,
         "id": "DOMAIN00",
         "language": "s104",
         "max_bid": 261,
         "name": "s106",
-        "pagerank": "s107",
+        "pagerank": 263,
         "price": 264,
         "purchase_url": "s109",
-        "referring_domains": "s10a",
-        "score": "s10b",
+        "referring_domains": 266,
+        "score": 267,
         "source": "s10c",
         "tld": "s10d",
         "topical_trust_flow": "s10e",
-        "trust_flow": "s10f",
+        "trust_flow": 271,
         "type": "s110",
         "wayback_first_date": "s111",
-        "wayback_snapshots": "s112"
+        "wayback_snapshots": 274
       },
       "DOMAIN01": {
-        "age": "s1f4",
+        "age": 500,
         "auction_end_date": "s1f5",
-        "backlinks_count": "s1f6",
-        "bids_count": "s1f7",
-        "citation_flow": "s1f8",
-        "domain_authority": "s1f9",
-        "edu_gov_backlinks": "s1fa",
+        "backlinks_count": 502,
+        "bids_count": 503,
+        "citation_flow": 504,
+        "domain_authority": 505,
+        "edu_gov_backlinks": 506,
         "effective_price": 507,
         "has_gmb": true,
         "id": "DOMAIN01",
         "language": "s1fe",
         "max_bid": 511,
         "name": "s200",
-        "pagerank": "s201",
+        "pagerank": 513,
         "price": 514,
         "purchase_url": "s203",
-        "referring_domains": "s204",
-        "score": "s205",
+        "referring_domains": 516,
+        "score": 517,
         "source": "s206",
         "tld": "s207",
         "topical_trust_flow": "s208",
-        "trust_flow": "s209",
+        "trust_flow": 521,
         "type": "s20a",
         "wayback_first_date": "s20b",
-        "wayback_snapshots": "s20c"
+        "wayback_snapshots": 524
       },
       "DOMAIN02": {
-        "age": "s2ee",
+        "age": 750,
         "auction_end_date": "s2ef",
-        "backlinks_count": "s2f0",
-        "bids_count": "s2f1",
-        "citation_flow": "s2f2",
-        "domain_authority": "s2f3",
-        "edu_gov_backlinks": "s2f4",
+        "backlinks_count": 752,
+        "bids_count": 753,
+        "citation_flow": 754,
+        "domain_authority": 755,
+        "edu_gov_backlinks": 756,
         "effective_price": 757,
         "has_gmb": true,
         "id": "DOMAIN02",
         "language": "s2f8",
         "max_bid": 761,
         "name": "s2fa",
-        "pagerank": "s2fb",
+        "pagerank": 763,
         "price": 764,
         "purchase_url": "s2fd",
-        "referring_domains": "s2fe",
-        "score": "s2ff",
+        "referring_domains": 766,
+        "score": 767,
         "source": "s300",
         "tld": "s301",
         "topical_trust_flow": "s302",
-        "trust_flow": "s303",
+        "trust_flow": 771,
         "type": "s304",
         "wayback_first_date": "s305",
-        "wayback_snapshots": "s306"
+        "wayback_snapshots": 774
       }
     }
   },
   "new": {
     "domain": {
       "domain_ref01": {
-        "age": "s3e8",
+        "age": 1000,
         "auction_end_date": "s3e9",
-        "backlinks_count": "s3ea",
-        "bids_count": "s3eb",
-        "citation_flow": "s3ec",
-        "domain_authority": "s3ed",
-        "edu_gov_backlinks": "s3ee",
+        "backlinks_count": 1002,
+        "bids_count": 1003,
+        "citation_flow": 1004,
+        "domain_authority": 1005,
+        "edu_gov_backlinks": 1006,
         "effective_price": 1007,
         "has_gmb": true,
         "language": "s3f2",
         "max_bid": 1011,
         "name": "s3f4",
-        "pagerank": "s3f5",
+        "pagerank": 1013,
         "price": 1014,
         "purchase_url": "s3f7",
-        "referring_domains": "s3f8",
-        "score": "s3f9",
+        "referring_domains": 1016,
+        "score": 1017,
         "source": "s3fa",
         "tld": "s3fb",
         "topical_trust_flow": "s3fc",
-        "trust_flow": "s3fd",
+        "trust_flow": 1021,
         "type": "s3fe",
         "wayback_first_date": "s3ff",
-        "wayback_snapshots": "s400"
+        "wayback_snapshots": 1024
+      }
+    }
+  },
+  "requests": {
+    "GET /api/domains": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getDomains",
+        "parameters": [
+          {
+            "description": "Platform source: dynadot, godaddy, catched, dropcatch, gname, snapnames, ukdroplists, subreg, webexpire, parkio, bloomup, seodomains, nameshift, nicsell, gnews-domains, backorders-domains, regfree (deleted ccTLDs - requires Authority plan)",
+            "in": "query",
+            "name": "source",
+            "required": false,
+            "schema": {
+              "enum": [
+                "dynadot",
+                "godaddy",
+                "catched",
+                "dropcatch",
+                "gname",
+                "snapnames",
+                "ukdroplists",
+                "subreg",
+                "webexpire",
+                "parkio",
+                "bloomup",
+                "seodomains",
+                "nameshift",
+                "nicsell",
+                "gnews-domains",
+                "backorders-domains",
+                "regfree",
+                "namepros",
+                "namecheap",
+                "namesilo",
+                "domainlore",
+                "rakko"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Top-level domain filter: .com, .net, .org, .fr, .de, .co.uk, .it, .nl, .es, .ca, etc.",
+            "in": "query",
+            "name": "tld",
+            "required": false,
+            "schema": {
+              "example": ".com",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Minimum quality score (0-100). Try 50+ for good domains.",
+            "in": "query",
+            "name": "score_min",
+            "required": false,
+            "schema": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Minimum years since first Wayback snapshot",
+            "in": "query",
+            "name": "age_min",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Domain listing type",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "schema": {
+              "enum": [
+                "auction",
+                "closeout",
+                "backorder"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter to only domains with active bids (1 = true)",
+            "in": "query",
+            "name": "has_bids",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter to only domains with referring domains (1 = true)",
+            "in": "query",
+            "name": "has_backlinks",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter to only domains with an active Google Business Profile (1 = true)",
+            "in": "query",
+            "name": "has_gmb",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter to only domains with EDU or GOV referring domains (1 = true)",
+            "in": "query",
+            "name": "has_edu_gov",
+            "required": false,
+            "schema": {
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Minimum Majestic Trust Flow score (0-100)",
+            "in": "query",
+            "name": "tf_min",
+            "required": false,
+            "schema": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Minimum Majestic Citation Flow score (0-100)",
+            "in": "query",
+            "name": "cf_min",
+            "required": false,
+            "schema": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Minimum Moz Domain Authority score (0-100)",
+            "in": "query",
+            "name": "da_min",
+            "required": false,
+            "schema": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Minimum referring domains count",
+            "in": "query",
+            "name": "rd_min",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Majestic TTF categories (comma-separated): Business, Health, Computers, Shopping, Recreation, Society, Sports, News, Science, Arts, Reference, Regional, Games, Home, World, Adult",
+            "in": "query",
+            "name": "categories",
+            "required": false,
+            "schema": {
+              "example": "Business,Health",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Substring filter on the domain name (e.g., 'shop', 'travel')",
+            "in": "query",
+            "name": "contains",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Language detected from Wayback content (e.g., EN, FR, DE, ES)",
+            "in": "query",
+            "name": "language",
+            "required": false,
+            "schema": {
+              "example": "EN",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Minimum price or current bid in EUR",
+            "in": "query",
+            "name": "price_min",
+            "required": false,
+            "schema": {
+              "format": "float",
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          {
+            "description": "Maximum price or current bid in EUR",
+            "in": "query",
+            "name": "price_max",
+            "required": false,
+            "schema": {
+              "format": "float",
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          {
+            "description": "Minimum Wayback snapshot count",
+            "in": "query",
+            "name": "snapshots_min",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of domains per response page (1-100)",
+            "in": "query",
+            "name": "per_page",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page number for pagination",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "age": 15,
+                      "auction_end_date": "2026-01-25T18:00:00Z",
+                      "backlinks_count": 1420,
+                      "bids_count": 8,
+                      "domain_authority": 28,
+                      "effective_price": 125,
+                      "id": 12345,
+                      "language": "EN",
+                      "max_bid": 125,
+                      "name": "example.com",
+                      "pagerank": 4,
+                      "price": 12,
+                      "purchase_url": "https://auctions.godaddy.com/...",
+                      "referring_domains": 89,
+                      "score": 72,
+                      "source": "godaddy",
+                      "tld": ".com",
+                      "type": "auction",
+                      "wayback_first_date": "2011-03-14",
+                      "wayback_snapshots": 156
+                    }
+                  ],
+                  "links": {
+                    "first": "https://catchdoms.com/api/domains?page=1",
+                    "last": "https://catchdoms.com/api/domains?page=342",
+                    "next": "https://catchdoms.com/api/domains?page=2",
+                    "prev": null
+                  },
+                  "meta": {
+                    "current_page": 1,
+                    "total": 3420
+                  }
+                },
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "age": {
+                            "description": "Years since first Wayback snapshot",
+                            "nullable": true,
+                            "type": "integer"
+                          },
+                          "auction_end_date": {
+                            "description": "Auction end date and time (ISO 8601)",
+                            "format": "date-time",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "backlinks_count": {
+                            "description": "Total number of backlinks",
+                            "nullable": true,
+                            "type": "integer"
+                          },
+                          "bids_count": {
+                            "description": "Number of bids",
+                            "nullable": true,
+                            "type": "integer"
+                          },
+                          "citation_flow": {
+                            "description": "Majestic Citation Flow score (0-100)",
+                            "nullable": true,
+                            "type": "integer"
+                          },
+                          "domain_authority": {
+                            "description": "Moz Domain Authority score (0-100)",
+                            "nullable": true,
+                            "type": "integer"
+                          },
+                          "edu_gov_backlinks": {
+                            "description": "Number of EDU/GOV backlinks",
+                            "nullable": true,
+                            "type": "integer"
+                          },
+                          "effective_price": {
+                            "description": "Effective price (max_bid or price) in EUR",
+                            "format": "float",
+                            "nullable": true,
+                            "type": "number"
+                          },
+                          "has_gmb": {
+                            "description": "Has active Google Business Profile",
+                            "nullable": true,
+                            "type": "boolean"
+                          },
+                          "id": {
+                            "description": "Unique domain identifier",
+                            "type": "integer"
+                          },
+                          "language": {
+                            "description": "Detected content language (e.g., EN, FR, DE)",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "max_bid": {
+                            "description": "Current highest bid in EUR",
+                            "format": "float",
+                            "nullable": true,
+                            "type": "number"
+                          },
+                          "name": {
+                            "description": "Domain name",
+                            "type": "string"
+                          },
+                          "pagerank": {
+                            "description": "Historical PageRank value",
+                            "nullable": true,
+                            "type": "integer"
+                          },
+                          "price": {
+                            "description": "Starting price or buy-now price in EUR",
+                            "format": "float",
+                            "nullable": true,
+                            "type": "number"
+                          },
+                          "purchase_url": {
+                            "description": "Direct URL to purchase or bid on the domain",
+                            "format": "uri",
+                            "type": "string"
+                          },
+                          "referring_domains": {
+                            "description": "Number of unique referring domains",
+                            "nullable": true,
+                            "type": "integer"
+                          },
+                          "score": {
+                            "description": "CatchDoms quality score (0-100)",
+                            "type": "integer"
+                          },
+                          "source": {
+                            "description": "Platform source (e.g., godaddy, dropcatch, regfree)",
+                            "type": "string"
+                          },
+                          "tld": {
+                            "description": "Top-level domain extension",
+                            "type": "string"
+                          },
+                          "topical_trust_flow": {
+                            "description": "Majestic Topical Trust Flow category",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "trust_flow": {
+                            "description": "Majestic Trust Flow score (0-100)",
+                            "nullable": true,
+                            "type": "integer"
+                          },
+                          "type": {
+                            "description": "Domain listing type",
+                            "enum": [
+                              "auction",
+                              "closeout",
+                              "backorder",
+                              "deleted"
+                            ],
+                            "type": "string"
+                          },
+                          "wayback_first_date": {
+                            "description": "Date of first Wayback snapshot",
+                            "format": "date",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "wayback_snapshots": {
+                            "description": "Number of Wayback Machine snapshots",
+                            "nullable": true,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "tld",
+                          "source",
+                          "score"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "properties": {
+                        "first": {
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "last": {
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "next": {
+                          "format": "uri",
+                          "nullable": true,
+                          "type": "string"
+                        },
+                        "prev": {
+                          "format": "uri",
+                          "nullable": true,
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "meta": {
+                      "properties": {
+                        "current_page": {
+                          "type": "integer"
+                        },
+                        "from": {
+                          "type": "integer"
+                        },
+                        "last_page": {
+                          "type": "integer"
+                        },
+                        "per_page": {
+                          "type": "integer"
+                        },
+                        "to": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with domain data"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Unauthorized",
+                  "message": "Invalid API key"
+                },
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error type",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Unauthorized - Invalid or missing API key"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Forbidden",
+                  "message": "Authority plan required to access source=regfree"
+                },
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error type",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Forbidden - Authority plan required for this resource"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Too Many Requests",
+                  "message": "Rate limit exceeded. Please wait 60 seconds and try again."
+                },
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error type",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Too Many Requests - Rate limit exceeded"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          },
+          {}
+        ],
+        "securitySchemes": {
+          "BearerAuth": {
+            "bearerFormat": "API Key",
+            "description": "Bearer token authentication. Add 'Authorization: Bearer YOUR_API_KEY' header. Get your API key from the API dashboard at https://catchdoms.com/api",
+            "scheme": "bearer",
+            "type": "http"
+          }
+        },
+        "securitySource": "operation"
       }
     }
   }

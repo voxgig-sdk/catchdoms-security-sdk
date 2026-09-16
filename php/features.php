@@ -4,7 +4,10 @@ declare(strict_types=1);
 // CatchdomsSecurity SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class CatchdomsSecurityFeatures
@@ -14,8 +17,14 @@ class CatchdomsSecurityFeatures
         switch ($name) {
             case "base":
                 return new CatchdomsSecurityBaseFeature();
+            case "ratelimit":
+                return new CatchdomsSecurityRatelimitFeature();
+            case "retry":
+                return new CatchdomsSecurityRetryFeature();
             case "test":
                 return new CatchdomsSecurityTestFeature();
+            case "timeout":
+                return new CatchdomsSecurityTimeoutFeature();
             default:
                 return new CatchdomsSecurityBaseFeature();
         }
@@ -31,7 +40,10 @@ class CatchdomsSecurityFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

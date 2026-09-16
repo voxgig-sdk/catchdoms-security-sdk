@@ -1,12 +1,18 @@
 # CatchdomsSecurity SDK feature factory
 
 from catchdomssecurity_sdk.feature.base_feature import CatchdomsSecurityBaseFeature
+from catchdomssecurity_sdk.feature.ratelimit_feature import CatchdomsSecurityRatelimitFeature
+from catchdomssecurity_sdk.feature.retry_feature import CatchdomsSecurityRetryFeature
 from catchdomssecurity_sdk.feature.test_feature import CatchdomsSecurityTestFeature
+from catchdomssecurity_sdk.feature.timeout_feature import CatchdomsSecurityTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CatchdomsSecurityBaseFeature(),
+    "ratelimit": lambda: CatchdomsSecurityRatelimitFeature(),
+    "retry": lambda: CatchdomsSecurityRetryFeature(),
     "test": lambda: CatchdomsSecurityTestFeature(),
+    "timeout": lambda: CatchdomsSecurityTimeoutFeature(),
 }
 
 

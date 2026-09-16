@@ -28,6 +28,12 @@ main: kit: entity: mcp: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /mcp/catchdoms"
+            json: "{\"operationId\":\"getMCPServer\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"capabilities\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"server\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"MCP server endpoint active\"}},\"security\":[{\"BearerAuth\":[]}],\"securitySchemes\":{\"BearerAuth\":{\"bearerFormat\":\"API Key\",\"description\":\"Bearer token authentication. Add 'Authorization: Bearer YOUR_API_KEY' header. Get your API key from the API dashboard at https://catchdoms.com/api\",\"scheme\":\"bearer\",\"type\":\"http\"}},\"securitySource\":\"operation\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/mcp/catchdoms"
           segments: [
