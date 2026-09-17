@@ -4,24 +4,6 @@ main: kit: entity: mcp: {
 
   alias: field: {}
 
-  fields: [
-    {
-      name: "capabilities"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "server"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "version"
-      req: false
-      type: "`$STRING`"
-    }
-  ]
-
   name: "mcp"
   op: {
     list: {

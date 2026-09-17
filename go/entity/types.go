@@ -68,16 +68,10 @@ type DomainListMatch struct {
 
 // Mcp is the typed data model for the mcp entity.
 type Mcp struct {
-	Capabilities *[]any `json:"capabilities,omitempty"`
-	Server *string `json:"server,omitempty"`
-	Version *string `json:"version,omitempty"`
 }
 
 // McpListMatch is the typed request payload for Mcp.ListTyped.
 type McpListMatch struct {
-	Capabilities *[]any `json:"capabilities,omitempty"`
-	Server *string `json:"server,omitempty"`
-	Version *string `json:"version,omitempty"`
 }
 
 // PendingDelete is the typed data model for the pending_delete entity.

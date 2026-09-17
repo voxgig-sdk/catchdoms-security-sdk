@@ -46,23 +46,23 @@ network, and no credentials:
 // Shape: { entity: { <entity-name>: { <id>: <record> } } }
 const client = CatchdomsSecuritySDK.test({
   entity: {
-    mcp: {
+    pending_delete: {
       test01: { id: 'test01' },
     },
   },
 })
-const mcps = await client.Mcp().list()
-// mcps is an array of Mcp entities, populated with mock data
-// — call mcps[0].data() for the record itself
-console.log(mcps)
+const pendingdeletes = await client.PendingDelete().list()
+// pendingdeletes is an array of PendingDelete entities, populated with mock data
+// — call pendingdeletes[0].data() for the record itself
+console.log(pendingdeletes)
 ```
 
 ### Python
 
 ```python
 client = CatchdomsSecuritySDK.test()
-mcps = client.Mcp().list()
-print(mcps)
+pendingdeletes = client.PendingDelete().list()
+print(pendingdeletes)
 ```
 
 ### PHP
@@ -70,16 +70,16 @@ print(mcps)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = CatchdomsSecuritySDK::test([
-    "entity" => ["mcp" => ["test01" => []]],
+    "entity" => ["pendingdelete" => ["test01" => []]],
 ]);
-$mcps = $client->Mcp()->list();
+$pendingdeletes = $client->PendingDelete()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Mcp(nil).List(
+result, err := client.PendingDelete(nil).List(
     nil, nil,
 )
 ```
@@ -89,28 +89,28 @@ result, err := client.Mcp(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = CatchdomsSecuritySDK.test({
-  "entity" => { "mcp" => { "test01" => {} } },
+  "entity" => { "pendingdelete" => { "test01" => {} } },
 })
-mcps = client.Mcp.list()
+pendingdeletes = client.PendingDelete.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Mcp():list()
+local results, err = client:PendingDelete():list()
 ```
 
 ## Packages
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/catchdoms-security-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/releases) |
-| Python | `voxgig-sdk-catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/releases) |
-| PHP | `voxgig-sdk/catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/releases) |
+| TypeScript | `@voxgig-sdk/catchdoms-security-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/tags) |
+| Python | `voxgig-sdk-catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/tags) |
+| PHP | `voxgig-sdk/catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/catchdoms-security-sdk/go` | `go get github.com/voxgig-sdk/catchdoms-security-sdk/go@latest` |
-| Ruby | `voxgig-sdk-catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/releases) |
-| Lua | `voxgig-sdk-catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/releases) |
+| Ruby | `voxgig-sdk-catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/tags) |
+| Lua | `voxgig-sdk-catchdoms-security` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catchdoms-security-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/catchdoms-security-sdk/go-cli` | `go install github.com/voxgig-sdk/catchdoms-security-sdk/go-cli/cmd/catchdoms-security@latest` |
 | Go MCP server | `github.com/voxgig-sdk/catchdoms-security-sdk/go-mcp` | `go get github.com/voxgig-sdk/catchdoms-security-sdk/go-mcp@latest` |
 

@@ -53,7 +53,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  mcps = client.Mcp.list()
+  pendingdeletes = client.PendingDelete.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -123,8 +123,8 @@ client = CatchdomsSecuritySDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-mcp = client.Mcp.list()
-puts mcp
+pendingdelete = client.PendingDelete.list()
+puts pendingdelete
 ```
 
 ### Use a custom fetch function
@@ -277,9 +277,6 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `capabilities` |  |
-| `server` |  |
-| `version` |  |
 
 Operations: List.
 
@@ -366,14 +363,6 @@ Create an instance: `mcp = client.Mcp`
 | Method | Description |
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `capabilities` | `Array` |  |
-| `server` | `String` |  |
-| `version` | `String` |  |
 
 #### Example: List
 
@@ -558,6 +547,7 @@ Use `Helpers.to_map()` to safely validate that a value is a hash.
 rb/
 ├── CatchdomsSecurity_sdk.rb       -- Main SDK module
 ├── config.rb                  -- Configuration
+├── schema.rb                  -- Generated option + entity specs
 ├── features.rb                -- Feature factory
 ├── core/                      -- Core types and context
 ├── entity/                    -- Entity implementations
@@ -576,11 +566,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-mcp = client.Mcp
-mcp.list()
+pendingdelete = client.PendingDelete
+pendingdelete.list()
 
-# mcp.data_get now returns the mcp data from the last list
-# mcp.match_get returns the last match criteria
+# pendingdelete.data_get now returns the pendingdelete data from the last list
+# pendingdelete.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

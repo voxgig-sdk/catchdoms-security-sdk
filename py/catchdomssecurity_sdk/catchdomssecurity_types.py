@@ -71,16 +71,12 @@ class DomainListMatch(TypedDict, total=False):
     type: str
 
 
-class Mcp(TypedDict, total=False):
-    capabilities: list
-    server: str
-    version: str
+class Mcp(TypedDict):
+    pass
 
 
-class McpListMatch(TypedDict, total=False):
-    capabilities: list
-    server: str
-    version: str
+class McpListMatch(TypedDict):
+    pass
 
 
 class PendingDeleteRequired(TypedDict):

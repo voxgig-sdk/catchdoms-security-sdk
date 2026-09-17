@@ -211,14 +211,6 @@ Return a copy of the entity options.
 const mcp = client.Mcp()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `capabilities` | `any[]` | No |  |
-| `server` | `string` | No |  |
-| `version` | `string` | No |  |
-
 ### Actions
 
 This entity exposes custom API actions in addition to the standard

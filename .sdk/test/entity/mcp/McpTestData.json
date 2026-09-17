@@ -1,30 +1,14 @@
 {
   "existing": {
     "mcp": {
-      "MCP00": {
-        "capabilities": [],
-        "server": "s1f",
-        "version": "s20"
-      },
-      "MCP01": {
-        "capabilities": [],
-        "server": "s3d",
-        "version": "s3e"
-      },
-      "MCP02": {
-        "capabilities": [],
-        "server": "s5b",
-        "version": "s5c"
-      }
+      "MCP00": {},
+      "MCP01": {},
+      "MCP02": {}
     }
   },
   "new": {
     "mcp": {
-      "mcp_ref01": {
-        "capabilities": [],
-        "server": "s79",
-        "version": "s7a"
-      }
+      "mcp_ref01": {}
     }
   },
   "requests": {

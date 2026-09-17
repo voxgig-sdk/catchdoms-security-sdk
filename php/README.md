@@ -56,7 +56,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $mcps = $client->Mcp()->list();
+    $pendingdeletes = $client->PendingDelete()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -130,8 +130,8 @@ $client = CatchdomsSecuritySDK::test();
 
 // list() returns entity instances (throws on error);
 // call data_get() for the mock record.
-$mcp = $client->Mcp()->list();
-print_r(array_map(fn($item) => $item->data_get(), $mcp));
+$pendingdelete = $client->PendingDelete()->list();
+print_r(array_map(fn($item) => $item->data_get(), $pendingdelete));
 ```
 
 ### Use a custom fetch function
@@ -288,9 +288,6 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `capabilities` |  |
-| `server` |  |
-| `version` |  |
 
 Operations: List.
 
@@ -377,14 +374,6 @@ Create an instance: `$mcp = $client->Mcp();`
 | Method | Description |
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `capabilities` | `array` |  |
-| `server` | `string` |  |
-| `version` | `string` |  |
 
 #### Example: List
 
@@ -569,6 +558,7 @@ Use `Helpers::to_map()` to safely validate that a value is an array.
 php/
 ├── catchdomssecurity_sdk.php          -- Main SDK class
 ├── config.php                     -- Configuration
+├── schema.php                     -- Generated option + entity specs
 ├── features.php                   -- Feature factory
 ├── core/                          -- Core types and context
 ├── entity/                        -- Entity implementations
@@ -587,11 +577,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$mcp = $client->Mcp();
-$mcp->list();
+$pendingdelete = $client->PendingDelete();
+$pendingdelete->list();
 
-// $mcp->data_get() now returns the mcp data from the last list
-// $mcp->match_get() returns the last match criteria
+// $pendingdelete->data_get() now returns the pendingdelete data from the last list
+// $pendingdelete->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

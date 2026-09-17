@@ -49,14 +49,8 @@ export interface DomainListMatch {
     type?: string;
 }
 export interface Mcp {
-    capabilities?: any[];
-    server?: string;
-    version?: string;
 }
 export interface McpListMatch {
-    capabilities?: any[];
-    server?: string;
-    version?: string;
     $action?: string;
     [action: string]: any;
 }

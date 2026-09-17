@@ -203,38 +203,12 @@ DomainListMatch = Struct.new(
 )
 
 # Mcp entity data model.
-#
-# @!attribute [rw] capabilities
-#   @return [Array, nil]
-#
-# @!attribute [rw] server
-#   @return [String, nil]
-#
-# @!attribute [rw] version
-#   @return [String, nil]
-Mcp = Struct.new(
-  :capabilities,
-  :server,
-  :version,
-  keyword_init: true
-)
+class Mcp
+end
 
 # Request payload for Mcp#list.
-#
-# @!attribute [rw] capabilities
-#   @return [Array, nil]
-#
-# @!attribute [rw] server
-#   @return [String, nil]
-#
-# @!attribute [rw] version
-#   @return [String, nil]
-McpListMatch = Struct.new(
-  :capabilities,
-  :server,
-  :version,
-  keyword_init: true
-)
+class McpListMatch
+end
 
 # PendingDelete entity data model.
 #

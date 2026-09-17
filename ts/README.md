@@ -56,8 +56,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const mcps = await client.Mcp().list()
-  console.log(mcps)
+  const pendingdeletes = await client.PendingDelete().list()
+  console.log(pendingdeletes)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -123,10 +123,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CatchdomsSecuritySDK.test()
 
-const mcp = await client.Mcp().list()
-// mcp is the entity, populated with mock response data
-// — call mcp.data() for the record itself
-console.log(mcp)
+const pendingdelete = await client.PendingDelete().list()
+// pendingdelete is the entity, populated with mock response data
+// — call pendingdelete.data() for the record itself
+console.log(pendingdelete)
 ```
 
 You can also use the instance method:
@@ -141,14 +141,14 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Mcp()
+const entity = client.PendingDelete()
 
 // First call runs the operation and stores its result
 await entity.list()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -334,9 +334,6 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `capabilities` |  |
-| `server` |  |
-| `version` |  |
 
 Operations: list.
 
@@ -422,14 +419,6 @@ Create an instance: `const mcp = client.Mcp()`
 | Method | Description |
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `capabilities` | `any[]` |  |
-| `server` | `string` |  |
-| `version` | `string` |  |
 
 #### Example: List
 
@@ -623,11 +612,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const mcp = client.Mcp()
-await mcp.list()
+const pendingdelete = client.PendingDelete()
+await pendingdelete.list()
 
-// mcp.data() now returns the mcp data from the last `list`
-// mcp.match() returns the last match criteria
+// pendingdelete.data() now returns the pendingdelete data from the last `list`
+// pendingdelete.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

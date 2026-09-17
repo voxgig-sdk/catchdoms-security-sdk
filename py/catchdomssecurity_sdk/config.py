@@ -455,20 +455,7 @@ def make_config():
         },
       },
       "mcp": {
-        "fields": [
-          {
-            "name": "capabilities",
-            "type": "`$ARRAY`",
-          },
-          {
-            "name": "server",
-            "type": "`$STRING`",
-          },
-          {
-            "name": "version",
-            "type": "`$STRING`",
-          },
-        ],
+        "fields": [],
         "name": "mcp",
         "op": {
           "list": {

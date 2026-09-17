@@ -430,20 +430,7 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"mcp": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"name": "capabilities",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "server",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "version",
-						"type": "`$STRING`",
-					},
-				},
+				"fields": []any{},
 				"name": "mcp",
 				"op": map[string]any{
 					"list": map[string]any{

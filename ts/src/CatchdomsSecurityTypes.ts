@@ -58,15 +58,9 @@ export interface DomainListMatch {
 }
 
 export interface Mcp {
-  capabilities?: any[]
-  server?: string
-  version?: string
 }
 
 export interface McpListMatch {
-  capabilities?: any[]
-  server?: string
-  version?: string
 
   // Selects a custom action instead of the plain list:
   //   'catchdom'

@@ -71,17 +71,11 @@ class DomainListMatch
 /** Mcp entity data model. */
 class Mcp
 {
-    public ?array $capabilities = null;
-    public ?string $server = null;
-    public ?string $version = null;
 }
 
 /** Request payload for Mcp#list. */
 class McpListMatch
 {
-    public ?array $capabilities = null;
-    public ?string $server = null;
-    public ?string $version = null;
 }
 
 /** PendingDelete entity data model. */

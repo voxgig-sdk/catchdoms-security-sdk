@@ -1,5 +1,5 @@
 # Flows
 
-@"BasicDomainFlow.aon"
-@"BasicMcpFlow.aon"
-@"BasicPendingDeleteFlow.aon"
+@"./BasicDomainFlow.aon"
+@"./BasicMcpFlow.aon"
+@"./BasicPendingDeleteFlow.aon"

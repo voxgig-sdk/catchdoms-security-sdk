@@ -171,14 +171,6 @@ Return the entity name.
 local mcp = client:Mcp(nil)
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `capabilities` | `table` | No |  |
-| `server` | `string` | No |  |
-| `version` | `string` | No |  |
-
 ### Operations
 
 #### `list(reqmatch, ctrl) -> any, err`

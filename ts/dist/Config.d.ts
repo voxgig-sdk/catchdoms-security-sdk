@@ -151,10 +151,7 @@ declare class Config {
             };
         };
         mcp: {
-            fields: {
-                name: string;
-                type: string;
-            }[];
+            fields: never[];
             name: string;
             op: {
                 list: {

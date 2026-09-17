@@ -56,7 +56,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local mcps, err = client:Mcp():list()
+local pendingdeletes, err = client:PendingDelete():list()
 if err then error(err) end
 ```
 
@@ -114,7 +114,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Mcp():list()
+local result, err = client:PendingDelete():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -271,9 +271,6 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `capabilities` |  |
-| `server` |  |
-| `version` |  |
 
 Operations: List.
 
@@ -359,14 +356,6 @@ Create an instance: `local mcp = client:Mcp(nil)`
 | Method | Description |
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `capabilities` | `table` |  |
-| `server` | `string` |  |
-| `version` | `string` |  |
 
 #### Example: List
 
@@ -549,6 +538,7 @@ Use `helpers.to_map()` to safely validate that a value is a table.
 lua/
 ├── catchdoms-security_sdk.lua    -- Main SDK module
 ├── config.lua               -- Configuration
+├── schema.lua               -- Generated option + entity specs
 ├── features.lua             -- Feature factory
 ├── core/                    -- Core types and context
 ├── entity/                  -- Entity implementations
@@ -567,11 +557,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local mcp = client:Mcp()
-mcp:list()
+local pendingdelete = client:PendingDelete()
+pendingdelete:list()
 
--- mcp:data_get() now returns the mcp data from the last list
--- mcp:match_get() returns the last match criteria
+-- pendingdelete:data_get() now returns the pendingdelete data from the last list
+-- pendingdelete:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

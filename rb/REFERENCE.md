@@ -174,14 +174,6 @@ Return the entity name.
 mcp = client.Mcp
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `capabilities` | `Array` | No |  |
-| `server` | `String` | No |  |
-| `version` | `String` | No |  |
-
 ### Operations
 
 #### `list(reqmatch = nil, ctrl = nil) -> Array`

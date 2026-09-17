@@ -173,14 +173,6 @@ Return the entity name.
 $mcp = $client->Mcp();
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `capabilities` | `array` | No |  |
-| `server` | `string` | No |  |
-| `version` | `string` | No |  |
-
 ### Operations
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`

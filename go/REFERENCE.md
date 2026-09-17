@@ -178,14 +178,6 @@ mcp := client.Mcp(nil)
 fmt.Println(mcp.GetName()) // "mcp"
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `capabilities` | `[]any` | No |  |
-| `server` | `string` | No |  |
-| `version` | `string` | No |  |
-
 ### Operations
 
 #### `List(reqmatch, ctrl map[string]any) (any, error)`

@@ -57,14 +57,8 @@
 ---@field type? string
 
 ---@class Mcp
----@field capabilities? table
----@field server? string
----@field version? string
 
 ---@class McpListMatch
----@field capabilities? table
----@field server? string
----@field version? string
 
 ---@class PendingDelete
 ---@field age? number

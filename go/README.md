@@ -71,12 +71,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-mcps, err := client.Mcp(nil).List(nil, nil)
+pendingdeletes, err := client.PendingDelete(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = mcps
+_ = pendingdeletes
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -140,13 +140,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-mcp, err := client.Mcp(nil).List(
+pendingDelete, err := client.PendingDelete(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(mcp) // the returned mock data
+fmt.Println(pendingDelete) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -301,9 +301,6 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `"capabilities"` |  |
-| `"server"` |  |
-| `"version"` |  |
 
 Operations: List.
 
@@ -393,14 +390,6 @@ Create an instance: `mcp := client.Mcp(nil)`
 | Method | Description |
 | --- | --- |
 | `List(match, ctrl)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `capabilities` | `[]any` |  |
-| `server` | `string` |  |
-| `version` | `string` |  |
 
 #### Example: List
 
@@ -606,11 +595,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-mcp := client.Mcp(nil)
-mcp.List(nil, nil)
+pendingdelete := client.PendingDelete(nil)
+pendingdelete.List(nil, nil)
 
-// mcp.Data() now returns the mcp data from the last list
-// mcp.Match() returns the last match criteria
+// pendingdelete.Data() now returns the pendingdelete data from the last list
+// pendingdelete.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

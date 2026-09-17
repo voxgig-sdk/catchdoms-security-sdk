@@ -60,8 +60,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    mcps = client.Mcp().list()
-    print(mcps)
+    pendingdeletes = client.PendingDelete().list()
+    print(pendingdeletes)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -129,8 +129,8 @@ client = CatchdomsSecuritySDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-mcp = client.Mcp().list()
-# mcp contains the mock response record
+pendingdelete = client.PendingDelete().list()
+# pendingdelete contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -284,9 +284,6 @@ API path: `/api/domains`
 
 | Field | Description |
 | --- | --- |
-| `capabilities` |  |
-| `server` |  |
-| `version` |  |
 
 Operations: List.
 
@@ -372,14 +369,6 @@ Create an instance: `mcp = client.Mcp()`
 | Method | Description |
 | --- | --- |
 | `list()` | List entities, optionally matching the given criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `capabilities` | `list` |  |
-| `server` | `str` |  |
-| `version` | `str` |  |
 
 #### Example: List
 
@@ -562,6 +551,7 @@ Use `helpers.to_map()` to safely validate that a value is a dict.
 py/
 ├── catchdomssecurity_sdk.py         -- Main SDK module
 ├── config.py                    -- Configuration
+├── schema.py                    -- Generated option + entity specs
 ├── features.py                  -- Feature factory
 ├── core/                        -- Core types and context
 ├── entity/                      -- Entity implementations
@@ -579,11 +569,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-mcp = client.Mcp()
-mcp.list()
+pendingdelete = client.PendingDelete()
+pendingdelete.list()
 
-# mcp.data_get() now returns the mcp data from the last list
-# mcp.match_get() returns the last match criteria
+# pendingdelete.data_get() now returns the pendingdelete data from the last list
+# pendingdelete.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -169,14 +169,6 @@ Return the entity name.
 mcp = client.Mcp()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `capabilities` | `list` | No |  |
-| `server` | `str` | No |  |
-| `version` | `str` | No |  |
-
 ### Operations
 
 #### `list(reqmatch=None, ctrl=None) -> list`
