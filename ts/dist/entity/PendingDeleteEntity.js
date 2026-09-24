@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PendingDeleteEntity = void 0;
 const CatchdomsSecurityEntityBase_1 = require("../CatchdomsSecurityEntityBase");
-// TODO: needs Entity superclass
 class PendingDeleteEntity extends CatchdomsSecurityEntityBase_1.CatchdomsSecurityEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

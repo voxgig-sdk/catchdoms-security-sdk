@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -149,139 +142,164 @@ class Config {
       "fields": [
         {
           "name": "age",
-          "short": "Years since first Wayback snapshot",
-          "type": "`$INTEGER`"
+          "title": "Age",
+          "type": "`$INTEGER`",
+          "short": "Years since first Wayback snapshot"
         },
         {
-          "format": "date-time",
           "name": "auction_end_date",
+          "title": "Auction End Date",
+          "type": "`$STRING`",
           "short": "Auction end date and time (ISO 8601)",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "backlinks_count",
-          "short": "Total number of backlinks",
-          "type": "`$INTEGER`"
+          "title": "Backlinks Count",
+          "type": "`$INTEGER`",
+          "short": "Total number of backlinks"
         },
         {
           "name": "bids_count",
-          "short": "Number of bids",
-          "type": "`$INTEGER`"
+          "title": "Bids Count",
+          "type": "`$INTEGER`",
+          "short": "Number of bids"
         },
         {
           "name": "citation_flow",
-          "short": "Majestic Citation Flow score (0-100)",
-          "type": "`$INTEGER`"
+          "title": "Citation Flow",
+          "type": "`$INTEGER`",
+          "short": "Majestic Citation Flow score (0-100)"
         },
         {
           "name": "domain_authority",
-          "short": "Moz Domain Authority score (0-100)",
-          "type": "`$INTEGER`"
+          "title": "Domain Authority",
+          "type": "`$INTEGER`",
+          "short": "Moz Domain Authority score (0-100)"
         },
         {
           "name": "edu_gov_backlinks",
-          "short": "Number of EDU/GOV backlinks",
-          "type": "`$INTEGER`"
+          "title": "Edu Gov Backlinks",
+          "type": "`$INTEGER`",
+          "short": "Number of EDU/GOV backlinks"
         },
         {
-          "format": "float",
           "name": "effective_price",
+          "title": "Effective Price",
+          "type": "`$NUMBER`",
           "short": "Effective price (max_bid or price) in EUR",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "has_gmb",
-          "short": "Has active Google Business Profile",
-          "type": "`$BOOLEAN`"
+          "title": "Has Gmb",
+          "type": "`$BOOLEAN`",
+          "short": "Has active Google Business Profile"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$INTEGER`",
           "req": true,
-          "short": "Unique domain identifier",
-          "type": "`$INTEGER`"
+          "short": "Unique domain identifier"
         },
         {
           "name": "language",
-          "short": "Detected content language (e.g., EN, FR, DE)",
-          "type": "`$STRING`"
+          "title": "Language",
+          "type": "`$STRING`",
+          "short": "Detected content language (e.g., EN, FR, DE)"
         },
         {
-          "format": "float",
           "name": "max_bid",
+          "title": "Max Bid",
+          "type": "`$NUMBER`",
           "short": "Current highest bid in EUR",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Domain name",
-          "type": "`$STRING`"
+          "short": "Domain name"
         },
         {
           "name": "pagerank",
-          "short": "Historical PageRank value",
-          "type": "`$INTEGER`"
+          "title": "Pagerank",
+          "type": "`$INTEGER`",
+          "short": "Historical PageRank value"
         },
         {
-          "format": "float",
           "name": "price",
+          "title": "Price",
+          "type": "`$NUMBER`",
           "short": "Starting price or buy-now price in EUR",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "uri",
           "name": "purchase_url",
+          "title": "Purchase Url",
+          "type": "`$STRING`",
           "short": "Direct URL to purchase or bid on the domain",
-          "type": "`$STRING`"
+          "format": "uri"
         },
         {
           "name": "referring_domains",
-          "short": "Number of unique referring domains",
-          "type": "`$INTEGER`"
+          "title": "Referring Domains",
+          "type": "`$INTEGER`",
+          "short": "Number of unique referring domains"
         },
         {
           "name": "score",
+          "title": "Score",
+          "type": "`$INTEGER`",
           "req": true,
-          "short": "CatchDoms quality score (0-100)",
-          "type": "`$INTEGER`"
+          "short": "CatchDoms quality score (0-100)"
         },
         {
           "name": "source",
+          "title": "Source",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Platform source (e.g., godaddy, dropcatch, regfree)",
-          "type": "`$STRING`"
+          "short": "Platform source (e.g., godaddy, dropcatch, regfree)"
         },
         {
           "name": "tld",
+          "title": "Tld",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Top-level domain extension",
-          "type": "`$STRING`"
+          "short": "Top-level domain extension"
         },
         {
           "name": "topical_trust_flow",
-          "short": "Majestic Topical Trust Flow category",
-          "type": "`$STRING`"
+          "title": "Topical Trust Flow",
+          "type": "`$STRING`",
+          "short": "Majestic Topical Trust Flow category"
         },
         {
           "name": "trust_flow",
-          "short": "Majestic Trust Flow score (0-100)",
-          "type": "`$INTEGER`"
+          "title": "Trust Flow",
+          "type": "`$INTEGER`",
+          "short": "Majestic Trust Flow score (0-100)"
         },
         {
           "name": "type",
-          "short": "Domain listing type",
-          "type": "`$STRING`"
+          "title": "Type",
+          "type": "`$STRING`",
+          "short": "Domain listing type"
         },
         {
-          "format": "date",
           "name": "wayback_first_date",
+          "title": "Wayback First Date",
+          "type": "`$STRING`",
           "short": "Date of first Wayback snapshot",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "wayback_snapshots",
-          "short": "Number of Wayback Machine snapshots",
-          "type": "`$INTEGER`"
+          "title": "Wayback Snapshots",
+          "type": "`$INTEGER`",
+          "short": "Number of Wayback Machine snapshots"
         }
       ],
       "id": {
@@ -295,141 +313,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "age_min",
-                    "orig": "age_min",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "Business,Health",
-                    "kind": "query",
-                    "name": "category",
-                    "orig": "category",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "cf_min",
-                    "orig": "cf_min",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "contain",
-                    "orig": "contain",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "da_min",
-                    "orig": "da_min",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "has_backlink",
-                    "orig": "has_backlink",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "has_bid",
-                    "orig": "has_bid",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "has_edu_gov",
-                    "orig": "has_edu_gov",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "has_gmb",
-                    "orig": "has_gmb",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "EN",
-                    "kind": "query",
-                    "name": "language",
-                    "orig": "language",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 1,
-                    "kind": "query",
-                    "name": "page",
-                    "orig": "page",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 10,
-                    "kind": "query",
-                    "name": "per_page",
-                    "orig": "per_page",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "price_max",
-                    "orig": "price_max",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "price_min",
-                    "orig": "price_min",
-                    "type": "`$NUMBER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "rd_min",
-                    "orig": "rd_min",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "score_min",
-                    "orig": "score_min",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "snapshots_min",
-                    "orig": "snapshots_min",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "source",
-                    "orig": "source",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "tf_min",
-                    "orig": "tf_min",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": ".com",
-                    "kind": "query",
-                    "name": "tld",
-                    "orig": "tld",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "type",
-                    "orig": "type",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/api/domains",
@@ -441,6 +324,150 @@ class Config {
                   "lit": "domains"
                 }
               ],
+              "parts": [
+                "api",
+                "domains"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "age_min",
+                    "orig": "age_min",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "category",
+                    "orig": "category",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "Business,Health"
+                  },
+                  {
+                    "name": "cf_min",
+                    "orig": "cf_min",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "contain",
+                    "orig": "contain",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "da_min",
+                    "orig": "da_min",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "has_backlink",
+                    "orig": "has_backlink",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "has_bid",
+                    "orig": "has_bid",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "has_edu_gov",
+                    "orig": "has_edu_gov",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "has_gmb",
+                    "orig": "has_gmb",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "language",
+                    "orig": "language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "EN"
+                  },
+                  {
+                    "name": "page",
+                    "orig": "page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 1
+                  },
+                  {
+                    "name": "per_page",
+                    "orig": "per_page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 10
+                  },
+                  {
+                    "name": "price_max",
+                    "orig": "price_max",
+                    "type": "`$NUMBER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "price_min",
+                    "orig": "price_min",
+                    "type": "`$NUMBER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "rd_min",
+                    "orig": "rd_min",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "score_min",
+                    "orig": "score_min",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "snapshots_min",
+                    "orig": "snapshots_min",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "source",
+                    "orig": "source",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "tf_min",
+                    "orig": "tf_min",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "tld",
+                    "orig": "tld",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": ".com"
+                  },
+                  {
+                    "name": "type",
+                    "orig": "type",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "age_min",
@@ -465,15 +492,7 @@ class Config {
                   "tld",
                   "type"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "api",
-                "domains"
-              ]
+              }
             }
           ]
         }
@@ -491,7 +510,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/mcp/catchdoms",
@@ -503,17 +521,19 @@ class Config {
                   "lit": "catchdoms"
                 }
               ],
-              "select": {
-                "$action": "catchdom"
-              },
+              "parts": [
+                "mcp",
+                "catchdoms"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.capabilities`"
               },
-              "parts": [
-                "mcp",
-                "catchdoms"
-              ]
+              "args": {},
+              "select": {
+                "$action": "catchdom"
+              }
             }
           ]
         }
@@ -526,59 +546,69 @@ class Config {
       "fields": [
         {
           "name": "age",
-          "short": "Years since first Wayback snapshot",
-          "type": "`$INTEGER`"
+          "title": "Age",
+          "type": "`$INTEGER`",
+          "short": "Years since first Wayback snapshot"
         },
         {
           "name": "backlinks_count",
-          "short": "Total number of backlinks",
-          "type": "`$INTEGER`"
+          "title": "Backlinks Count",
+          "type": "`$INTEGER`",
+          "short": "Total number of backlinks"
         },
         {
           "name": "days_until_drop",
-          "short": "Days until predicted drop date",
-          "type": "`$INTEGER`"
+          "title": "Days Until Drop",
+          "type": "`$INTEGER`",
+          "short": "Days until predicted drop date"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$INTEGER`",
           "req": true,
-          "short": "Unique domain identifier",
-          "type": "`$INTEGER`"
+          "short": "Unique domain identifier"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Domain name",
-          "type": "`$STRING`"
+          "short": "Domain name"
         },
         {
-          "format": "date",
           "name": "predicted_drop_date",
+          "title": "Predicted Drop Date",
+          "type": "`$STRING`",
           "req": true,
           "short": "Predicted drop date (YYYY-MM-DD)",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "referring_domains",
-          "short": "Number of unique referring domains",
-          "type": "`$INTEGER`"
+          "title": "Referring Domains",
+          "type": "`$INTEGER`",
+          "short": "Number of unique referring domains"
         },
         {
           "name": "score",
-          "short": "CatchDoms quality score (0-100)",
-          "type": "`$INTEGER`"
+          "title": "Score",
+          "type": "`$INTEGER`",
+          "short": "CatchDoms quality score (0-100)"
         },
         {
           "name": "status",
+          "title": "Status",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Current domain status",
-          "type": "`$STRING`"
+          "short": "Current domain status"
         },
         {
           "name": "tld",
+          "title": "Tld",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Top-level domain extension",
-          "type": "`$STRING`"
+          "short": "Top-level domain extension"
         }
       ],
       "id": {
@@ -592,48 +622,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "drop_date_max",
-                    "orig": "drop_date_max",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "drop_date_min",
-                    "orig": "drop_date_min",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 1,
-                    "kind": "query",
-                    "name": "page",
-                    "orig": "page",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 10,
-                    "kind": "query",
-                    "name": "per_page",
-                    "orig": "per_page",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "status",
-                    "orig": "status",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "tld",
-                    "orig": "tld",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/api/pending-delete",
@@ -645,6 +633,57 @@ class Config {
                   "lit": "pending-delete"
                 }
               ],
+              "parts": [
+                "api",
+                "pending-delete"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "drop_date_max",
+                    "orig": "drop_date_max",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "drop_date_min",
+                    "orig": "drop_date_min",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "page",
+                    "orig": "page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 1
+                  },
+                  {
+                    "name": "per_page",
+                    "orig": "per_page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 10
+                  },
+                  {
+                    "name": "status",
+                    "orig": "status",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "tld",
+                    "orig": "tld",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "drop_date_max",
@@ -654,15 +693,7 @@ class Config {
                   "status",
                   "tld"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "api",
-                "pending-delete"
-              ]
+              }
             }
           ]
         }

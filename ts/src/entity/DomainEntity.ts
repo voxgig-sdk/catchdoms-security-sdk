@@ -19,7 +19,6 @@ import type {
   DomainListMatch,
 } from '../CatchdomsSecurityTypes'
 
-// TODO: needs Entity superclass
 class DomainEntity extends CatchdomsSecurityEntityBase<Domain> {
 
   constructor(client: CatchdomsSecuritySDK, entopts: any) {

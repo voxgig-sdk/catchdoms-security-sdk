@@ -25,10 +25,6 @@ import {
 } from '../../utility'
 
 
-// AFTER the imports on purpose: TypeScript hoists `import` above any
-// statement in the emitted CommonJS, so a loader placed above them would
-// run only after every imported module had already been evaluated - and
-// anything reading process.env at module scope would miss these values.
 loadEnvLocal(__dirname + '/../../../.env.local')
 
 
@@ -55,7 +51,7 @@ describe('McpEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[],"name":"mcp","op":{"list":{"input":"data","name":"list","points":[{"active":true,"args":{},"contract":{"id":"GET /mcp/catchdoms","json":"{\"operationId\":\"getMCPServer\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"capabilities\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"server\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"MCP server endpoint active\"}},\"security\":[{\"BearerAuth\":[]}],\"securitySchemes\":{\"BearerAuth\":{\"bearerFormat\":\"API Key\",\"description\":\"Bearer token authentication. Add 'Authorization: Bearer YOUR_API_KEY' header. Get your API key from the API dashboard at https://catchdoms.com/api\",\"scheme\":\"bearer\",\"type\":\"http\"}},\"securitySource\":\"operation\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/mcp/catchdoms","segments":[{"lit":"mcp"},{"lit":"catchdoms"}],"select":{"$action":"catchdom"},"transform":{"req":"`reqdata`","res":"`body.capabilities`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"mcp","name__orig":"mcp","Name":"Mcp","name_":"mcp","name-":"mcp","NAME":"MCP","index$":1}, {"active":true,"entity":"mcp","key$":"BasicMcpFlow","kind":"basic","name":"BasicMcpFlow","param":{},"step":[{"active":true,"data":{},"input":{},"match":{},"op":"list","spec":[],"valid":[{"apply":"ItemExists","def":{"ref":"mcp_ref01"}}],"index$":0}]}, 'Mcp')
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{},"name":"mcp","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /mcp/catchdoms","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/mcp/catchdoms","q":{"$action":"catchdom"},"r":{},"s":[{"lit":"mcp"},{"lit":"catchdoms"}],"t":{"req":"`reqdata`","res":"`body.capabilities`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"mcp","name__orig":"mcp","Name":"Mcp","name_":"mcp","name-":"mcp","NAME":"MCP","index$":1}, {"active":true,"entity":"mcp","key$":"BasicMcpFlow","kind":"basic","name":"BasicMcpFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"mcp_ref01"}}],"index$":0}]}, 'Mcp', {"GET /mcp/catchdoms":{"protocol":"http","operationId":"getMCPServer","responses":{"200":{"description":"MCP server endpoint active","content":{"application/json":{"schema":{"type":"object","properties":{"server":{"key$":"server","type":"string"},"version":{"key$":"version","type":"string"},"capabilities":{"items":{"type":"string"},"key$":"capabilities","type":"array"}}}}}}},"parameters":[],"security":[{"BearerAuth":[]}],"securitySource":"operation","securitySchemes":{"BearerAuth":{"type":"http","scheme":"bearer","bearerFormat":"API Key","description":"Bearer token authentication. Add 'Authorization: Bearer YOUR_API_KEY' header. Get your API key from the API dashboard at https://catchdoms.com/api"}}}})
     }
     const client = setup.client
     const struct = setup.struct

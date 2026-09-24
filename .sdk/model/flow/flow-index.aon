@@ -1,5 +1,0 @@
-# Flows
-
-@"./BasicDomainFlow.aon"
-@"./BasicMcpFlow.aon"
-@"./BasicPendingDeleteFlow.aon"

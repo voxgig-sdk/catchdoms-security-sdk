@@ -24,195 +24,286 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "domain": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "age",
-              "req": false,
-              "short": "Years since first Wayback snapshot",
-              "type": "`$INTEGER`"
+          "fields": {
+            "age": {
+              "a": true,
+              "h": "Age",
+              "n": "age",
+              "r": false,
+              "sh": "Years since first Wayback snapshot",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "auction_end_date",
-              "req": false,
-              "short": "Auction end date and time (ISO 8601)",
-              "type": "`$STRING`"
+            "auction_end_date": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Auction End Date",
+              "n": "auction_end_date",
+              "r": false,
+              "sh": "Auction end date and time (ISO 8601)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "backlinks_count",
-              "req": false,
-              "short": "Total number of backlinks",
-              "type": "`$INTEGER`"
+            "backlinks_count": {
+              "a": true,
+              "h": "Backlinks Count",
+              "n": "backlinks_count",
+              "r": false,
+              "sh": "Total number of backlinks",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "bids_count",
-              "req": false,
-              "short": "Number of bids",
-              "type": "`$INTEGER`"
+            "bids_count": {
+              "a": true,
+              "h": "Bids Count",
+              "n": "bids_count",
+              "r": false,
+              "sh": "Number of bids",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "citation_flow",
-              "req": false,
-              "short": "Majestic Citation Flow score (0-100)",
-              "type": "`$INTEGER`"
+            "citation_flow": {
+              "a": true,
+              "h": "Citation Flow",
+              "n": "citation_flow",
+              "r": false,
+              "sh": "Majestic Citation Flow score (0-100)",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "domain_authority",
-              "req": false,
-              "short": "Moz Domain Authority score (0-100)",
-              "type": "`$INTEGER`"
+            "domain_authority": {
+              "a": true,
+              "h": "Domain Authority",
+              "n": "domain_authority",
+              "r": false,
+              "sh": "Moz Domain Authority score (0-100)",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "edu_gov_backlinks",
-              "req": false,
-              "short": "Number of EDU/GOV backlinks",
-              "type": "`$INTEGER`"
+            "edu_gov_backlinks": {
+              "a": true,
+              "h": "Edu Gov Backlinks",
+              "n": "edu_gov_backlinks",
+              "r": false,
+              "sh": "Number of EDU/GOV backlinks",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "effective_price",
-              "req": false,
-              "short": "Effective price (max_bid or price) in EUR",
-              "type": "`$NUMBER`"
+            "effective_price": {
+              "a": true,
+              "fo": "float",
+              "h": "Effective Price",
+              "n": "effective_price",
+              "r": false,
+              "sh": "Effective price (max_bid or price) in EUR",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "has_gmb",
-              "req": false,
-              "short": "Has active Google Business Profile",
-              "type": "`$BOOLEAN`"
+            "has_gmb": {
+              "a": true,
+              "h": "Has Gmb",
+              "n": "has_gmb",
+              "r": false,
+              "sh": "Has active Google Business Profile",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Unique domain identifier",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Unique domain identifier",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "language",
-              "req": false,
-              "short": "Detected content language (e.g., EN, FR, DE)",
-              "type": "`$STRING`"
+            "language": {
+              "a": true,
+              "h": "Language",
+              "n": "language",
+              "r": false,
+              "sh": "Detected content language (e.g., EN, FR, DE)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "max_bid",
-              "req": false,
-              "short": "Current highest bid in EUR",
-              "type": "`$NUMBER`"
+            "max_bid": {
+              "a": true,
+              "fo": "float",
+              "h": "Max Bid",
+              "n": "max_bid",
+              "r": false,
+              "sh": "Current highest bid in EUR",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Domain name",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Domain name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "pagerank",
-              "req": false,
-              "short": "Historical PageRank value",
-              "type": "`$INTEGER`"
+            "pagerank": {
+              "a": true,
+              "h": "Pagerank",
+              "n": "pagerank",
+              "r": false,
+              "sh": "Historical PageRank value",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "price",
-              "req": false,
-              "short": "Starting price or buy-now price in EUR",
-              "type": "`$NUMBER`"
+            "price": {
+              "a": true,
+              "fo": "float",
+              "h": "Price",
+              "n": "price",
+              "r": false,
+              "sh": "Starting price or buy-now price in EUR",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "purchase_url",
-              "req": false,
-              "short": "Direct URL to purchase or bid on the domain",
-              "type": "`$STRING`"
+            "purchase_url": {
+              "a": true,
+              "fo": "uri",
+              "h": "Purchase Url",
+              "n": "purchase_url",
+              "r": false,
+              "sh": "Direct URL to purchase or bid on the domain",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "referring_domains",
-              "req": false,
-              "short": "Number of unique referring domains",
-              "type": "`$INTEGER`"
+            "referring_domains": {
+              "a": true,
+              "h": "Referring Domains",
+              "n": "referring_domains",
+              "r": false,
+              "sh": "Number of unique referring domains",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "score",
-              "req": true,
-              "short": "CatchDoms quality score (0-100)",
-              "type": "`$INTEGER`"
+            "score": {
+              "a": true,
+              "h": "Score",
+              "n": "score",
+              "r": true,
+              "sh": "CatchDoms quality score (0-100)",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "source",
-              "req": true,
-              "short": "Platform source (e.g., godaddy, dropcatch, regfree)",
-              "type": "`$STRING`"
+            "source": {
+              "a": true,
+              "h": "Source",
+              "n": "source",
+              "r": true,
+              "sh": "Platform source (e.g., godaddy, dropcatch, regfree)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "tld",
-              "req": true,
-              "short": "Top-level domain extension",
-              "type": "`$STRING`"
+            "tld": {
+              "a": true,
+              "h": "Tld",
+              "n": "tld",
+              "r": true,
+              "sh": "Top-level domain extension",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "topical_trust_flow",
-              "req": false,
-              "short": "Majestic Topical Trust Flow category",
-              "type": "`$STRING`"
+            "topical_trust_flow": {
+              "a": true,
+              "h": "Topical Trust Flow",
+              "n": "topical_trust_flow",
+              "r": false,
+              "sh": "Majestic Topical Trust Flow category",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "trust_flow",
-              "req": false,
-              "short": "Majestic Trust Flow score (0-100)",
-              "type": "`$INTEGER`"
+            "trust_flow": {
+              "a": true,
+              "h": "Trust Flow",
+              "n": "trust_flow",
+              "r": false,
+              "sh": "Majestic Trust Flow score (0-100)",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "short": "Domain listing type",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "sh": "Domain listing type",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "wayback_first_date",
-              "req": false,
-              "short": "Date of first Wayback snapshot",
-              "type": "`$STRING`"
+            "wayback_first_date": {
+              "a": true,
+              "fo": "date",
+              "h": "Wayback First Date",
+              "n": "wayback_first_date",
+              "r": false,
+              "sh": "Date of first Wayback snapshot",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "wayback_snapshots",
-              "req": false,
-              "short": "Number of Wayback Machine snapshots",
-              "type": "`$INTEGER`"
+            "wayback_snapshots": {
+              "a": true,
+              "h": "Wayback Snapshots",
+              "n": "wayback_snapshots",
+              "r": false,
+              "sh": "Number of Wayback Machine snapshots",
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -224,202 +315,193 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/domains",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "age_min",
-                        "orig": "age_min",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "age_min",
+                        "or": "age_min",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "Business,Health",
-                        "kind": "query",
-                        "name": "category",
-                        "orig": "category",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "Business,Health",
+                        "k": "query",
+                        "n": "category",
+                        "or": "category",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "cf_min",
-                        "orig": "cf_min",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "cf_min",
+                        "or": "cf_min",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "contain",
-                        "orig": "contain",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "contain",
+                        "or": "contain",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "da_min",
-                        "orig": "da_min",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "da_min",
+                        "or": "da_min",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "has_backlink",
-                        "orig": "has_backlink",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "has_backlink",
+                        "or": "has_backlink",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "has_bid",
-                        "orig": "has_bid",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "has_bid",
+                        "or": "has_bid",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "has_edu_gov",
-                        "orig": "has_edu_gov",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "has_edu_gov",
+                        "or": "has_edu_gov",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "has_gmb",
-                        "orig": "has_gmb",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "has_gmb",
+                        "or": "has_gmb",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "EN",
-                        "kind": "query",
-                        "name": "language",
-                        "orig": "language",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "EN",
+                        "k": "query",
+                        "n": "language",
+                        "or": "language",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 10,
-                        "kind": "query",
-                        "name": "per_page",
-                        "orig": "per_page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 10,
+                        "k": "query",
+                        "n": "per_page",
+                        "or": "per_page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "price_max",
-                        "orig": "price_max",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "price_max",
+                        "or": "price_max",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "price_min",
-                        "orig": "price_min",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "price_min",
+                        "or": "price_min",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "rd_min",
-                        "orig": "rd_min",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "rd_min",
+                        "or": "rd_min",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "score_min",
-                        "orig": "score_min",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "score_min",
+                        "or": "score_min",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "snapshots_min",
-                        "orig": "snapshots_min",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "snapshots_min",
+                        "or": "snapshots_min",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "source",
-                        "orig": "source",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "source",
+                        "or": "source",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "tf_min",
-                        "orig": "tf_min",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "tf_min",
+                        "or": "tf_min",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": ".com",
-                        "kind": "query",
-                        "name": "tld",
-                        "orig": "tld",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": ".com",
+                        "k": "query",
+                        "n": "tld",
+                        "or": "tld",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "type",
-                        "orig": "type",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/domains",
-                    "json": "{\"operationId\":\"getDomains\",\"parameters\":[{\"description\":\"Platform source: dynadot, godaddy, catched, dropcatch, gname, snapnames, ukdroplists, subreg, webexpire, parkio, bloomup, seodomains, nameshift, nicsell, gnews-domains, backorders-domains, regfree (deleted ccTLDs - requires Authority plan)\",\"in\":\"query\",\"name\":\"source\",\"required\":false,\"schema\":{\"enum\":[\"dynadot\",\"godaddy\",\"catched\",\"dropcatch\",\"gname\",\"snapnames\",\"ukdroplists\",\"subreg\",\"webexpire\",\"parkio\",\"bloomup\",\"seodomains\",\"nameshift\",\"nicsell\",\"gnews-domains\",\"backorders-domains\",\"regfree\",\"namepros\",\"namecheap\",\"namesilo\",\"domainlore\",\"rakko\"],\"type\":\"string\"}},{\"description\":\"Top-level domain filter: .com, .net, .org, .fr, .de, .co.uk, .it, .nl, .es, .ca, etc.\",\"in\":\"query\",\"name\":\"tld\",\"required\":false,\"schema\":{\"example\":\".com\",\"type\":\"string\"}},{\"description\":\"Minimum quality score (0-100). Try 50+ for good domains.\",\"in\":\"query\",\"name\":\"score_min\",\"required\":false,\"schema\":{\"maximum\":100,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Minimum years since first Wayback snapshot\",\"in\":\"query\",\"name\":\"age_min\",\"required\":false,\"schema\":{\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Domain listing type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"auction\",\"closeout\",\"backorder\"],\"type\":\"string\"}},{\"description\":\"Filter to only domains with active bids (1 = true)\",\"in\":\"query\",\"name\":\"has_bids\",\"required\":false,\"schema\":{\"enum\":[0,1],\"type\":\"integer\"}},{\"description\":\"Filter to only domains with referring domains (1 = true)\",\"in\":\"query\",\"name\":\"has_backlinks\",\"required\":false,\"schema\":{\"enum\":[0,1],\"type\":\"integer\"}},{\"description\":\"Filter to only domains with an active Google Business Profile (1 = true)\",\"in\":\"query\",\"name\":\"has_gmb\",\"required\":false,\"schema\":{\"enum\":[0,1],\"type\":\"integer\"}},{\"description\":\"Filter to only domains with EDU or GOV referring domains (1 = true)\",\"in\":\"query\",\"name\":\"has_edu_gov\",\"required\":false,\"schema\":{\"enum\":[0,1],\"type\":\"integer\"}},{\"description\":\"Minimum Majestic Trust Flow score (0-100)\",\"in\":\"query\",\"name\":\"tf_min\",\"required\":false,\"schema\":{\"maximum\":100,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Minimum Majestic Citation Flow score (0-100)\",\"in\":\"query\",\"name\":\"cf_min\",\"required\":false,\"schema\":{\"maximum\":100,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Minimum Moz Domain Authority score (0-100)\",\"in\":\"query\",\"name\":\"da_min\",\"required\":false,\"schema\":{\"maximum\":100,\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Minimum referring domains count\",\"in\":\"query\",\"name\":\"rd_min\",\"required\":false,\"schema\":{\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Majestic TTF categories (comma-separated): Business, Health, Computers, Shopping, Recreation, Society, Sports, News, Science, Arts, Reference, Regional, Games, Home, World, Adult\",\"in\":\"query\",\"name\":\"categories\",\"required\":false,\"schema\":{\"example\":\"Business,Health\",\"type\":\"string\"}},{\"description\":\"Substring filter on the domain name (e.g., 'shop', 'travel')\",\"in\":\"query\",\"name\":\"contains\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Language detected from Wayback content (e.g., EN, FR, DE, ES)\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"example\":\"EN\",\"type\":\"string\"}},{\"description\":\"Minimum price or current bid in EUR\",\"in\":\"query\",\"name\":\"price_min\",\"required\":false,\"schema\":{\"format\":\"float\",\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Maximum price or current bid in EUR\",\"in\":\"query\",\"name\":\"price_max\",\"required\":false,\"schema\":{\"format\":\"float\",\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Minimum Wayback snapshot count\",\"in\":\"query\",\"name\":\"snapshots_min\",\"required\":false,\"schema\":{\"minimum\":0,\"type\":\"integer\"}},{\"description\":\"Number of domains per response page (1-100)\",\"in\":\"query\",\"name\":\"per_page\",\"required\":false,\"schema\":{\"default\":10,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"data\":[{\"age\":15,\"auction_end_date\":\"2026-01-25T18:00:00Z\",\"backlinks_count\":1420,\"bids_count\":8,\"domain_authority\":28,\"effective_price\":125,\"id\":12345,\"language\":\"EN\",\"max_bid\":125,\"name\":\"example.com\",\"pagerank\":4,\"price\":12,\"purchase_url\":\"https://auctions.godaddy.com/...\",\"referring_domains\":89,\"score\":72,\"source\":\"godaddy\",\"tld\":\".com\",\"type\":\"auction\",\"wayback_first_date\":\"2011-03-14\",\"wayback_snapshots\":156}],\"links\":{\"first\":\"https://catchdoms.com/api/domains?page=1\",\"last\":\"https://catchdoms.com/api/domains?page=342\",\"next\":\"https://catchdoms.com/api/domains?page=2\",\"prev\":null},\"meta\":{\"current_page\":1,\"total\":3420}},\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"age\":{\"description\":\"Years since first Wayback snapshot\",\"nullable\":true,\"type\":\"integer\"},\"auction_end_date\":{\"description\":\"Auction end date and time (ISO 8601)\",\"format\":\"date-time\",\"nullable\":true,\"type\":\"string\"},\"backlinks_count\":{\"description\":\"Total number of backlinks\",\"nullable\":true,\"type\":\"integer\"},\"bids_count\":{\"description\":\"Number of bids\",\"nullable\":true,\"type\":\"integer\"},\"citation_flow\":{\"description\":\"Majestic Citation Flow score (0-100)\",\"nullable\":true,\"type\":\"integer\"},\"domain_authority\":{\"description\":\"Moz Domain Authority score (0-100)\",\"nullable\":true,\"type\":\"integer\"},\"edu_gov_backlinks\":{\"description\":\"Number of EDU/GOV backlinks\",\"nullable\":true,\"type\":\"integer\"},\"effective_price\":{\"description\":\"Effective price (max_bid or price) in EUR\",\"format\":\"float\",\"nullable\":true,\"type\":\"number\"},\"has_gmb\":{\"description\":\"Has active Google Business Profile\",\"nullable\":true,\"type\":\"boolean\"},\"id\":{\"description\":\"Unique domain identifier\",\"type\":\"integer\"},\"language\":{\"description\":\"Detected content language (e.g., EN, FR, DE)\",\"nullable\":true,\"type\":\"string\"},\"max_bid\":{\"description\":\"Current highest bid in EUR\",\"format\":\"float\",\"nullable\":true,\"type\":\"number\"},\"name\":{\"description\":\"Domain name\",\"type\":\"string\"},\"pagerank\":{\"description\":\"Historical PageRank value\",\"nullable\":true,\"type\":\"integer\"},\"price\":{\"description\":\"Starting price or buy-now price in EUR\",\"format\":\"float\",\"nullable\":true,\"type\":\"number\"},\"purchase_url\":{\"description\":\"Direct URL to purchase or bid on the domain\",\"format\":\"uri\",\"type\":\"string\"},\"referring_domains\":{\"description\":\"Number of unique referring domains\",\"nullable\":true,\"type\":\"integer\"},\"score\":{\"description\":\"CatchDoms quality score (0-100)\",\"type\":\"integer\"},\"source\":{\"description\":\"Platform source (e.g., godaddy, dropcatch, regfree)\",\"type\":\"string\"},\"tld\":{\"description\":\"Top-level domain extension\",\"type\":\"string\"},\"topical_trust_flow\":{\"description\":\"Majestic Topical Trust Flow category\",\"nullable\":true,\"type\":\"string\"},\"trust_flow\":{\"description\":\"Majestic Trust Flow score (0-100)\",\"nullable\":true,\"type\":\"integer\"},\"type\":{\"description\":\"Domain listing type\",\"enum\":[\"auction\",\"closeout\",\"backorder\",\"deleted\"],\"type\":\"string\"},\"wayback_first_date\":{\"description\":\"Date of first Wayback snapshot\",\"format\":\"date\",\"nullable\":true,\"type\":\"string\"},\"wayback_snapshots\":{\"description\":\"Number of Wayback Machine snapshots\",\"nullable\":true,\"type\":\"integer\"}},\"required\":[\"id\",\"name\",\"tld\",\"source\",\"score\"],\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"properties\":{\"first\":{\"format\":\"uri\",\"type\":\"string\"},\"last\":{\"format\":\"uri\",\"type\":\"string\"},\"next\":{\"format\":\"uri\",\"nullable\":true,\"type\":\"string\"},\"prev\":{\"format\":\"uri\",\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"},\"meta\":{\"properties\":{\"current_page\":{\"type\":\"integer\"},\"from\":{\"type\":\"integer\"},\"last_page\":{\"type\":\"integer\"},\"per_page\":{\"type\":\"integer\"},\"to\":{\"type\":\"integer\"},\"total\":{\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with domain data\"},\"401\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Unauthorized\",\"message\":\"Invalid API key\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error type\",\"type\":\"string\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\",\"message\"],\"type\":\"object\"}}},\"description\":\"Unauthorized - Invalid or missing API key\"},\"403\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Forbidden\",\"message\":\"Authority plan required to access source=regfree\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error type\",\"type\":\"string\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\",\"message\"],\"type\":\"object\"}}},\"description\":\"Forbidden - Authority plan required for this resource\"},\"429\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Too Many Requests\",\"message\":\"Rate limit exceeded. Please wait 60 seconds and try again.\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error type\",\"type\":\"string\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\",\"message\"],\"type\":\"object\"}}},\"description\":\"Too Many Requests - Rate limit exceeded\"}},\"security\":[{\"BearerAuth\":[]},{}],\"securitySchemes\":{\"BearerAuth\":{\"bearerFormat\":\"API Key\",\"description\":\"Bearer token authentication. Add 'Authorization: Bearer YOUR_API_KEY' header. Get your API key from the API dashboard at https://catchdoms.com/api\",\"scheme\":\"bearer\",\"type\":\"http\"}},\"securitySource\":\"operation\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/domains",
-                  "segments": [
-                    {
-                      "lit": "api"
-                    },
-                    {
-                      "lit": "domains"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/domains",
+                  "q": {
                     "exist": [
                       "age_min",
                       "category",
@@ -444,7 +526,16 @@
                       "type"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "api"
+                    },
+                    {
+                      "lit": "domains"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -461,7 +552,7 @@
           "alias": {
             "field": {}
           },
-          "fields": [],
+          "fields": {},
           "name": "mcp",
           "op": {
             "list": {
@@ -469,18 +560,21 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /mcp/catchdoms",
-                    "json": "{\"operationId\":\"getMCPServer\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"capabilities\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"server\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"MCP server endpoint active\"}},\"security\":[{\"BearerAuth\":[]}],\"securitySchemes\":{\"BearerAuth\":{\"bearerFormat\":\"API Key\",\"description\":\"Bearer token authentication. Add 'Authorization: Bearer YOUR_API_KEY' header. Get your API key from the API dashboard at https://catchdoms.com/api\",\"scheme\":\"bearer\",\"type\":\"http\"}},\"securitySource\":\"operation\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/mcp/catchdoms",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/mcp/catchdoms",
+                  "q": {
+                    "$action": "catchdom"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "mcp"
                     },
@@ -488,10 +582,7 @@
                       "lit": "catchdoms"
                     }
                   ],
-                  "select": {
-                    "$action": "catchdom"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.capabilities`"
                   }
@@ -508,79 +599,89 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "age",
-              "req": false,
-              "short": "Years since first Wayback snapshot",
-              "type": "`$INTEGER`"
+          "fields": {
+            "age": {
+              "a": true,
+              "h": "Age",
+              "n": "age",
+              "r": false,
+              "sh": "Years since first Wayback snapshot",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "backlinks_count",
-              "req": false,
-              "short": "Total number of backlinks",
-              "type": "`$INTEGER`"
+            "backlinks_count": {
+              "a": true,
+              "h": "Backlinks Count",
+              "n": "backlinks_count",
+              "r": false,
+              "sh": "Total number of backlinks",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "days_until_drop",
-              "req": false,
-              "short": "Days until predicted drop date",
-              "type": "`$INTEGER`"
+            "days_until_drop": {
+              "a": true,
+              "h": "Days Until Drop",
+              "n": "days_until_drop",
+              "r": false,
+              "sh": "Days until predicted drop date",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Unique domain identifier",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Unique domain identifier",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Domain name",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Domain name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "predicted_drop_date",
-              "req": true,
-              "short": "Predicted drop date (YYYY-MM-DD)",
-              "type": "`$STRING`"
+            "predicted_drop_date": {
+              "a": true,
+              "fo": "date",
+              "h": "Predicted Drop Date",
+              "n": "predicted_drop_date",
+              "r": true,
+              "sh": "Predicted drop date (YYYY-MM-DD)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "referring_domains",
-              "req": false,
-              "short": "Number of unique referring domains",
-              "type": "`$INTEGER`"
+            "referring_domains": {
+              "a": true,
+              "h": "Referring Domains",
+              "n": "referring_domains",
+              "r": false,
+              "sh": "Number of unique referring domains",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "score",
-              "req": false,
-              "short": "CatchDoms quality score (0-100)",
-              "type": "`$INTEGER`"
+            "score": {
+              "a": true,
+              "h": "Score",
+              "n": "score",
+              "r": false,
+              "sh": "CatchDoms quality score (0-100)",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": true,
-              "short": "Current domain status",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": true,
+              "sh": "Current domain status",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "tld",
-              "req": true,
-              "short": "Top-level domain extension",
-              "type": "`$STRING`"
+            "tld": {
+              "a": true,
+              "h": "Tld",
+              "n": "tld",
+              "r": true,
+              "sh": "Top-level domain extension",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -592,79 +693,70 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/pending-delete",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "drop_date_max",
-                        "orig": "drop_date_max",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "drop_date_max",
+                        "or": "drop_date_max",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "drop_date_min",
-                        "orig": "drop_date_min",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "drop_date_min",
+                        "or": "drop_date_min",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 10,
-                        "kind": "query",
-                        "name": "per_page",
-                        "orig": "per_page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 10,
+                        "k": "query",
+                        "n": "per_page",
+                        "or": "per_page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "status",
-                        "orig": "status",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "status",
+                        "or": "status",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "tld",
-                        "orig": "tld",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "tld",
+                        "or": "tld",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/pending-delete",
-                    "json": "{\"operationId\":\"getPendingDelete\",\"parameters\":[{\"description\":\"Domain status filter\",\"in\":\"query\",\"name\":\"status\",\"required\":false,\"schema\":{\"enum\":[\"pendingDelete\",\"redemptionPeriod\",\"serverHold\",\"clientHold\",\"transition\",\"quarantine\"],\"type\":\"string\"}},{\"description\":\"Top-level domain filter (e.g., .com, .net, .de, .fr, .uk, .nl, .it, .es, .ai, .ch)\",\"in\":\"query\",\"name\":\"tld\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Minimum predicted drop date (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"drop_date_min\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"Maximum predicted drop date (YYYY-MM-DD)\",\"in\":\"query\",\"name\":\"drop_date_max\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"Number of domains per response page (1-100)\",\"in\":\"query\",\"name\":\"per_page\",\"required\":false,\"schema\":{\"default\":10,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"age\":{\"description\":\"Years since first Wayback snapshot\",\"nullable\":true,\"type\":\"integer\"},\"backlinks_count\":{\"description\":\"Total number of backlinks\",\"nullable\":true,\"type\":\"integer\"},\"days_until_drop\":{\"description\":\"Days until predicted drop date\",\"type\":\"integer\"},\"id\":{\"description\":\"Unique domain identifier\",\"type\":\"integer\"},\"name\":{\"description\":\"Domain name\",\"type\":\"string\"},\"predicted_drop_date\":{\"description\":\"Predicted drop date (YYYY-MM-DD)\",\"format\":\"date\",\"type\":\"string\"},\"referring_domains\":{\"description\":\"Number of unique referring domains\",\"nullable\":true,\"type\":\"integer\"},\"score\":{\"description\":\"CatchDoms quality score (0-100)\",\"nullable\":true,\"type\":\"integer\"},\"status\":{\"description\":\"Current domain status\",\"enum\":[\"pendingDelete\",\"redemptionPeriod\",\"serverHold\",\"clientHold\",\"transition\",\"quarantine\"],\"type\":\"string\"},\"tld\":{\"description\":\"Top-level domain extension\",\"type\":\"string\"}},\"required\":[\"id\",\"name\",\"tld\",\"status\",\"predicted_drop_date\"],\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"properties\":{\"first\":{\"format\":\"uri\",\"type\":\"string\"},\"last\":{\"format\":\"uri\",\"type\":\"string\"},\"next\":{\"format\":\"uri\",\"nullable\":true,\"type\":\"string\"},\"prev\":{\"format\":\"uri\",\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"},\"meta\":{\"properties\":{\"current_page\":{\"type\":\"integer\"},\"total\":{\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with pending-delete domain data\"},\"401\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error type\",\"type\":\"string\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\",\"message\"],\"type\":\"object\"}}},\"description\":\"Unauthorized - Invalid or missing API key\"},\"403\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Forbidden\",\"message\":\"Authority+ subscription required to access pending-delete inventory\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error type\",\"type\":\"string\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\",\"message\"],\"type\":\"object\"}}},\"description\":\"Forbidden - Authority+ plan required\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error type\",\"type\":\"string\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\",\"message\"],\"type\":\"object\"}}},\"description\":\"Too Many Requests - Rate limit exceeded\"}},\"security\":[{\"BearerAuth\":[]}],\"securitySchemes\":{\"BearerAuth\":{\"bearerFormat\":\"API Key\",\"description\":\"Bearer token authentication. Add 'Authorization: Bearer YOUR_API_KEY' header. Get your API key from the API dashboard at https://catchdoms.com/api\",\"scheme\":\"bearer\",\"type\":\"http\"}},\"securitySource\":\"operation\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/pending-delete",
-                  "segments": [
-                    {
-                      "lit": "api"
-                    },
-                    {
-                      "lit": "pending-delete"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/pending-delete",
+                  "q": {
                     "exist": [
                       "drop_date_max",
                       "drop_date_min",
@@ -674,7 +766,16 @@
                       "tld"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "api"
+                    },
+                    {
+                      "lit": "pending-delete"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1103,13 +1204,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1129,13 +1230,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1155,13 +1256,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

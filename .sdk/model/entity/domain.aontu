@@ -1,0 +1,409 @@
+# Entity: domain
+
+main: kit: entity: domain: {
+
+  alias: field: {}
+
+  fields: {
+    age: {
+      h: "Age"
+      n: "age"
+      r: false
+      sh: "Years since first Wayback snapshot"
+      t: "`$INTEGER`"
+    }
+    auction_end_date: {
+      fo: "date-time"
+      h: "Auction End Date"
+      n: "auction_end_date"
+      r: false
+      sh: "Auction end date and time (ISO 8601)"
+      t: "`$STRING`"
+    }
+    backlinks_count: {
+      h: "Backlinks Count"
+      n: "backlinks_count"
+      r: false
+      sh: "Total number of backlinks"
+      t: "`$INTEGER`"
+    }
+    bids_count: {
+      h: "Bids Count"
+      n: "bids_count"
+      r: false
+      sh: "Number of bids"
+      t: "`$INTEGER`"
+    }
+    citation_flow: {
+      h: "Citation Flow"
+      n: "citation_flow"
+      r: false
+      sh: "Majestic Citation Flow score (0-100)"
+      t: "`$INTEGER`"
+    }
+    domain_authority: {
+      h: "Domain Authority"
+      n: "domain_authority"
+      r: false
+      sh: "Moz Domain Authority score (0-100)"
+      t: "`$INTEGER`"
+    }
+    edu_gov_backlinks: {
+      h: "Edu Gov Backlinks"
+      n: "edu_gov_backlinks"
+      r: false
+      sh: "Number of EDU/GOV backlinks"
+      t: "`$INTEGER`"
+    }
+    effective_price: {
+      fo: "float"
+      h: "Effective Price"
+      n: "effective_price"
+      r: false
+      sh: "Effective price (max_bid or price) in EUR"
+      t: "`$NUMBER`"
+    }
+    has_gmb: {
+      h: "Has Gmb"
+      n: "has_gmb"
+      r: false
+      sh: "Has active Google Business Profile"
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique domain identifier"
+      t: "`$INTEGER`"
+    }
+    language: {
+      h: "Language"
+      n: "language"
+      r: false
+      sh: "Detected content language (e.g., EN, FR, DE)"
+      t: "`$STRING`"
+    }
+    max_bid: {
+      fo: "float"
+      h: "Max Bid"
+      n: "max_bid"
+      r: false
+      sh: "Current highest bid in EUR"
+      t: "`$NUMBER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Domain name"
+      t: "`$STRING`"
+    }
+    pagerank: {
+      h: "Pagerank"
+      n: "pagerank"
+      r: false
+      sh: "Historical PageRank value"
+      t: "`$INTEGER`"
+    }
+    price: {
+      fo: "float"
+      h: "Price"
+      n: "price"
+      r: false
+      sh: "Starting price or buy-now price in EUR"
+      t: "`$NUMBER`"
+    }
+    purchase_url: {
+      fo: "uri"
+      h: "Purchase Url"
+      n: "purchase_url"
+      r: false
+      sh: "Direct URL to purchase or bid on the domain"
+      t: "`$STRING`"
+    }
+    referring_domains: {
+      h: "Referring Domains"
+      n: "referring_domains"
+      r: false
+      sh: "Number of unique referring domains"
+      t: "`$INTEGER`"
+    }
+    score: {
+      h: "Score"
+      n: "score"
+      r: true
+      sh: "CatchDoms quality score (0-100)"
+      t: "`$INTEGER`"
+    }
+    source: {
+      h: "Source"
+      n: "source"
+      r: true
+      sh: "Platform source (e.g., godaddy, dropcatch, regfree)"
+      t: "`$STRING`"
+    }
+    tld: {
+      h: "Tld"
+      n: "tld"
+      r: true
+      sh: "Top-level domain extension"
+      t: "`$STRING`"
+    }
+    topical_trust_flow: {
+      h: "Topical Trust Flow"
+      n: "topical_trust_flow"
+      r: false
+      sh: "Majestic Topical Trust Flow category"
+      t: "`$STRING`"
+    }
+    trust_flow: {
+      h: "Trust Flow"
+      n: "trust_flow"
+      r: false
+      sh: "Majestic Trust Flow score (0-100)"
+      t: "`$INTEGER`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "Domain listing type"
+      t: "`$STRING`"
+    }
+    wayback_first_date: {
+      fo: "date"
+      h: "Wayback First Date"
+      n: "wayback_first_date"
+      r: false
+      sh: "Date of first Wayback snapshot"
+      t: "`$STRING`"
+    }
+    wayback_snapshots: {
+      h: "Wayback Snapshots"
+      n: "wayback_snapshots"
+      r: false
+      sh: "Number of Wayback Machine snapshots"
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "domain"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/domains"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "age_min"
+                or: "age_min"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "Business,Health"
+                k: "query"
+                n: "category"
+                or: "category"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "cf_min"
+                or: "cf_min"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "contain"
+                or: "contain"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "da_min"
+                or: "da_min"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "has_backlink"
+                or: "has_backlink"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "has_bid"
+                or: "has_bid"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "has_edu_gov"
+                or: "has_edu_gov"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "has_gmb"
+                or: "has_gmb"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "EN"
+                k: "query"
+                n: "language"
+                or: "language"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "price_max"
+                or: "price_max"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "price_min"
+                or: "price_min"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "rd_min"
+                or: "rd_min"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "score_min"
+                or: "score_min"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "snapshots_min"
+                or: "snapshots_min"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "source"
+                or: "source"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "tf_min"
+                or: "tf_min"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: ".com"
+                k: "query"
+                n: "tld"
+                or: "tld"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/domains"
+          q: {
+            exist: [
+              "age_min"
+              "category"
+              "cf_min"
+              "contain"
+              "da_min"
+              "has_backlink"
+              "has_bid"
+              "has_edu_gov"
+              "has_gmb"
+              "language"
+              "page"
+              "per_page"
+              "price_max"
+              "price_min"
+              "rd_min"
+              "score_min"
+              "snapshots_min"
+              "source"
+              "tf_min"
+              "tld"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "domains"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

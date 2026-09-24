@@ -45,7 +45,7 @@ local domains, err = client:Domain():list()
 if err then error(err) end
 
 for _, item in ipairs(domains) do
-  print(item["id"], item["auction_end_date"])
+  print(item["id"])
 end
 ```
 

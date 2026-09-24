@@ -19,7 +19,6 @@ import type {
   McpListMatch,
 } from '../CatchdomsSecurityTypes'
 
-// TODO: needs Entity superclass
 class McpEntity extends CatchdomsSecurityEntityBase<Mcp> {
 
   constructor(client: CatchdomsSecuritySDK, entopts: any) {

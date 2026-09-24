@@ -1,0 +1,176 @@
+# Entity: pending_delete
+
+main: kit: entity: pending_delete: {
+
+  alias: field: {}
+
+  fields: {
+    age: {
+      h: "Age"
+      n: "age"
+      r: false
+      sh: "Years since first Wayback snapshot"
+      t: "`$INTEGER`"
+    }
+    backlinks_count: {
+      h: "Backlinks Count"
+      n: "backlinks_count"
+      r: false
+      sh: "Total number of backlinks"
+      t: "`$INTEGER`"
+    }
+    days_until_drop: {
+      h: "Days Until Drop"
+      n: "days_until_drop"
+      r: false
+      sh: "Days until predicted drop date"
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique domain identifier"
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Domain name"
+      t: "`$STRING`"
+    }
+    predicted_drop_date: {
+      fo: "date"
+      h: "Predicted Drop Date"
+      n: "predicted_drop_date"
+      r: true
+      sh: "Predicted drop date (YYYY-MM-DD)"
+      t: "`$STRING`"
+    }
+    referring_domains: {
+      h: "Referring Domains"
+      n: "referring_domains"
+      r: false
+      sh: "Number of unique referring domains"
+      t: "`$INTEGER`"
+    }
+    score: {
+      h: "Score"
+      n: "score"
+      r: false
+      sh: "CatchDoms quality score (0-100)"
+      t: "`$INTEGER`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "Current domain status"
+      t: "`$STRING`"
+    }
+    tld: {
+      h: "Tld"
+      n: "tld"
+      r: true
+      sh: "Top-level domain extension"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "pending_delete"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/pending-delete"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "drop_date_max"
+                or: "drop_date_max"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "drop_date_min"
+                or: "drop_date_min"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "tld"
+                or: "tld"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/pending-delete"
+          q: {
+            exist: [
+              "drop_date_max"
+              "drop_date_min"
+              "page"
+              "per_page"
+              "status"
+              "tld"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "pending-delete"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

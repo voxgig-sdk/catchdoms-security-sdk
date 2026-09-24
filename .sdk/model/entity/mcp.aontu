@@ -1,0 +1,45 @@
+# Entity: mcp
+
+main: kit: entity: mcp: {
+
+  alias: field: {}
+
+  name: "mcp"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /mcp/catchdoms"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/mcp/catchdoms"
+          q: {
+            "$action": "catchdom"
+          }
+          s: [
+            {
+              lit: "mcp"
+            }
+            {
+              lit: "catchdoms"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.capabilities`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

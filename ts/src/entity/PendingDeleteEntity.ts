@@ -19,7 +19,6 @@ import type {
   PendingDeleteListMatch,
 } from '../CatchdomsSecurityTypes'
 
-// TODO: needs Entity superclass
 class PendingDeleteEntity extends CatchdomsSecurityEntityBase<PendingDelete> {
 
   constructor(client: CatchdomsSecuritySDK, entopts: any) {
