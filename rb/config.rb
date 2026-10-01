@@ -293,7 +293,7 @@ module CatchdomsSecurityConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.data`",
                   },
                   "args" => {
                     "query" => [
@@ -305,7 +305,7 @@ module CatchdomsSecurityConfig
                       },
                       {
                         "name" => "category",
-                        "orig" => "category",
+                        "orig" => "categories",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "Business,Health",
@@ -318,7 +318,7 @@ module CatchdomsSecurityConfig
                       },
                       {
                         "name" => "contain",
-                        "orig" => "contain",
+                        "orig" => "contains",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -330,13 +330,13 @@ module CatchdomsSecurityConfig
                       },
                       {
                         "name" => "has_backlink",
-                        "orig" => "has_backlink",
+                        "orig" => "has_backlinks",
                         "type" => "`$INTEGER`",
                         "kind" => "query",
                       },
                       {
                         "name" => "has_bid",
-                        "orig" => "has_bid",
+                        "orig" => "has_bids",
                         "type" => "`$INTEGER`",
                         "kind" => "query",
                       },
@@ -602,7 +602,7 @@ module CatchdomsSecurityConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.data`",
                   },
                   "args" => {
                     "query" => [

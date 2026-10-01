@@ -331,7 +331,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [
@@ -343,7 +343,7 @@ class Config {
                   },
                   {
                     "name": "category",
-                    "orig": "category",
+                    "orig": "categories",
                     "type": "`$STRING`",
                     "kind": "query",
                     "example": "Business,Health"
@@ -356,7 +356,7 @@ class Config {
                   },
                   {
                     "name": "contain",
-                    "orig": "contain",
+                    "orig": "contains",
                     "type": "`$STRING`",
                     "kind": "query"
                   },
@@ -368,13 +368,13 @@ class Config {
                   },
                   {
                     "name": "has_backlink",
-                    "orig": "has_backlink",
+                    "orig": "has_backlinks",
                     "type": "`$INTEGER`",
                     "kind": "query"
                   },
                   {
                     "name": "has_bid",
-                    "orig": "has_bid",
+                    "orig": "has_bids",
                     "type": "`$INTEGER`",
                     "kind": "query"
                   },
@@ -640,7 +640,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "query": [

@@ -336,7 +336,7 @@
                         "ex": "Business,Health",
                         "k": "query",
                         "n": "category",
-                        "or": "category",
+                        "or": "categories",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -352,7 +352,7 @@
                         "a": true,
                         "k": "query",
                         "n": "contain",
-                        "or": "contain",
+                        "or": "contains",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -368,7 +368,7 @@
                         "a": true,
                         "k": "query",
                         "n": "has_backlink",
-                        "or": "has_backlink",
+                        "or": "has_backlinks",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -376,7 +376,7 @@
                         "a": true,
                         "k": "query",
                         "n": "has_bid",
-                        "or": "has_bid",
+                        "or": "has_bids",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -537,7 +537,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -777,7 +777,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -1318,7 +1318,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 CatchdomsSecurityUtility.registrar = ->(u) {
   u.clean = CatchdomsSecurityUtilities::Clean
+  u.clean_add = CatchdomsSecurityUtilities::CleanAdd
+  u.clean_explain = CatchdomsSecurityUtilities::CleanExplain
   u.done = CatchdomsSecurityUtilities::Done
   u.make_error = CatchdomsSecurityUtilities::MakeError
   u.feature_add = CatchdomsSecurityUtilities::FeatureAdd

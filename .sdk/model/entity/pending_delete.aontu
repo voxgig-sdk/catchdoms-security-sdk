@@ -164,7 +164,7 @@ main: kit: entity: pending_delete: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

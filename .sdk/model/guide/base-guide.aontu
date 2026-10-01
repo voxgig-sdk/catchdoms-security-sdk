@@ -11,6 +11,7 @@ guide: {
   entity: domain: {
     path: "/api/domains": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -25,6 +26,7 @@ guide: {
   entity: pending_delete: {
     path: "/api/pending-delete": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 

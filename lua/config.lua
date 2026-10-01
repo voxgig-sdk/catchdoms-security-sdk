@@ -281,7 +281,7 @@ local function make_config()
                 ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["args"] = {
                   ["query"] = {
@@ -293,7 +293,7 @@ local function make_config()
                     },
                     {
                       ["name"] = "category",
-                      ["orig"] = "category",
+                      ["orig"] = "categories",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
                       ["example"] = "Business,Health",
@@ -306,7 +306,7 @@ local function make_config()
                     },
                     {
                       ["name"] = "contain",
-                      ["orig"] = "contain",
+                      ["orig"] = "contains",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
                     },
@@ -318,13 +318,13 @@ local function make_config()
                     },
                     {
                       ["name"] = "has_backlink",
-                      ["orig"] = "has_backlink",
+                      ["orig"] = "has_backlinks",
                       ["type"] = "`$INTEGER`",
                       ["kind"] = "query",
                     },
                     {
                       ["name"] = "has_bid",
-                      ["orig"] = "has_bid",
+                      ["orig"] = "has_bids",
                       ["type"] = "`$INTEGER`",
                       ["kind"] = "query",
                     },
@@ -590,7 +590,7 @@ local function make_config()
                 ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["args"] = {
                   ["query"] = {

@@ -285,7 +285,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -297,7 +297,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "category",
-											"orig": "category",
+											"orig": "categories",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "Business,Health",
@@ -310,7 +310,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "contain",
-											"orig": "contain",
+											"orig": "contains",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
@@ -322,13 +322,13 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "has_backlink",
-											"orig": "has_backlink",
+											"orig": "has_backlinks",
 											"type": "`$INTEGER`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "has_bid",
-											"orig": "has_bid",
+											"orig": "has_bids",
 											"type": "`$INTEGER`",
 											"kind": "query",
 										},
@@ -594,7 +594,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{

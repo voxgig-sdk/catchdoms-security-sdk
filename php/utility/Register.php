@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 CatchdomsSecurityUtility::setRegistrar(function (CatchdomsSecurityUtility $u): void {
     $u->clean = [CatchdomsSecurityClean::class, 'call'];
+    $u->clean_add = [CatchdomsSecurityClean::class, 'add'];
+    $u->clean_explain = [CatchdomsSecurityDone::class, 'clean_explain'];
     $u->done = [CatchdomsSecurityDone::class, 'call'];
     $u->make_error = [CatchdomsSecurityMakeError::class, 'call'];
     $u->feature_add = [CatchdomsSecurityFeatureAdd::class, 'call'];

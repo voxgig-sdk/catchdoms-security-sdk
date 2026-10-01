@@ -217,7 +217,7 @@ main: kit: entity: domain: {
                 ex: "Business,Health"
                 k: "query"
                 n: "category"
-                or: "category"
+                or: "categories"
                 r: false
                 t: "`$STRING`"
               }
@@ -231,7 +231,7 @@ main: kit: entity: domain: {
               {
                 k: "query"
                 n: "contain"
-                or: "contain"
+                or: "contains"
                 r: false
                 t: "`$STRING`"
               }
@@ -245,14 +245,14 @@ main: kit: entity: domain: {
               {
                 k: "query"
                 n: "has_backlink"
-                or: "has_backlink"
+                or: "has_backlinks"
                 r: false
                 t: "`$INTEGER`"
               }
               {
                 k: "query"
                 n: "has_bid"
-                or: "has_bid"
+                or: "has_bids"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -397,7 +397,7 @@ main: kit: entity: domain: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]
