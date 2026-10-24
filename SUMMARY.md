@@ -62,7 +62,7 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 The default credential is sent in the `Authorization` header with the `Bearer` prefix.
 
-Bearer token authentication. Add &#39;Authorization: Bearer YOUR_API_KEY&#39; header. Get your API key from the API dashboard at https://catchdoms.com/api
+Bearer token authentication. Add &#39;Authorization: Bearer `YOUR_API_KEY`&#39; header. Get your API key from the API dashboard at https://catchdoms.com/api
 
 Check authentication for the route you plan to call. A route that declares no authentication can be used without credentials; this does not change the requirements of other routes. Keep credentials in environment variables or a configured secret provider, and keep them out of source control and logs.
 

@@ -3,5 +3,23 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Auction end date and time (ISO 8601)",
+      "Bearer token authentication. Add &#39;Authorization: Bearer `YOUR_API_KEY`&#39; header. Get your API key from the API dashboard at https://catchdoms.com/api",
+      "Days until predicted drop date",
+      "Domain name",
+      "MCP server endpoint active",
+      "Majestic Citation Flow score (0-100)",
+      "Number of bids",
+      "Production server",
+      "Successful response with domain data",
+      "Successful response with pending-delete domain data",
+      "This API provides security verification to protect websites from malicious bots. It displays a challenge page while validating that the user is not a bot, ensuring secure access to the site. The API also provides access to expired domains, live auctions, deleted ccTLD domains, and pending-delete inventory with SEO metrics.",
+      "Total number of backlinks",
+      "Unique domain identifier",
+      "Years since first Wayback snapshot"
+    ]
+  }
 }

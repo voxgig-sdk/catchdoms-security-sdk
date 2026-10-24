@@ -17,7 +17,7 @@ const PLAN: any[] = [
     "args": [],
     "select": {
       "age_min": "v1",
-      "category": "v1",
+      "category": "Business,Health",
       "cf_min": "v1",
       "contain": "v1",
       "da_min": "v1",
@@ -26,8 +26,8 @@ const PLAN: any[] = [
       "has_edu_gov": "v1",
       "has_gmb": "v1",
       "language": "EN",
-      "page": "v1",
-      "per_page": "v1",
+      "page": 1,
+      "per_page": 10,
       "price_max": "v1",
       "price_min": "v1",
       "rd_min": "v1",
@@ -39,6 +39,10 @@ const PLAN: any[] = [
       "type": "v1"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "source",
       "tld",
@@ -61,6 +65,92 @@ const PLAN: any[] = [
       "snapshots_min",
       "per_page",
       "page"
+    ],
+    "queryArgs": [
+      {
+        "name": "age_min",
+        "wire": "age_min"
+      },
+      {
+        "name": "category",
+        "wire": "categories"
+      },
+      {
+        "name": "cf_min",
+        "wire": "cf_min"
+      },
+      {
+        "name": "contain",
+        "wire": "contains"
+      },
+      {
+        "name": "da_min",
+        "wire": "da_min"
+      },
+      {
+        "name": "has_backlink",
+        "wire": "has_backlinks"
+      },
+      {
+        "name": "has_bid",
+        "wire": "has_bids"
+      },
+      {
+        "name": "has_edu_gov",
+        "wire": "has_edu_gov"
+      },
+      {
+        "name": "has_gmb",
+        "wire": "has_gmb"
+      },
+      {
+        "name": "language",
+        "wire": "language"
+      },
+      {
+        "name": "page",
+        "wire": "page"
+      },
+      {
+        "name": "per_page",
+        "wire": "per_page"
+      },
+      {
+        "name": "price_max",
+        "wire": "price_max"
+      },
+      {
+        "name": "price_min",
+        "wire": "price_min"
+      },
+      {
+        "name": "rd_min",
+        "wire": "rd_min"
+      },
+      {
+        "name": "score_min",
+        "wire": "score_min"
+      },
+      {
+        "name": "snapshots_min",
+        "wire": "snapshots_min"
+      },
+      {
+        "name": "source",
+        "wire": "source"
+      },
+      {
+        "name": "tf_min",
+        "wire": "tf_min"
+      },
+      {
+        "name": "tld",
+        "wire": "tld"
+      },
+      {
+        "name": "type",
+        "wire": "type"
+      }
     ],
     "auth": [],
     "status": 200,
@@ -112,7 +202,12 @@ const PLAN: any[] = [
     "args": [],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": [
       [
         {
@@ -142,12 +237,16 @@ const PLAN: any[] = [
     "select": {
       "drop_date_max": "v1",
       "drop_date_min": "v1",
-      "page": "v1",
-      "per_page": "v1",
+      "page": 1,
+      "per_page": 10,
       "status": "v1",
       "tld": "v1"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "status",
       "tld",
@@ -155,6 +254,32 @@ const PLAN: any[] = [
       "drop_date_max",
       "per_page",
       "page"
+    ],
+    "queryArgs": [
+      {
+        "name": "drop_date_max",
+        "wire": "drop_date_max"
+      },
+      {
+        "name": "drop_date_min",
+        "wire": "drop_date_min"
+      },
+      {
+        "name": "page",
+        "wire": "page"
+      },
+      {
+        "name": "per_page",
+        "wire": "per_page"
+      },
+      {
+        "name": "status",
+        "wire": "status"
+      },
+      {
+        "name": "tld",
+        "wire": "tld"
+      }
     ],
     "auth": [
       [
@@ -169,23 +294,23 @@ const PLAN: any[] = [
     "sample": {
       "data": [
         {
-          "age": 1,
-          "backlinks_count": 1,
-          "days_until_drop": 1,
           "id": 1,
           "name": "x",
-          "predicted_drop_date": "2026-01-01",
-          "referring_domains": 1,
-          "score": 1,
+          "tld": "x",
           "status": "pendingDelete",
-          "tld": "x"
+          "predicted_drop_date": "2026-01-01",
+          "days_until_drop": 1,
+          "score": 1,
+          "age": 1,
+          "backlinks_count": 1,
+          "referring_domains": 1
         }
       ],
       "links": {
         "first": "x",
         "last": "x",
-        "next": "x",
-        "prev": "x"
+        "prev": "x",
+        "next": "x"
       },
       "meta": {
         "current_page": 1,

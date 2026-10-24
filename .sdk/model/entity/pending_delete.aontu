@@ -144,15 +144,9 @@ main: kit: entity: pending_delete: {
           }
           m: "GET"
           o: "/api/pending-delete"
-          q: {
-            exist: [
-              "drop_date_max"
-              "drop_date_min"
-              "page"
-              "per_page"
-              "status"
-              "tld"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

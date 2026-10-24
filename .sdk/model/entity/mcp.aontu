@@ -20,6 +20,10 @@ main: kit: entity: mcp: {
           q: {
             "$action": "catchdom"
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "mcp"

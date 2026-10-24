@@ -362,30 +362,9 @@ main: kit: entity: domain: {
           }
           m: "GET"
           o: "/api/domains"
-          q: {
-            exist: [
-              "age_min"
-              "category"
-              "cf_min"
-              "contain"
-              "da_min"
-              "has_backlink"
-              "has_bid"
-              "has_edu_gov"
-              "has_gmb"
-              "language"
-              "page"
-              "per_page"
-              "price_max"
-              "price_min"
-              "rd_min"
-              "score_min"
-              "snapshots_min"
-              "source"
-              "tf_min"
-              "tld"
-              "type"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

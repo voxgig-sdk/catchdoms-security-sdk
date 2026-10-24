@@ -87,6 +87,7 @@ class Config {
             },
             "optspec": {
                 "clearTimer": "`$FUNCTION`",
+                "now": "`$FUNCTION`",
                 "setTimer": "`$FUNCTION`"
             },
             "strict": false,
@@ -358,14 +359,16 @@ class Config {
                                         "name": "has_gmb",
                                         "orig": "has_gmb",
                                         "type": "`$INTEGER`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "language",
                                         "orig": "language",
                                         "type": "`$STRING`",
                                         "kind": "query",
-                                        "example": "EN"
+                                        "example": "EN",
+                                        "field": true
                                     },
                                     {
                                         "name": "page",
@@ -415,7 +418,8 @@ class Config {
                                         "name": "source",
                                         "orig": "source",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "tf_min",
@@ -428,40 +432,22 @@ class Config {
                                         "orig": "tld",
                                         "type": "`$STRING`",
                                         "kind": "query",
-                                        "example": ".com"
+                                        "example": ".com",
+                                        "field": true
                                     },
                                     {
                                         "name": "type",
                                         "orig": "type",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     }
                                 ]
                             },
-                            "select": {
-                                "exist": [
-                                    "age_min",
-                                    "category",
-                                    "cf_min",
-                                    "contain",
-                                    "da_min",
-                                    "has_backlink",
-                                    "has_bid",
-                                    "has_edu_gov",
-                                    "has_gmb",
-                                    "language",
-                                    "page",
-                                    "per_page",
-                                    "price_max",
-                                    "price_min",
-                                    "rd_min",
-                                    "score_min",
-                                    "snapshots_min",
-                                    "source",
-                                    "tf_min",
-                                    "tld",
-                                    "type"
-                                ]
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]
@@ -503,6 +489,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "catchdom"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]
@@ -644,25 +634,22 @@ class Config {
                                         "name": "status",
                                         "orig": "status",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "tld",
                                         "orig": "tld",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     }
                                 ]
                             },
-                            "select": {
-                                "exist": [
-                                    "drop_date_max",
-                                    "drop_date_min",
-                                    "page",
-                                    "per_page",
-                                    "status",
-                                    "tld"
-                                ]
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]
